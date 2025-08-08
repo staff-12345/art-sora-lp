@@ -11,6 +11,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
         body {
             font-family: 'Noto Sans JP', sans-serif;
             line-height: 1.7;
@@ -66,6 +69,21 @@
             background: #f8fafc;
             border-top: 3px solid #2dd4bf;
         }
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+        .is-disabled {
+            pointer-events: none;
+            opacity: 0.6;
+        }
         @media (max-width: 768px) {
             .section-padding {
                 padding: 2rem 0;
@@ -80,7 +98,7 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-    
+
       gtag('config', 'G-6S9PJSSY8D');
     </script>
 </head>
@@ -108,9 +126,9 @@
         <div class="container mx-auto px-4">
             <h2 class="section-title">もう我慢しない、手に入れよう理想の暮らし</h2>
             <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
-                アート・宙が手がけるリフォーム・リノベーションは、水廻り設備の交換だけではありません。<br>心を豊かにする内装デザインへの変更や、使っていない空間を有効活用する間取りにする、不便を感じていた動線の見直し等、あなたのこれからの暮らしを豊かにする家づくりのご提案します。
+                アート・宙が手がけるリフォーム・リノベーションは、水廻り設備の交換だけではありません。心を豊かにする内装デザインへの変更や、使っていない空間を有効活用する間取りにする、不便を感じていた動線の見直し等、あなたのこれからの暮らしを豊かにする家づくりのご提案します。
             </p>
-            
+
             <div class="grid md:grid-cols-3 gap-8 mb-16">
                 <div class="text-center hover-lift">
                     <div class="mb-6">
@@ -119,7 +137,7 @@
                     <h3 class="text-xl font-semibold mb-3 text-gray-800">木の温かみを感じる玄関</h3>
                     <p class="text-gray-600">木の温かみが、訪れる人々を優しく迎え入れます。毎日の「いってきます」と「ただいま」が特別な瞬間に変わります。</p>
                 </div>
-                
+
                 <div class="text-center hover-lift">
                     <div class="mb-6">
                         <img src="https://i.postimg.cc/3xwLnw97/RE-5.jpg" alt="日々の疲れを癒すLDK" class="benefit-image w-full">
@@ -127,7 +145,7 @@
                     <h3 class="text-xl font-semibold mb-3 text-gray-800">日々の疲れを癒すLDK</h3>
                     <p class="text-gray-600">明るく開放的で、空気がきれいなLDKは、そこにいるだけで幸せに感じます。</p>
                 </div>
-                
+
                 <div class="text-center hover-lift">
                     <div class="mb-6">
                         <img src="https://i.postimg.cc/y8wtMMbc/RE-13.jpg" alt="使い心地抜群のキッチン" class="benefit-image w-full">
@@ -136,7 +154,7 @@
                     <p class="text-gray-600">最新設備のキッチンに考えられた収納計画、キッチンに立つ時間がもっと好きになります。</p>
                 </div>
             </div>
-            
+
             <div class="text-center">
                 <div class="inline-flex flex-col items-center space-y-4">
                     <a href="#contact-form" class="cta-button text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg">
@@ -157,28 +175,28 @@
                     <div class="faq-question">Q. 住み替えと同時にリノベーションは可能でしょうか？</div>
                     <div class="text-gray-700">A. はい、可能です。物件探しから設計、施工まで一貫してサポートいたします。お客様のライフスタイルに合わせて、最適な住まいをご提案させていただきます。</div>
                 </div>
-                
+
                 <div class="faq-item">
                     <div class="faq-question">Q. 予算に合わせた提案はしていただけますか？</div>
                     <div class="text-gray-700">A. お客様のご予算に応じて、優先順位を考慮した最適なプランをご提案いたします。無理のない範囲で、最大限の価値を実現できるよう努めます。</div>
                 </div>
-                
+
                 <div class="faq-item">
                     <div class="faq-question">Q. 工事期間中はどこに住めばよいでしょうか？</div>
                     <div class="text-gray-700">A. 工事の規模により異なりますが、仮住まいのご相談から引っ越しのサポートまで、お客様の負担を最小限に抑えるよう全面的にサポートいたします。</div>
                 </div>
-                
+
                 <div class="faq-item">
                     <div class="faq-question">Q. 古い家でもリノベーションできますか？</div>
                     <div class="text-gray-700">A. 構造診断を実施した上で、安全性を確保しながらリノベーションが可能です。古い家ならではの魅力を活かしつつ、現代の快適性を兼ね備えた住まいに生まれ変わらせます。</div>
                 </div>
-                
+
                 <div class="faq-item">
                     <div class="faq-question">Q. アフターサービスはどのような内容ですか？</div>
                     <div class="text-gray-700">A. 定期点検や緊急時の対応、些細なご相談まで、長期的にサポートいたします。お客様が安心してお住まいいただけるよう、責任を持って対応させていただきます。</div>
                 </div>
             </div>
-            
+
             <div class="text-center mt-12">
                 <div class="inline-flex flex-col items-center space-y-4">
                     <a href="#contact-form" class="cta-button text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg">
@@ -227,13 +245,32 @@
                     <p><i class="fas fa-map-marker-alt mr-2"></i>本社：〒510-0081 三重県四日市市北町3番4号</p>
                     <p><i class="fas fa-phone mr-2"></i>TEL：059-356-0817</p>
                     <div class="mt-4 space-y-1 text-sm">
-                        <p>建設業許可：三重県知事 許可(般-4) 第21401号</p>
-                        <p>一級建築士事務所登録：三重県知事登録 第1-1703号</p>
-                        <p>宅地建物取引業者免許：三重県知事(5) 第2825号</p>
+                        <p><i class="fas fa-award text-teal-600 mr-2" aria-hidden="true"></i><span class="sr-only">実績：</span>建設業許可：三重県知事 許可(般-4) 第21401号</p>
+                        <p><i class="fas fa-award text-teal-600 mr-2" aria-hidden="true"></i><span class="sr-only">実績：</span>一級建築士事務所登録：三重県知事登録 第1-1703号</p>
+                        <p><i class="fas fa-award text-teal-600 mr-2" aria-hidden="true"></i><span class="sr-only">実績：</span>宅地建物取引業者免許：三重県知事(5) 第2825号</p>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const telLinks = document.querySelectorAll('a[href^="tel:"]');
+
+    telLinks.forEach(function(link) {
+        link.addEventListener('click', function(event) {
+            if (this.classList.contains('is-disabled')) {
+                event.preventDefault();
+                return;
+            }
+            this.classList.add('is-disabled');
+            setTimeout(() => {
+                this.classList.remove('is-disabled');
+            }, 2000);
+        });
+    });
+});
+</script>
 </body>
 </html>
