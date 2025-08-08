@@ -1,221 +1,223 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>株式会社アート・宙｜暮らしを起点に、人生をアップデート</title>
-    <meta name="description" content="株式会社アート・宙では、住まいのリノベーションを通じて、お客様の仕事・人間関係・暮らし全体の環境刷新をサポートいたします。高品質な素材と設計で、理想のライフスタイルを実現してみませんか。">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Noto Sans JP', sans-serif; line-height: 1.7; color: #1a1a1a; }
-        .hero-gradient { background: linear-gradient(135deg, #2dd4bf 0%, #3b82f6 100%); }
-        .text-shadow { text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
-        .overlay { background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)); }
-        .hover-lift:hover { transform: translateY(-5px); transition: transform 0.3s ease; }
-        .section-padding { padding: 4rem 0; }
-        .cta-button { background: linear-gradient(135deg, #2dd4bf 0%, #3b82f6 100%); transition: all 0.3s ease; }
-        .cta-button:hover { background: linear-gradient(135deg, #3b82f6 0%, #2dd4bf 100%); transform: translateY(-2px); box-shadow: 0 10px 25px rgba(59,130,246,0.3); }
-        .benefit-image { height: 300px; object-fit: cover; border-radius: 0.5rem; }
-        .section-title { color: #0f766e; font-weight: 700; font-size: 2.5rem; margin-bottom: 1.5rem; text-align: center; }
-        .faq-item { border-bottom: 1px solid #e5e7eb; padding: 1.5rem 0; }
-        .faq-question { font-weight: 600; color: #0f766e; margin-bottom: 0.5rem; }
-        .company-info { background: #f8fafc; border-top: 3px solid #2dd4bf; }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>株式会社アート・宙｜暮らしを起点に、人生をアップデート</title>
+<meta name="description" content="株式会社アート・宙では、住まいのリノベーションを通じて、お客様の仕事・人間関係・暮らし全体の環境刷新をサポートいたします。高品質な素材と設計で、理想のライフスタイルを実現してみませんか。">
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  body { font-family: 'Noto Sans JP', sans-serif; line-height: 1.7; color: #1a1a1a; }
+  .hero-gradient { background: linear-gradient(135deg, #2dd4bf 0%, #3b82f6 100%); }
+  .text-shadow { text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+  .overlay { background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)); }
+  .hover-lift:hover { transform: translateY(-5px); transition: transform 0.3s ease; }
+  .section-padding { padding: 4rem 0; }
+  .cta-button { background: linear-gradient(135deg, #2dd4bf 0%, #3b82f6 100%); transition: all 0.3s ease; }
+  .cta-button:hover { background: linear-gradient(135deg, #3b82f6 0%, #2dd4bf 100%); transform: translateY(-2px); box-shadow: 0 10px 25px rgba(59,130,246,0.3); }
+  .benefit-image { height: 300px; object-fit: cover; border-radius: 0.5rem; }
+  .section-title { color: #0f766e; font-weight: 700; font-size: 2.5rem; margin-bottom: 1.5rem; text-align: center; }
+  .faq-item { border-bottom: 1px solid #e5e7eb; padding: 1.5rem 0; }
+  .faq-question { font-weight: 600; color: #0f766e; margin-bottom: 0.5rem; }
+  .company-info { background: #f8fafc; border-top: 3px solid #2dd4bf; }
 
-        /* 日本語の不自然な分割を抑止 */
-        .jp-body { line-break: strict; word-break: normal; }
-        .nb { white-space: nowrap; }
+  /* 日本語の不自然な分割を抑止 */
+  .jp-body { line-break: strict; word-break: keep-all; }
+  .jp-heading { line-break: strict; word-break: keep-all; }
+  .nb { white-space: nowrap; }
 
-        @media (max-width: 768px) {
-            .section-padding { padding: 2rem 0; }
-            .section-title { font-size: 2rem; }
-        }
-    </style>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6S9PJSSY8D"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-6S9PJSSY8D');
-    </script>
+  @media (max-width: 768px) {
+    .section-padding { padding: 2rem 0; }
+    .section-title { font-size: 2rem; }
+  }
+</style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6S9PJSSY8D"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6S9PJSSY8D');
+</script>
 </head>
 <body>
-    <section class="relative min-h-screen flex items-center justify-center" style="background-image: url('https://i.postimg.cc/JnXYZdxk/RE-1.jpg'); background-size: cover; background-position: center;">
-        <div class="overlay absolute inset-0"></div>
-        <div class="relative z-10 text-center text-white px-4 max-w-4xl">
-            <h1 class="text-5xl md:text-6xl font-bold mb-6 text-shadow">
-                住まいを起点に、<br>人生をアップデート
-            </h1>
-            <p class="text-xl md:text-2xl mb-8 text-shadow">
-                三重県で<span class="nb">リフォーム・リノベーション</span>するなら<span class="nb">アート・宙</span>
-            </p>
-            <div class="space-y-4 md:space-y-0 md:space-x-4 md:flex md:justify-center">
-                <a href="#contact-form" class="cta-button text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg block w-full md:w-auto">
-                    <i class="fas fa-file-alt mr-2"></i>
-                    今すぐ資料請求・無料相談
-                </a>
-                <a href="tel:059-356-0817" aria-label="電話で問い合わせる" class="cta-button text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg block w-full md:w-auto">お電話はこちら</a>
-            </div>
+  <section class="relative min-h-screen flex items-center justify-center" style="background-image: url('https://i.postimg.cc/JnXYZdxk/RE-1.jpg'); background-size: cover; background-position: center;">
+    <div class="overlay absolute inset-0"></div>
+    <div class="relative z-10 text-center text-white px-4 max-w-4xl">
+      <!-- モバイル: 2行 / PC: 1行（自然折り） -->
+      <h1 class="jp-heading text-5xl md:text-6xl font-bold mb-6 text-shadow">
+        <span class="block md:inline">住まいを起点に、</span><span class="block md:inline">人生を<span class="nb">アップデート</span></span>
+      </h1>
+      <p class="text-xl md:text-2xl mb-8 text-shadow">三重県で<span class="nb">リフォーム・リノベーション</span>するなら<span class="nb">アート・宙</span></p>
+      <div class="space-y-4 md:space-y-0 md:space-x-4 md:flex md:justify-center">
+        <a href="#contact-form" class="cta-button text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg block w-full md:w-auto">
+          <i class="fas fa-file-alt mr-2"></i>今すぐ資料請求・無料相談
+        </a>
+        <a href="tel:059-356-0817" aria-label="電話で問い合わせる" class="cta-button text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg block w-full md:w-auto">お電話はこちら</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding bg-white jp-body">
+    <div class="container mx-auto px-4">
+      <h2 class="section-title">もう我慢しない、手に入れよう理想の暮らし</h2>
+      <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
+        アート・宙が手がける<span class="nb">リフォーム・リノベーション</span>は、水廻り設備の交換だけではありません。心を豊かにする内装デザインへの変更や、使っていない空間を<span class="nb">有効活用</span>する間取りにする、不便を感じていた動線の<span class="nb">見直し</span>等、あなたのこれからの暮らしを豊かにする家づくりのご提案します。
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-8 mb-16">
+        <div class="text-center hover-lift">
+          <div class="mb-6">
+            <img src="https://i.postimg.cc/qM4D6w3N/RE-4.jpg" alt="木の温かみを感じる玄関" class="benefit-image w-full">
+          </div>
+          <h3 class="text-xl font-semibold mb-3 text-gray-800">木の温かみを感じる玄関</h3>
+          <p class="text-gray-600">
+            木の温かみが、訪れる人々を優しく迎え入れます。<br>
+            毎日の「いってきます」と「ただいま」が<br>
+            特別な瞬間に変わります。
+          </p>
         </div>
-    </section>
 
-    <section class="section-padding bg-white jp-body">
-        <div class="container mx-auto px-4">
-            <h2 class="section-title">もう我慢しない、手に入れよう理想の暮らし</h2>
-            <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
-                アート・宙が手がける<span class="nb">リフォーム・リノベーション</span>は、水廻り設備の交換だけではありません。心を豊かにする内装デザインへの変更や、使っていない空間を<span class="nb">有効活用</span>する間取りにする、不便を感じていた動線の<span class="nb">見直し</span>等、あなたのこれからの暮らしを豊かにする家づくりのご提案します。
-            </p>
-
-            <div class="grid md:grid-cols-3 gap-8 mb-16">
-                <!-- 1枚目カード：ご指定の3行に固定 -->
-                <div class="text-center hover-lift">
-                    <div class="mb-6">
-                        <img src="https://i.postimg.cc/qM4D6w3N/RE-4.jpg" alt="木の温かみを感じる玄関" class="benefit-image w-full">
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3 text-gray-800">木の温かみを感じる玄関</h3>
-                    <p class="text-gray-600">
-                        木の温かみが、訪れる人々を優しく迎え入れます。<br>
-                        毎日の「いってきます」と「ただいま」が<br>
-                        特別な瞬間に変わります。
-                    </p>
-                </div>
-
-                <div class="text-center hover-lift">
-                    <div class="mb-6">
-                        <img src="https://i.postimg.cc/3xwLnw97/RE-5.jpg" alt="日々の疲れを癒すLDK" class="benefit-image w-full">
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3 text-gray-800">日々の疲れを癒すLDK</h3>
-                    <p class="text-gray-600">明るく開放的で、空気がきれいなLDKは、そこにいるだけで幸せに感じます。</p>
-                </div>
-
-                <div class="text-center hover-lift">
-                    <div class="mb-6">
-                        <img src="https://i.postimg.cc/y8wtMMbc/RE-13.jpg" alt="使い心地抜群のキッチン" class="benefit-image w-full">
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3 text-gray-800">使い心地抜群のキッチン</h3>
-                    <p class="text-gray-600">最新設備のキッチンに考えられた収納計画、キッチンに立つ時間がもっと好きになります。</p>
-                </div>
-            </div>
-
-            <div class="text-center">
-                <div class="inline-flex flex-col items-center space-y-4">
-                    <a href="#contact-form" class="cta-button text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg">
-                        <i class="fas fa-file-alt mr-2"></i>
-                        今すぐ資料請求・無料相談
-                    </a>
-                    <a href="tel:059-356-0817" aria-label="電話で問い合わせる" class="cta-button text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg">お電話はこちら</a>
-                </div>
-            </div>
+        <div class="text-center hover-lift">
+          <div class="mb-6">
+            <img src="https://i.postimg.cc/3xwLnw97/RE-5.jpg" alt="日々の疲れを癒すLDK" class="benefit-image w-full">
+          </div>
+          <h3 class="text-xl font-semibold mb-3 text-gray-800">日々の疲れを癒すLDK</h3>
+          <p class="text-gray-600">明るく開放的で、空気がきれいなLDKは、そこにいるだけで幸せに感じます。</p>
         </div>
-    </section>
 
-    <section class="section-padding bg-white jp-body">
-        <div class="container mx-auto px-4">
-            <h2 class="section-title">よくある質問</h2>
-            <div class="max-w-4xl mx-auto">
-                <div class="faq-item">
-                    <div class="faq-question">Q. 住み替えと同時にリノベーションは可能でしょうか？</div>
-                    <div class="text-gray-700">A. はい、可能です。物件探しから設計、施工まで一貫してサポートいたします。お客様のライフスタイルに合わせて、最適な住まいをご提案させていただきます。</div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">Q. 予算に合わせた提案はしていただけますか？</div>
-                    <div class="text-gray-700">A. お客様のご予算に応じて、優先順位を考慮した最適なプランをご提案いたします。無理のない範囲で、最大限の価値を実現できるよう努めます。</div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">Q. 工事期間中はどこに住めばよいでしょうか？</div>
-                    <div class="text-gray-700">A. 工事の規模により異なりますが、仮住まいのご相談から引っ越しのサポートまで、お客様の負担を最小限に抑えるよう全面的にサポートいたします。</div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">Q. 古い家でもリノベーションできますか？</div>
-                    <div class="text-gray-700">A. 構造診断を実施した上で、安全性を確保しながらリノベーションが可能です。古い家ならではの魅力を活かしつつ、現代の快適性を兼ね備えた住まいに生まれ変わらせます。</div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">Q. アフターサービスはどのような内容ですか？</div>
-                    <div class="text-gray-700">A. 定期点検や緊急時の対応、些細なご相談まで、長期的にサポートいたします。お客様が安心してお住まいいただけるよう、責任を持って対応させていただきます。</div>
-                </div>
-            </div>
-
-            <div class="text-center mt-12">
-                <div class="inline-flex flex-col items-center space-y-4">
-                    <a href="#contact-form" class="cta-button text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg">
-                        <i class="fas fa-file-alt mr-2"></i>
-                        今すぐ資料請求・無料相談
-                    </a>
-                    <a href="tel:059-356-0817" aria-label="電話で問い合わせる" class="cta-button text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg">お電話はこちら</a>
-                </div>
-            </div>
+        <div class="text-center hover-lift">
+          <div class="mb-6">
+            <img src="https://i.postimg.cc/y8wtMMbc/RE-13.jpg" alt="使い心地抜群のキッチン" class="benefit-image w-full">
+          </div>
+          <h3 class="text-xl font-semibold mb-3 text-gray-800">使い心地抜群のキッチン</h3>
+          <p class="text-gray-600">最新設備のキッチンに考えられた収納計画、キッチンに立つ時間がもっと好きになります。</p>
         </div>
-    </section>
+      </div>
 
-    <section class="section-padding hero-gradient text-white jp-body">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-4xl font-bold mb-6">あなたの理想の暮らしを実現しませんか？</h2>
-            <p class="text-xl mb-8 max-w-3xl mx-auto">
-                実績豊富な<span class="nb">アート・宙</span>が、あなたのこれからの暮らしを豊かにする<span class="nb">リフォーム・リノベーション</span>をご提案します。
-            </p>
-            <div class="space-y-4 md:space-y-0 md:space-x-4 md:flex md:justify-center">
-                <a href="#contact-form" class="bg-white text-blue-600 px-8 py-4 rounded-full font-semibold text-lg shadow-lg hover:bg-gray-100 transition-colors block w-full md:w-auto">
-                    <i class="fas fa-file-alt mr-2"></i>
-                    今すぐ資料請求・無料相談
-                </a>
-                <a href="tel:059-356-0817" aria-label="電話で問い合わせる" class="bg-white text-blue-600 px-8 py-4 rounded-full font-semibold text-lg shadow-lg hover:bg-gray-100 transition-colors block w-full md:w-auto">お電話はこちら</a>
-            </div>
+      <div class="text-center">
+        <div class="inline-flex flex-col items-center space-y-4">
+          <a href="#contact-form" class="cta-button text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg">
+            <i class="fas fa-file-alt mr-2"></i>今すぐ資料請求・無料相談
+          </a>
+          <a href="tel:059-356-0817" aria-label="電話で問い合わせる" class="cta-button text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg">お電話はこちら</a>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section id="contact-form" class="section-padding bg-white jp-body">
-        <div class="container mx-auto px-4">
-            <h2 class="section-title">お問い合わせフォーム</h2>
-            <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
-                以下のフォームにご入力の上、送信してください。担当者より折り返しご連絡いたします。
-            </p>
-            <div class="max-w-4xl mx-auto">
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdzWiC2E6jyxa6d4nYnULTxSUVYIEGIAtdCsENUQW-Ua90Uzw/viewform?embedded=true" class="w-full" height="1300" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
-            </div>
+  <section class="section-padding bg-white jp-body">
+    <div class="container mx-auto px-4">
+      <h2 class="section-title">よくある質問</h2>
+      <div class="max-w-4xl mx-auto">
+        <div class="faq-item">
+          <div class="faq-question">Q. 住み替えと同時にリノベーションは可能でしょうか？</div>
+          <div class="text-gray-700">A. はい、可能です。物件探しから設計、施工まで一貫してサポートいたします。お客様のライフスタイルに合わせて、最適な住まいをご提案させていただきます。</div>
         </div>
-    </section>
 
-    <footer class="company-info py-12 jp-body">
-        <div class="container mx-auto px-4">
-            <div class="text-center">
-                <h3 class="text-2xl font-bold text-gray-800 mb-6">株式会社 アート・宙（そら）</h3>
-                <div class="space-y-2 text-gray-600">
-                    <p><i class="fas fa-map-marker-alt mr-2"></i>本社：〒510-0081 三重県四日市市北町3番4号</p>
-                    <p><i class="fas fa-phone mr-2"></i>TEL：059-356-0817</p>
-                    <div class="mt-4 space-y-1 text-sm">
-                        <p>建設業許可：三重県知事 許可(般-4) 第21401号</p>
-                        <p>一級建築士事務所登録：三重県知事登録 第1-1703号</p>
-                        <p>宅地建物取引業者免許：三重県知事(5) 第2825号</p>
-                    </div>
-                </div>
-            </div>
+        <div class="faq-item">
+          <div class="faq-question">Q. 予算に合わせた提案はしていただけますか？</div>
+          <div class="text-gray-700">A. お客様のご予算に応じて、優先順位を考慮した最適なプランをご提案いたします。無理のない範囲で、最大限の価値を実現できるよう努めます。</div>
         </div>
-    </footer>
 
-<!-- 電話CTA：短時間の多重起動をページ全体で抑止（ネイティブtelはそのまま起動） -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  let cooling = false;
-  document.addEventListener('click', function(e) {
-    const a = e.target.closest && e.target.closest('a[href^="tel:"]');
-    if (!a) return;
+        <div class="faq-item">
+          <div class="faq-question">Q. 工事期間中はどこに住めばよいでしょうか？</div>
+          <div class="text-gray-700">A. 工事の規模により異なりますが、仮住まいのご相談から引っ越しのサポートまで、お客様の負担を最小限に抑えるよう全面的にサポートいたします。</div>
+        </div>
 
-    if (cooling) {
-      e.preventDefault();
-      return;
-    }
-    cooling = true;
-    setTimeout(function(){ cooling = false; }, 2000);
-    // JSからtel:を起動しない（<a href="tel:...">のネイティブ動作に委ねる）
-  }, true);
-});
-</script>
+        <div class="faq-item">
+          <div class="faq-question">Q. 古い家でもリノベーションできますか？</div>
+          <div class="text-gray-700">A. 構造診断を実施した上で、安全性を確保しながらリノベーションが可能です。古い家ならではの魅力を活かしつつ、現代の快適性を兼ね備えた住まいに生まれ変わらせます。</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Q. アフターサービスはどのような内容ですか？</div>
+          <div class="text-gray-700">A. 定期点検や緊急時の対応、些細なご相談まで、長期的にサポートいたします。お客様が安心してお住まいいただけるよう、責任を持って対応させていただきます。</div>
+        </div>
+      </div>
+
+      <div class="text-center mt-12">
+        <div class="inline-flex flex-col items-center space-y-4">
+          <a href="#contact-form" class="cta-button text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg">
+            <i class="fas fa-file-alt mr-2"></i>今すぐ資料請求・無料相談
+          </a>
+          <a href="tel:059-356-0817" aria-label="電話で問い合わせる" class="cta-button text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg">お電話はこちら</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding hero-gradient text-white jp-body">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-4xl font-bold mb-6">あなたの理想の暮らしを実現しませんか？</h2>
+      <p class="text-xl mb-8 max-w-3xl mx-auto">実績豊富な<span class="nb">アート・宙</span>が、あなたのこれからの暮らしを豊かにする<span class="nb">リフォーム・リノベーション</span>をご提案します。</p>
+      <div class="space-y-4 md:space-y-0 md:space-x-4 md:flex md:justify-center">
+        <a href="#contact-form" class="bg-white text-blue-600 px-8 py-4 rounded-full font-semibold text-lg shadow-lg hover:bg-gray-100 transition-colors block w-full md:w-auto">
+          <i class="fas fa-file-alt mr-2"></i>今すぐ資料請求・無料相談
+        </a>
+        <a href="tel:059-356-0817" aria-label="電話で問い合わせる" class="bg-white text-blue-600 px-8 py-4 rounded-full font-semibold text-lg shadow-lg hover:bg-gray-100 transition-colors block w-full md:w-auto">お電話はこちら</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact-form" class="section-padding bg-white jp-body">
+    <div class="container mx-auto px-4">
+      <h2 class="section-title">お問い合わせフォーム</h2>
+      <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">以下のフォームにご入力の上、送信してください。担当者より折り返しご連絡いたします。</p>
+      <div class="max-w-4xl mx-auto">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdzWiC2E6jyxa6d4nYnULTxSUVYIEGIAtdCsENUQW-Ua90Uzw/viewform?embedded=true" class="w-full" height="1300" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
+      </div>
+    </div>
+  </section>
+
+  <footer class="company-info py-12 jp-body">
+    <div class="container mx-auto px-4">
+      <div class="text-center">
+        <h3 class="text-2xl font-bold text-gray-800 mb-6">株式会社 アート・宙（そら）</h3>
+        <div class="space-y-2 text-gray-600">
+          <p><i class="fas fa-map-marker-alt mr-2"></i>本社：〒510-0081 三重県四日市市北町3番4号</p>
+          <p><i class="fas fa-phone mr-2"></i>TEL：059-356-0817</p>
+          <div class="mt-4 space-y-1 text-sm">
+            <p>建設業許可：三重県知事 許可(般-4) 第21401号</p>
+            <p>一級建築士事務所登録：三重県知事登録 第1-1703号</p>
+            <p>宅地建物取引業者免許：三重県知事(5) 第2825号</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 電話CTA：短時間の多重起動を強めに抑止（セッション中1回/30秒） -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // 30秒以内の再タップ・セッション通算3回以上をブロック（実質的にOS警告条件を作らない）
+      let lastDial = Number(sessionStorage.getItem('lastDial') || 0);
+      let tapCount = Number(sessionStorage.getItem('telTapCount') || 0);
+
+      document.addEventListener('click', function (e) {
+        const a = e.target.closest && e.target.closest('a[href^="tel:"]');
+        if (!a) return;
+
+        const now = Date.now();
+        const within30s = (now - lastDial) < 30000;
+        const overLimit = tapCount >= 2; // 3回目は止める
+
+        if (within30s || overLimit) {
+          e.preventDefault();
+          return;
+        }
+
+        // 許可：以後は実質的な再発火を抑制
+        tapCount += 1;
+        sessionStorage.setItem('telTapCount', String(tapCount));
+        lastDial = now;
+        sessionStorage.setItem('lastDial', String(lastDial));
+        // JSでtel:は起動しない（<a href="tel:..."> に委ねる）
+      }, true);
+    });
+  </script>
 </body>
 </html>
