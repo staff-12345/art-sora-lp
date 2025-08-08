@@ -63,6 +63,9 @@
                 background-attachment: scroll;
             }
         }
+        .text-sm-custom {
+            font-size: 0.9rem; /* 既存の Tailwind CSS にない微調整用 */
+        }
     </style>
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6S9PJSSY8D"></script>
@@ -78,27 +81,35 @@
     <header class="hero-bg min-h-screen flex items-center justify-center text-white relative">
         <div class="container mx-auto px-4 text-center">
             <h1 class="text-4xl md:text-6xl font-bold mb-8 leading-tight">
-                高品質な素材と洗練された設計が生み出す、<br>
-                <span class="text-yellow-300">洗練された住まい</span>で<br>
-                新しい生活を始めませんか？
+                高品質な自然素材と<br>
+                熟練の設計力が生み出す、<br>
+                <span class="text-yellow-300">新しい暮らし</span>
             </h1>
             <p class="text-xl md:text-2xl mb-12 max-w-4xl mx-auto leading-relaxed">
-                株式会社アート・宙は、自然素材の温もりと現代的な設計美を融合し、<br>
-                あなたの理想を超える住まいを創造します。
+                三重県でリフォーム・リノベーションするならアート・宙
             </p>
-            <a href="#cta-section" class="btn-primary inline-block px-12 py-4 rounded-full text-lg font-semibold text-white no-underline shadow-lg">
-                <i class="fas fa-arrow-down mr-2"></i>
-                資料請求・無料相談はこちら
-            </a>
+            <div class="flex flex-col items-center gap-4">
+                <a href="#cta-section" class="btn-primary inline-block px-12 py-4 rounded-full text-lg font-semibold text-white no-underline shadow-lg w-full max-w-xs md:max-w-md">
+                    <i class="fas fa-arrow-down mr-2"></i>
+                    資料請求・無料相談はこちら
+                </a>
+                <a href="tel:059-356-0817" aria-label="電話で問い合わせる" class="btn-primary inline-block px-12 py-4 rounded-full text-lg font-semibold text-white no-underline shadow-lg w-full max-w-xs md:max-w-md" style="background: linear-gradient(135deg, #607d8b, #455a64);">
+                    <i class="fas fa-phone mr-2"></i>
+                    お電話はこちら
+                </a>
+            </div>
         </div>
     </header>
 
     <section class="py-20 bg-white">
         <div class="container mx-auto px-4">
             <div class="max-w-6xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-800">
-                    <span class="text-gradient">未来の暮らし</span>を、今日から体感してください
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-gray-800">
+                    <span class="text-gradient">未来の暮らし</span>は、見学会で体感できる
                 </h2>
+                <p class="text-base text-gray-600 text-center max-w-3xl mx-auto mb-16">
+                    アート・宙では見学会等のイベントを随時開催しています。お気軽にご来場ください。
+                </p>
                 <div class="grid md:grid-cols-2 gap-16 items-center">
                     <div class="order-2 md:order-1">
                         <h3 class="text-2xl md:text-3xl font-semibold mb-8 text-gray-800">
@@ -142,7 +153,7 @@
                 <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-800">
                     <span class="text-gradient">アート・宙の強み</span>
                 </h2>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <div class="bg-white p-8 rounded-lg shadow-lg card-hover">
                         <div class="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center mb-6">
                             <i class="fas fa-tree text-2xl" style="color:#34495e;"></i>
@@ -185,10 +196,16 @@
                 経験豊富なスタッフが、あなたの夢を形にするお手伝いをいたします。<br>
                 まずは資料請求から始めてみませんか？
             </p>
-            <a href="#contact-form" class="inline-block px-12 py-4 rounded-full text-lg font-semibold no-underline shadow-lg bg-white hover:bg-gray-100" style="color: #34495e;">
-                <i class="fas fa-file-alt mr-2"></i>
-                資料請求・無料相談はこちら
-            </a>
+            <div class="flex flex-col items-center gap-4">
+                <a href="#contact-form" class="inline-block px-12 py-4 rounded-full text-lg font-semibold no-underline shadow-lg bg-white hover:bg-gray-100 w-full max-w-xs md:max-w-md" style="color: #34495e;">
+                    <i class="fas fa-file-alt mr-2"></i>
+                    資料請求・無料相談はこちら
+                </a>
+                <a href="tel:059-356-0817" aria-label="電話で問い合わせる" class="inline-block px-12 py-4 rounded-full text-lg font-semibold no-underline shadow-lg bg-white hover:bg-gray-100 w-full max-w-xs md:max-w-md" style="color: #34495e; background: #e2e8f0;">
+                    <i class="fas fa-phone mr-2"></i>
+                    お電話はこちら
+                </a>
+            </div>
         </div>
     </section>
 
@@ -201,13 +218,19 @@
                 <div class="grid md:grid-cols-2 gap-16 items-center">
                     <div class="order-2 md:order-1 flex justify-center">
                         <div class="grid grid-cols-2 gap-8 w-full max-w-md">
-                            <div class="text-center">
-                                <div class="text-4xl font-bold mb-2" style="color:#56848d;">450件</div>
-                                <div class="text-gray-600">施工実績</div>
+                            <div class="text-center" aria-label="施工実績は450件です">
+                                <div class="w-24 h-24 mx-auto bg-gray-200 rounded-full flex items-center justify-center mb-4">
+                                    <i class="fas fa-medal text-4xl" style="color:#56848d;" aria-hidden="true"></i>
+                                </div>
+                                <div class="text-3xl font-bold" style="color:#56848d;">450<span class="text-xl">件</span></div>
+                                <div class="text-gray-600 mt-1">施工実績</div>
                             </div>
-                            <div class="text-center">
-                                <div class="text-4xl font-bold mb-2" style="color:#34495e;">22年</div>
-                                <div class="text-gray-600">施工年数</div>
+                            <div class="text-center" aria-label="施工年数は22年です">
+                                <div class="w-24 h-24 mx-auto bg-gray-200 rounded-full flex items-center justify-center mb-4">
+                                    <i class="fas fa-flag text-4xl" style="color:#34495e;" aria-hidden="true"></i>
+                                </div>
+                                <div class="text-3xl font-bold" style="color:#34495e;">22<span class="text-xl">年</span></div>
+                                <div class="text-gray-600 mt-1">施工年数</div>
                             </div>
                         </div>
                     </div>
@@ -225,13 +248,17 @@
                 あなたの理想の住まいを、一緒に創造しませんか？
             </h2>
             <p class="text-xl mb-10 max-w-3xl mx-auto">
-                高品質な素材と洗練された設計で、世界でただ一つの住まいを。<br>
+                高品質な自然素材と熟練の設計力で、理想の暮らしを叶えます。<br>
                 まずはお気軽にお問い合わせください。
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="#contact-form" class="btn-primary inline-block px-12 py-4 rounded-full text-lg font-semibold text-white no-underline shadow-lg">
                     <i class="fas fa-file-alt mr-2"></i>
                     資料請求・無料相談はこちら
+                </a>
+                <a href="tel:059-356-0817" aria-label="電話で問い合わせる" class="btn-primary inline-block px-12 py-4 rounded-full text-lg font-semibold text-white no-underline shadow-lg" style="background: linear-gradient(135deg, #607d8b, #455a64);">
+                    <i class="fas fa-phone mr-2"></i>
+                    お電話はこちら
                 </a>
             </div>
         </div>
@@ -243,7 +270,7 @@
                 <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-800">
                     <span class="text-gradient">お問い合わせ</span>
                 </h2>
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdzWiC2E6jyxa6d4nYnULTxSUVYIEGIAtdCsENUQW-Ua90Uzw/viewform?embedded=true" width="100%" height="1864" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdzWiC2E6jyxa6d4nYnULTxSUVYIEGIAtdCsENUQW-Ua90Uzw/viewform?embedded=true" width="100%" height="1864" frameborder="0" marginheight="0" marginwidth="0" title="お問い合わせフォーム">読み込んでいます…</iframe>
             </div>
         </div>
     </section>
