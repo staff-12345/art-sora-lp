@@ -25,9 +25,8 @@
         .faq-question { font-weight: 600; color: #0f766e; margin-bottom: 0.5rem; }
         .company-info { background: #f8fafc; border-top: 3px solid #2dd4bf; }
 
-        /* --- 追加: 日本語の不自然な分割を抑止 --- */
+        /* 日本語の不自然な分割を抑止 */
         .jp-body { line-break: strict; word-break: normal; }
-        /* 必ず一塊で読ませたいフレーズ用（例：見直し/有効活用/リフォーム・リノベーション/アート・宙） */
         .nb { white-space: nowrap; }
 
         @media (max-width: 768px) {
@@ -66,18 +65,21 @@
     <section class="section-padding bg-white jp-body">
         <div class="container mx-auto px-4">
             <h2 class="section-title">もう我慢しない、手に入れよう理想の暮らし</h2>
-            <!-- 不自然改行の抑止：頻出語を nowrap で保護 -->
             <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
                 アート・宙が手がける<span class="nb">リフォーム・リノベーション</span>は、水廻り設備の交換だけではありません。心を豊かにする内装デザインへの変更や、使っていない空間を<span class="nb">有効活用</span>する間取りにする、不便を感じていた動線の<span class="nb">見直し</span>等、あなたのこれからの暮らしを豊かにする家づくりのご提案します。
             </p>
 
             <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <!-- 1枚目カード：テキストを2行化（ご指定どおり） -->
                 <div class="text-center hover-lift">
                     <div class="mb-6">
                         <img src="https://i.postimg.cc/qM4D6w3N/RE-4.jpg" alt="木の温かみを感じる玄関" class="benefit-image w-full">
                     </div>
                     <h3 class="text-xl font-semibold mb-3 text-gray-800">木の温かみを感じる玄関</h3>
-                    <p class="text-gray-600">木の温かみが、訪れる人々を優しく迎え入れます。毎日の「いってきます」と「ただいま」が特別な瞬間に変わります。</p>
+                    <p class="text-gray-600">
+                        木の温かみが、訪れる人々を優しく迎え入れます。<br>
+                        毎日の「いってきます」と「ただいま」が特別な瞬間に変わります。
+                    </p>
                 </div>
 
                 <div class="text-center hover-lift">
@@ -196,24 +198,21 @@
         </div>
     </footer>
 
-<!-- 電話CTA: 短時間の多重起動をページ全体で抑止（ネイティブtel起動はそのまま） -->
+<!-- 電話CTA：短時間の多重起動をページ全体で抑止（ネイティブtelはそのまま起動） -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  // 既存のプレーン <a href="tel:..."> を尊重し、JSで起動はしない。
-  // 2秒間のグローバル・クールダウンで“自動発呼”と誤認される多重起動を抑止。
   let cooling = false;
-
   document.addEventListener('click', function(e) {
     const a = e.target.closest && e.target.closest('a[href^="tel:"]');
     if (!a) return;
 
     if (cooling) {
-      e.preventDefault(); // 短時間連打は抑止
+      e.preventDefault();
       return;
     }
     cooling = true;
     setTimeout(function(){ cooling = false; }, 2000);
-    // ここで何もしない → ネイティブの <a href="tel:..."> がそのまま動く
+    // JSからtel:を起動しない（<a href="tel:...">のネイティブ動作に委ねる）
   }, true);
 });
 </script>
