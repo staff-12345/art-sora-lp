@@ -66,6 +66,108 @@
         .text-sm-custom {
             font-size: 0.9rem; /* 既存の Tailwind CSS にない微調整用 */
         }
+
+        /* 実績セクションの装飾用CSS */
+        .achievement-card {
+            position: relative;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            transition: all 0.4s ease;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(86, 132, 141, 0.2);
+        }
+
+        .achievement-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, #56848d, #34495e, #56848d);
+            border-radius: 1rem;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .achievement-card:hover::before {
+            opacity: 1;
+        }
+
+        .achievement-icon-wrapper {
+            position: relative;
+            background: linear-gradient(135deg, #56848d 0%, #34495e 100%);
+            box-shadow: 0 8px 25px rgba(86, 132, 141, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .achievement-card:hover .achievement-icon-wrapper {
+            transform: scale(1.1) rotateY(10deg);
+            box-shadow: 0 15px 35px rgba(86, 132, 141, 0.4);
+        }
+
+        .achievement-number {
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .achievement-card:hover .achievement-number {
+            transform: scale(1.05);
+        }
+
+        .achievement-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .achievement-label {
+            font-weight: 600;
+            color: #64748b;
+            font-size: 0.95rem;
+            letter-spacing: 0.025em;
+        }
+
+        /* レスポンシブ調整 */
+        @media (max-width: 768px) {
+            .achievement-icon-wrapper {
+                width: 80px !important;
+                height: 80px !important;
+            }
+            
+            .achievement-number {
+                font-size: 2rem !important;
+            }
+            
+            .achievement-badge {
+                width: 28px;
+                height: 28px;
+                top: -6px;
+                right: -6px;
+            }
+        }
     </style>
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6S9PJSSY8D"></script>
@@ -89,8 +191,8 @@
                 三重県でリフォーム・リノベーションするならアート・宙
             </p>
             <div class="flex flex-col items-center gap-4">
-                <a href="#cta-section" class="btn-primary inline-block px-12 py-4 rounded-full text-lg font-semibold text-white no-underline shadow-lg w-full max-w-xs md:max-w-md">
-                    <i class="fas fa-arrow-down mr-2"></i>
+                <a href="#contact-form" class="btn-primary inline-block px-12 py-4 rounded-full text-lg font-semibold text-white no-underline shadow-lg w-full max-w-xs md:max-w-md">
+                    <i class="fas fa-file-alt mr-2"></i>
                     資料請求・無料相談はこちら
                 </a>
                 <a href="tel:059-356-0817" aria-label="電話で問い合わせる" class="btn-primary inline-block px-12 py-4 rounded-full text-lg font-semibold text-white no-underline shadow-lg w-full max-w-xs md:max-w-md" style="background: linear-gradient(135deg, #607d8b, #455a64);">
@@ -217,20 +319,35 @@
                 </h2>
                 <div class="grid md:grid-cols-2 gap-16 items-center">
                     <div class="order-2 md:order-1 flex justify-center">
-                        <div class="grid grid-cols-2 gap-8 w-full max-w-md">
-                            <div class="text-center" aria-label="施工実績は450件です">
-                                <div class="w-24 h-24 mx-auto bg-gray-200 rounded-full flex items-center justify-center mb-4">
-                                    <i class="fas fa-medal text-4xl" style="color:#56848d;" aria-hidden="true"></i>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 w-full max-w-lg">
+                            <!-- 施工実績カード -->
+                            <div class="achievement-card text-center p-8 rounded-2xl relative" aria-label="施工実績は450件です">
+                                <div class="achievement-badge" aria-hidden="true">
+                                    <i class="fas fa-star text-white text-xs"></i>
                                 </div>
-                                <div class="text-3xl font-bold" style="color:#56848d;">450<span class="text-xl">件</span></div>
-                                <div class="text-gray-600 mt-1">施工実績</div>
+                                <div class="achievement-icon-wrapper w-24 h-24 md:w-28 md:h-28 mx-auto rounded-full flex items-center justify-center mb-6">
+                                    <i class="fas fa-home text-3xl md:text-4xl text-white" aria-hidden="true"></i>
+                                </div>
+                                <div class="achievement-number text-4xl md:text-5xl font-bold mb-2" style="color:#56848d;">
+                                    450<span class="text-2xl md:text-3xl">件</span>
+                                </div>
+                                <div class="achievement-label">施工実績</div>
+                                <p class="text-xs text-gray-500 mt-2">お客様に選ばれ続けて</p>
                             </div>
-                            <div class="text-center" aria-label="施工年数は22年です">
-                                <div class="w-24 h-24 mx-auto bg-gray-200 rounded-full flex items-center justify-center mb-4">
-                                    <i class="fas fa-flag text-4xl" style="color:#34495e;" aria-hidden="true"></i>
+
+                            <!-- 施工年数カード -->
+                            <div class="achievement-card text-center p-8 rounded-2xl relative" aria-label="施工年数は22年です">
+                                <div class="achievement-badge" aria-hidden="true">
+                                    <i class="fas fa-crown text-white text-xs"></i>
                                 </div>
-                                <div class="text-3xl font-bold" style="color:#34495e;">22<span class="text-xl">年</span></div>
-                                <div class="text-gray-600 mt-1">施工年数</div>
+                                <div class="achievement-icon-wrapper w-24 h-24 md:w-28 md:h-28 mx-auto rounded-full flex items-center justify-center mb-6">
+                                    <i class="fas fa-calendar-check text-3xl md:text-4xl text-white" aria-hidden="true"></i>
+                                </div>
+                                <div class="achievement-number text-4xl md:text-5xl font-bold mb-2" style="color:#34495e;">
+                                    22<span class="text-2xl md:text-3xl">年</span>
+                                </div>
+                                <div class="achievement-label">実績年数</div>
+                                <p class="text-xs text-gray-500 mt-2">信頼と技術の積み重ね</p>
                             </div>
                         </div>
                     </div>
@@ -342,7 +459,7 @@
         }, observerOptions);
 
         // アニメーション対象の要素を設定
-        document.querySelectorAll('.card-hover, h2, h3').forEach(el => {
+        document.querySelectorAll('.card-hover, h2, h3, .achievement-card').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
