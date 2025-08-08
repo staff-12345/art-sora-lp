@@ -11,72 +11,28 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Noto Sans JP', sans-serif;
-            line-height: 1.7;
-            color: #1a1a1a;
-        }
-        .hero-gradient {
-            background: linear-gradient(135deg, #2dd4bf 0%, #3b82f6 100%);
-        }
-        .text-shadow {
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-        .overlay {
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2));
-        }
-        .hover-lift:hover {
-            transform: translateY(-5px);
-            transition: transform 0.3s ease;
-        }
-        .section-padding {
-            padding: 4rem 0;
-        }
-        .cta-button {
-            background: linear-gradient(135deg, #2dd4bf 0%, #3b82f6 100%);
-            transition: all 0.3s ease;
-        }
-        .cta-button:hover {
-            background: linear-gradient(135deg, #3b82f6 0%, #2dd4bf 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
-        }
-        .benefit-image {
-            height: 300px;
-            object-fit: cover;
-            border-radius: 0.5rem;
-        }
-        .section-title {
-            color: #0f766e;
-            font-weight: 700;
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-        .faq-item {
-            border-bottom: 1px solid #e5e7eb;
-            padding: 1.5rem 0;
-        }
-        .faq-question {
-            font-weight: 600;
-            color: #0f766e;
-            margin-bottom: 0.5rem;
-        }
-        .company-info {
-            background: #f8fafc;
-            border-top: 3px solid #2dd4bf;
-        }
-        .is-disabled {
-            pointer-events: none;
-            opacity: 0.6;
-        }
+        body { font-family: 'Noto Sans JP', sans-serif; line-height: 1.7; color: #1a1a1a; }
+        .hero-gradient { background: linear-gradient(135deg, #2dd4bf 0%, #3b82f6 100%); }
+        .text-shadow { text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .overlay { background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)); }
+        .hover-lift:hover { transform: translateY(-5px); transition: transform 0.3s ease; }
+        .section-padding { padding: 4rem 0; }
+        .cta-button { background: linear-gradient(135deg, #2dd4bf 0%, #3b82f6 100%); transition: all 0.3s ease; }
+        .cta-button:hover { background: linear-gradient(135deg, #3b82f6 0%, #2dd4bf 100%); transform: translateY(-2px); box-shadow: 0 10px 25px rgba(59,130,246,0.3); }
+        .benefit-image { height: 300px; object-fit: cover; border-radius: 0.5rem; }
+        .section-title { color: #0f766e; font-weight: 700; font-size: 2.5rem; margin-bottom: 1.5rem; text-align: center; }
+        .faq-item { border-bottom: 1px solid #e5e7eb; padding: 1.5rem 0; }
+        .faq-question { font-weight: 600; color: #0f766e; margin-bottom: 0.5rem; }
+        .company-info { background: #f8fafc; border-top: 3px solid #2dd4bf; }
+
+        /* --- 追加: 日本語の不自然な分割を抑止 --- */
+        .jp-body { line-break: strict; word-break: normal; }
+        /* 必ず一塊で読ませたいフレーズ用（例：見直し/有効活用/リフォーム・リノベーション/アート・宙） */
+        .nb { white-space: nowrap; }
+
         @media (max-width: 768px) {
-            .section-padding {
-                padding: 2rem 0;
-            }
-            .section-title {
-                font-size: 2rem;
-            }
+            .section-padding { padding: 2rem 0; }
+            .section-title { font-size: 2rem; }
         }
     </style>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6S9PJSSY8D"></script>
@@ -84,7 +40,6 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-6S9PJSSY8D');
     </script>
 </head>
@@ -96,7 +51,7 @@
                 住まいを起点に、<br>人生をアップデート
             </h1>
             <p class="text-xl md:text-2xl mb-8 text-shadow">
-                三重県でリフォーム・リノベーションするならアート・宙
+                三重県で<span class="nb">リフォーム・リノベーション</span>するなら<span class="nb">アート・宙</span>
             </p>
             <div class="space-y-4 md:space-y-0 md:space-x-4 md:flex md:justify-center">
                 <a href="#contact-form" class="cta-button text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg block w-full md:w-auto">
@@ -108,11 +63,12 @@
         </div>
     </section>
 
-    <section class="section-padding bg-white">
+    <section class="section-padding bg-white jp-body">
         <div class="container mx-auto px-4">
             <h2 class="section-title">もう我慢しない、手に入れよう理想の暮らし</h2>
+            <!-- 不自然改行の抑止：頻出語を nowrap で保護 -->
             <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
-                アート・宙が手がけるリフォーム・リノベーションは、水廻り設備の交換だけではありません。心を豊かにする内装デザインへの変更や、使っていない空間を有効活用する間取りにする、不便を感じていた動線の見直し等、あなたのこれからの暮らしを豊かにする家づくりのご提案します。
+                アート・宙が手がける<span class="nb">リフォーム・リノベーション</span>は、水廻り設備の交換だけではありません。心を豊かにする内装デザインへの変更や、使っていない空間を<span class="nb">有効活用</span>する間取りにする、不便を感じていた動線の<span class="nb">見直し</span>等、あなたのこれからの暮らしを豊かにする家づくりのご提案します。
             </p>
 
             <div class="grid md:grid-cols-3 gap-8 mb-16">
@@ -153,7 +109,7 @@
         </div>
     </section>
 
-    <section class="section-padding bg-white">
+    <section class="section-padding bg-white jp-body">
         <div class="container mx-auto px-4">
             <h2 class="section-title">よくある質問</h2>
             <div class="max-w-4xl mx-auto">
@@ -195,11 +151,11 @@
         </div>
     </section>
 
-    <section class="section-padding hero-gradient text-white">
+    <section class="section-padding hero-gradient text-white jp-body">
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-4xl font-bold mb-6">あなたの理想の暮らしを実現しませんか？</h2>
             <p class="text-xl mb-8 max-w-3xl mx-auto">
-                実績豊富なアート・宙が、あなたのこれからの暮らしを豊かにするリフォーム・リノベーションをご提案します。
+                実績豊富な<span class="nb">アート・宙</span>が、あなたのこれからの暮らしを豊かにする<span class="nb">リフォーム・リノベーション</span>をご提案します。
             </p>
             <div class="space-y-4 md:space-y-0 md:space-x-4 md:flex md:justify-center">
                 <a href="#contact-form" class="bg-white text-blue-600 px-8 py-4 rounded-full font-semibold text-lg shadow-lg hover:bg-gray-100 transition-colors block w-full md:w-auto">
@@ -211,7 +167,7 @@
         </div>
     </section>
 
-    <section id="contact-form" class="section-padding bg-white">
+    <section id="contact-form" class="section-padding bg-white jp-body">
         <div class="container mx-auto px-4">
             <h2 class="section-title">お問い合わせフォーム</h2>
             <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
@@ -223,7 +179,7 @@
         </div>
     </section>
 
-    <footer class="company-info py-12">
+    <footer class="company-info py-12 jp-body">
         <div class="container mx-auto px-4">
             <div class="text-center">
                 <h3 class="text-2xl font-bold text-gray-800 mb-6">株式会社 アート・宙（そら）</h3>
@@ -240,22 +196,25 @@
         </div>
     </footer>
 
+<!-- 電話CTA: 短時間の多重起動をページ全体で抑止（ネイティブtel起動はそのまま） -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    const telLinks = document.querySelectorAll('a[href^="tel:"]');
+  // 既存のプレーン <a href="tel:..."> を尊重し、JSで起動はしない。
+  // 2秒間のグローバル・クールダウンで“自動発呼”と誤認される多重起動を抑止。
+  let cooling = false;
 
-    telLinks.forEach(function(link) {
-        link.addEventListener('click', function(event) {
-            if (this.classList.contains('is-disabled')) {
-                event.preventDefault();
-                return;
-            }
-            this.classList.add('is-disabled');
-            setTimeout(() => {
-                this.classList.remove('is-disabled');
-            }, 2000);
-        });
-    });
+  document.addEventListener('click', function(e) {
+    const a = e.target.closest && e.target.closest('a[href^="tel:"]');
+    if (!a) return;
+
+    if (cooling) {
+      e.preventDefault(); // 短時間連打は抑止
+      return;
+    }
+    cooling = true;
+    setTimeout(function(){ cooling = false; }, 2000);
+    // ここで何もしない → ネイティブの <a href="tel:..."> がそのまま動く
+  }, true);
 });
 </script>
 </body>
