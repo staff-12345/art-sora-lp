@@ -28,101 +28,47 @@
         .feature-section .feature__list { list-style: none; padding-left: 0; margin-top: 1.5rem; }
         .feature-section .feature__item { position: relative; padding-left: 2rem; margin-bottom: 1rem; }
         .feature-section .feature__item::before { content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: var(--color-accent); position: absolute; left: 0; top: 4px; }
-        .case-study-item h3 { font-size: 1.75rem; font-weight: 700; text-align: center; margin-bottom: 2rem; color: var(--color-primary); }
-        .case-image-wrapper { position: relative; }
-        .case-number { position: absolute; background-color: rgba(255,255,255,0.85); color: var(--color-primary); font-weight: 700; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
-        .case-descriptions { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
-        .case-descriptions strong { color: var(--color-primary); }
+        .case-study-section h3 { font-size: 1.75rem; font-weight: 700; text-align: left; margin-bottom: 2rem; color: var(--color-primary); border-bottom: 2px solid var(--color-accent); padding-bottom: 0.5rem;}
         @media (max-width: 768px) { .hero-bg { background-attachment: scroll; } }
+        .achievements-section .badges { display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap; padding: 2rem 0; }
+        .badge.medal { position: relative; width: 200px; height: 200px; display: flex; flex-direction: column; justify-content: center; align-items: center; color: var(--color-text); text-align: center; z-index: 1; }
+        .badge__body { position: absolute; width: 100%; height: 100%; border-radius: 50%; background: radial-gradient(ellipse at center, #f6e7b2 0%, #b48b3c 100%); box-shadow: inset 0 0 20px rgba(0,0,0,0.2), 0 5px 15px rgba(0,0,0,0.2); border: 5px solid #8a6a2c; outline: 3px solid #f6e7b2; z-index: 2; }
+        .badge__content { position: relative; z-index: 4; }
+        .badge__title { font-size: 1rem; font-weight: 500; }
+        .badge__value { font-size: 2.75rem; font-weight: 700; color: var(--color-primary); line-height: 1.1; text-shadow: 1px 1px 2px rgba(255,255,255,0.5); }
+        .badge__band { position: absolute; bottom: 30px; left: -15px; right: -15px; background: linear-gradient(to right, #8a6a2c, #a1803a); color: white; padding: 4px 0; font-size: 0.9rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; box-shadow: 0 2px 4px rgba(0,0,0,0.3); z-index: 3; }
+        .badge.medal::before, .badge.medal::after { content: ''; position: absolute; top: 130px; border-top: 40px solid #8a6a2c; border-bottom: 40px solid transparent; z-index: 1; }
+        .badge.medal::before { left: 20px; border-left: 40px solid transparent; border-right: 40px solid #6c5422; transform: rotate(-20deg); }
+        .badge.medal::after { right: 20px; border-right: 40px solid transparent; border-left: 40px solid #6c5422; transform: rotate(20deg); }
+        @media (max-width: 768px) { .badge.medal { transform: scale(0.9); } .achievements-section .badges { gap: 1rem; } }
+        @media (max-width: 680px) { .badge.medal:last-child { margin-top: 1.5rem; } }
 
-        /* --- ② 実績紹介バッジのビジュアル刷新 (CSS追記) --- */
-        .achievements-section .badges {
-            display: flex;
-            justify-content: center;
-            gap: 2.5rem; /* バッジ間の余白 */
-            flex-wrap: wrap;
-            padding: 2rem 0;
+        /* --- 施工実績セクション改修用スタイル --- */
+        .case-study__gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
         }
-        .badge.medal {
-            position: relative;
-            width: 200px;
-            height: 200px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: var(--color-text);
-            text-align: center;
-            z-index: 1;
-        }
-        .badge__body {
-            position: absolute;
+        .case-study__gallery img {
             width: 100%;
             height: 100%;
-            border-radius: 50%;
-            background: radial-gradient(ellipse at center, #f6e7b2 0%, #b48b3c 100%);
-            box-shadow: inset 0 0 20px rgba(0,0,0,0.2), 0 5px 15px rgba(0,0,0,0.2);
-            border: 5px solid #8a6a2c;
-            outline: 3px solid #f6e7b2;
-            z-index: 2;
+            object-fit: cover;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            aspect-ratio: 4 / 3;
         }
-        .badge__content {
-            position: relative;
-            z-index: 4;
+        .case-study__text p {
+            line-height: 1.8;
         }
-        .badge__title {
-            font-size: 1rem;
-            font-weight: 500;
-        }
-        .badge__value {
-            font-size: 2.75rem;
-            font-weight: 700;
+        .case-study__text strong {
             color: var(--color-primary);
-            line-height: 1.1;
-            text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
-        }
-        .badge__band {
-            position: absolute;
-            bottom: 30px;
-            left: -15px;
-            right: -15px;
-            background: linear-gradient(to right, #8a6a2c, #a1803a);
-            color: white;
-            padding: 4px 0;
-            font-size: 0.9rem;
             font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-            z-index: 3;
-        }
-        /* リボン部分 */
-        .badge.medal::before, .badge.medal::after {
-            content: '';
-            position: absolute;
-            top: 130px;
-            border-top: 40px solid #8a6a2c;
-            border-bottom: 40px solid transparent;
-            z-index: 1;
-        }
-        .badge.medal::before {
-            left: 20px;
-            border-left: 40px solid transparent;
-            border-right: 40px solid #6c5422;
-            transform: rotate(-20deg);
-        }
-        .badge.medal::after {
-            right: 20px;
-            border-right: 40px solid transparent;
-            border-left: 40px solid #6c5422;
-            transform: rotate(20deg);
         }
         @media (max-width: 768px) {
-            .badge.medal { transform: scale(0.9); }
-            .achievements-section .badges { gap: 1rem; }
-        }
-        @media (max-width: 680px) {
-            .badge.medal:last-child { margin-top: 1.5rem; }
+            .case-study__gallery {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
     
@@ -170,13 +116,11 @@
       </ul>
     </section>
 
-    <!-- ① 「アート・宙のリフォーム／リノベーション」紹介セクションの見直し -->
     <section class="feature-section py-20 px-6 bg-white">
         <div class="container mx-auto grid md:grid-cols-2 gap-16 items-start">
             <div>
               <h2>アート・宙のリフォーム</h2>
               <p>キッチン・お風呂などの部分的な改修から間取りの変更まで。お客様の現在の暮らしをより快適にするため、自然素材を活かした温もりのある空間づくりをお手伝いします。</p>
-              <!-- 引用: https://www.artsora.com/reform/ -->
               <ul class="feature__list">
                 <li class="feature__item">無垢材や漆喰など、調湿性に優れた呼吸する自然素材を標準採用。</li>
                 <li class="feature__item">一級建築士がお客様の暮らしに寄り添い、最適な動線をデザイン。</li>
@@ -187,8 +131,7 @@
             <div>
               <h2>アート・宙のリノベーション</h2>
               <p>既存の構造を活かしつつ、デザイン性や性能を全面的に向上させ、住まいの価値を再生します。<br><strong style="color: var(--color-primary);">一戸建てはもちろん、中古マンションにも対応</strong>し、素材と設計で新しい暮らしを創ります。</p>
-               <!-- 引用: https://www.artsora.com/reform/ -->
-              <ul class="feature__list">
+               <ul class="feature__list">
                 <li class="feature__item">物件探しから資金計画、設計、施工までワンストップでサポート。</li>
                 <li class="feature__item">断熱・耐震・省エネ性能を新築同様の基準まで引き上げます。</li>
                 <li class="feature__item">ご家族のライフスタイルに合わせた、自由な間取り変更が可能。</li>
@@ -198,7 +141,6 @@
         </div>
     </section>
 
-    <!-- ② 実績紹介バッジのビジュアル刷新 -->
     <section class="achievements-section py-20 px-6" aria-label="実績">
       <h2>アート・宙の実績</h2>
       <ul class="badges">
@@ -222,7 +164,6 @@
              <div class="badge__body" aria-hidden="true"></div>
             <div class="badge__content">
                 <span class="badge__title">ご紹介率</span>
-                <!-- ※実数入手後、以下の「—」を差し替え -->
                 <strong class="badge__value">—<small class="text-xl">%</small></strong>
             </div>
             <span class="badge__band" aria-hidden="true">RANKING</span>
@@ -231,36 +172,52 @@
     </section>
 
     <section class="case-study-section py-20 px-6 bg-white">
-        <h2>施工実例のご紹介</h2>
-        <div class="case-study-item container mx-auto">
-            <h3>家族が集う一体感のあるLDKへ</h3>
-            <div class="case-image-wrapper mb-6">
-                <img src="https://www.artsora.com/wp-content/uploads/2024/03/DSC_3387-1-scaled.jpg" alt="リノベーション後の明るく開放的なリビングダイニング" class="rounded-lg shadow-lg w-full">
-                <span class="case-number" style="top: 1rem; left: 1rem;">①</span>
-                <span class="case-number" style="top: 1rem; right: 1rem;">②</span>
-                <span class="case-number" style="bottom: 1rem; left: 1rem;">③</span>
+        <div class="container mx-auto">
+            <h2>施工実例のご紹介</h2>
+            
+            <div class="mb-16" aria-label="施工実例1">
+                <h3>家族がくつろげる広々としたLDKへ</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="case-study__text md:col-span-3">
+                        <p><strong>●実施したこと</strong><br>サッシ交換・内装デザインの変更・造作収納増設・水廻り設備の交換・床の張り替え・壁の塗り替え</p>
+                    </div>
+                    <div class="case-study__gallery md:col-span-3">
+                        <img src="https://i.postimg.cc/bJ2Mqd7z/LP2.jpg" alt="LDKに取り込まれた広々とした空間">
+                        <img src="https://i.postimg.cc/GptVSXzT/LP1.jpg" alt="サッシ交換・内装デザイン変更などを行ったリビング">
+                        <img src="https://i.postimg.cc/GpfV0vS7/LP3.jpg" alt="床柱を残した内装リフォーム">
+                    </div>
+                    <div class="case-study__text md:col-span-2">
+                        <p>以前は和室が続いていた間取りでしたが、<br>壁を取り払ってLDKの一部に取り込むことで、<br>家族全員がくつろげる約17帖の広々とした空間が生まれました。</p>
+                    </div>
+                    <div class="case-study__text md:col-span-1">
+                        <p>床柱はそのままの状態で丁寧に残しました。<br>昔からの落ち着きを感じさせながら、新しいデザインの中にも自然に溶け込み、<br>家全体に奥深い味わいを添えています。</p>
+                    </div>
+                </div>
             </div>
-            <div class="case-descriptions">
-                <div><strong>① LDK全体：</strong>間仕切り壁を撤去し、どこにいても家族の気配を感じられる一体感のあるLDK空間を実現しました。</div>
-                <div><strong>② 対面キッチン：</strong>リビングを見渡せる対面キッチン。背面の収納も充実させ、家事動線もスムーズになりました。</div>
-                <div><strong>③ スタディコーナー：</strong>ダイニング横に設けた造作のスタディコーナー。PC作業や子供の学習スペースとして多目的に使えます。</div>
+
+            <div aria-label="施工実例2">
+                <h3>築100年の古民家を再生</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="case-study__text md:col-span-3">
+                        <p><strong>●実施したこと</strong><br>外壁のはり替え・サッシ交換・内装デザインの変更・造作収納増設・水廻り設備の交換・床の張り替え・壁の塗り替え</p>
+                    </div>
+                    <div class="case-study__gallery md:col-span-3">
+                        <img src="https://i.postimg.cc/zX01tH5M/LP5.jpg" alt="天井梁を見せる仕上げに変更したリノベーション">
+                        <img src="https://i.postimg.cc/RZhxjCZ0/LP6.jpg" alt="食堂とリビングを統合したLDKリフォーム">
+                        <img src="https://i.postimg.cc/028s00gD/LP4.jpg" alt="外壁張り替えなどを行った古民家">
+                    </div>
+                     <div class="case-study__text md:col-span-1">
+                        <p>今回、天井裏に隠れていた梁を見せる仕上げにしました。<br>天井が高くなることで、空間が立体的になり、<br>木の存在感や力強さを感じられます。</p>
+                    </div>
+                    <div class="case-study__text md:col-span-2">
+                        <p>「食堂」と「リビング」として区切られていたところを、<br>約19帖の1つの空間にまとめました。<br>床には桧、壁には珪藻土の塗り壁を採用し、<br>木の香りと共に家族が落ち着くLDKに。</p>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="case-study-item container mx-auto">
-            <h3>築100年の古民家を再生</h3>
-            <div class="case-image-wrapper mb-6">
-                <img src="https://www.artsora.com/wp-content/uploads/2022/11/DSC_8673-scaled.jpg" alt="古民家再生後の梁が見える吹抜けリビング" class="rounded-lg shadow-lg w-full">
-                <span class="case-number" style="top: 1rem; left: 1rem;">①</span>
-                <span class="case-number" style="top: 50%; right: 1rem; transform: translateY(-50%);">②</span>
-            </div>
-            <div class="case-descriptions">
-                <div><strong>① 吹抜けリビング：</strong>既存の梁や柱を活かし、天井を高くして開放感あふれるリビングに。薪ストーブが空間の主役です。</div>
-                <div><strong>② モダンなキッチン：</strong>機能性を重視したモダンなアイランドキッチン。古民家の趣と現代的な暮らしやすさを両立しました。</div>
-            </div>
+
         </div>
     </section>
 
-    <!-- ③ 資料請求フォーム直上のパンフレット案内の微修正 -->
     <section class="brochure-section py-20 px-6">
         <div class="container mx-auto">
             <h2 class="uppercase">PRESENT</h2>
@@ -294,7 +251,7 @@
                  <div class="text-2xl font-bold mb-6">株式会社アート・宙</div>
                  <p class="text-sm">〒510-0081 三重県四日市市北町3番4号<br>TEL: 059-356-0817</p>
                 <div class="border-t border-white/20 mt-8 pt-8 text-xs text-white/70">
-                    <p>&copy; 2024 Art-Sora Inc. All Rights Reserved.</p>
+                    <p>&copy; 2025 Art-Sora Inc. All Rights Reserved.</p>
                 </div>
             </div>
         </div>
