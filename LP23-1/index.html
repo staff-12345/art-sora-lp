@@ -48,7 +48,6 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
-            margin-bottom: 1.5rem;
         }
         .case-study__gallery img {
             width: 100%;
@@ -58,6 +57,12 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
             aspect-ratio: 4 / 3;
         }
+        .case-study__texts {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
         .case-study__text p {
             line-height: 1.8;
         }
@@ -66,7 +71,7 @@
             font-weight: 700;
         }
         @media (max-width: 768px) {
-            .case-study__gallery {
+            .case-study__gallery, .case-study__texts {
                 grid-template-columns: 1fr;
             }
         }
@@ -121,6 +126,7 @@
             <div>
               <h2>アート・宙のリフォーム</h2>
               <p>キッチン・お風呂などの部分的な改修から間取りの変更まで。お客様の現在の暮らしをより快適にするため、自然素材を活かした温もりのある空間づくりをお手伝いします。</p>
+              <!-- 引用: https://www.artsora.com/reform/ -->
               <ul class="feature__list">
                 <li class="feature__item">無垢材や漆喰など、調湿性に優れた呼吸する自然素材を標準採用。</li>
                 <li class="feature__item">一級建築士がお客様の暮らしに寄り添い、最適な動線をデザイン。</li>
@@ -131,7 +137,8 @@
             <div>
               <h2>アート・宙のリノベーション</h2>
               <p>既存の構造を活かしつつ、デザイン性や性能を全面的に向上させ、住まいの価値を再生します。<br><strong style="color: var(--color-primary);">一戸建てはもちろん、中古マンションにも対応</strong>し、素材と設計で新しい暮らしを創ります。</p>
-               <ul class="feature__list">
+               <!-- 引用: https://www.artsora.com/reform/ -->
+              <ul class="feature__list">
                 <li class="feature__item">物件探しから資金計画、設計、施工までワンストップでサポート。</li>
                 <li class="feature__item">断熱・耐震・省エネ性能を新築同様の基準まで引き上げます。</li>
                 <li class="feature__item">ご家族のライフスタイルに合わせた、自由な間取り変更が可能。</li>
@@ -164,6 +171,7 @@
              <div class="badge__body" aria-hidden="true"></div>
             <div class="badge__content">
                 <span class="badge__title">ご紹介率</span>
+                <!-- ※実数入手後、以下の「—」を差し替え -->
                 <strong class="badge__value">—<small class="text-xl">%</small></strong>
             </div>
             <span class="badge__band" aria-hidden="true">RANKING</span>
@@ -171,50 +179,58 @@
       </ul>
     </section>
 
+    <!-- 施工実績のご紹介セクション改修 -->
     <section class="case-study-section py-20 px-6 bg-white">
         <div class="container mx-auto">
             <h2>施工実例のご紹介</h2>
             
-            <div class="mb-16" aria-label="施工実例1">
-                <h3>家族がくつろげる広々としたLDKへ</h3>
-                <div class="grid md:grid-cols-3 gap-6">
-                    <div class="case-study__text md:col-span-3">
-                        <p><strong>●実施したこと</strong><br>サッシ交換・内装デザインの変更・造作収納増設・水廻り設備の交換・床の張り替え・壁の塗り替え</p>
-                    </div>
-                    <div class="case-study__gallery md:col-span-3">
-                        <img src="https://i.postimg.cc/bJ2Mqd7z/LP2.jpg" alt="LDKに取り込まれた広々とした空間">
-                        <img src="https://i.postimg.cc/GptVSXzT/LP1.jpg" alt="サッシ交換・内装デザイン変更などを行ったリビング">
-                        <img src="https://i.postimg.cc/GpfV0vS7/LP3.jpg" alt="床柱を残した内装リフォーム">
-                    </div>
-                    <div class="case-study__text md:col-span-2">
+            <!-- 実例① -->
+            <div class="mb-16" aria-labelledby="case1-heading">
+                <h3 id="case1-heading">家族がくつろげる広々としたLDKへ</h3>
+                <div class="case-study__text mb-6">
+                    <p><strong>●実施したこと</strong><br>サッシ交換・内装デザインの変更・造作収納増設・水廻り設備の交換・床の張り替え・壁の塗り替え</p>
+                </div>
+                <div class="case-study__gallery">
+                    <img src="https://i.postimg.cc/bJ2Mqd7z/LP2.jpg" alt="以前は和室だった場所をLDKに取り込み、約17帖の広々とした空間を実現。">
+                    <img src="https://i.postimg.cc/0N9WLcf0/LP7.jpg" alt="寒さ対策として入れ替えた高断熱の窓。">
+                    <img src="https://i.postimg.cc/GpfV0vS7/LP3.jpg" alt="新しいデザインに溶け込むよう、丁寧に保存された床柱。">
+                </div>
+                <div class="case-study__texts">
+                    <div class="case-study__text">
                         <p>以前は和室が続いていた間取りでしたが、<br>壁を取り払ってLDKの一部に取り込むことで、<br>家族全員がくつろげる約17帖の広々とした空間が生まれました。</p>
                     </div>
-                    <div class="case-study__text md:col-span-1">
+                    <div class="case-study__text">
+                        <p>「とにかく寒いことに悩んでいる」というお悩みから、窓を入れ替えました。<br>窓のリノベーションは住みながらの工事も可能なため、工事期間中に仮住まいへの引っ越しといった負担がありません。</p>
+                    </div>
+                    <div class="case-study__text">
                         <p>床柱はそのままの状態で丁寧に残しました。<br>昔からの落ち着きを感じさせながら、新しいデザインの中にも自然に溶け込み、<br>家全体に奥深い味わいを添えています。</p>
                     </div>
                 </div>
             </div>
 
-            <div aria-label="施工実例2">
-                <h3>築100年の古民家を再生</h3>
-                <div class="grid md:grid-cols-3 gap-6">
-                    <div class="case-study__text md:col-span-3">
-                        <p><strong>●実施したこと</strong><br>外壁のはり替え・サッシ交換・内装デザインの変更・造作収納増設・水廻り設備の交換・床の張り替え・壁の塗り替え</p>
-                    </div>
-                    <div class="case-study__gallery md:col-span-3">
-                        <img src="https://i.postimg.cc/zX01tH5M/LP5.jpg" alt="天井梁を見せる仕上げに変更したリノベーション">
-                        <img src="https://i.postimg.cc/RZhxjCZ0/LP6.jpg" alt="食堂とリビングを統合したLDKリフォーム">
-                        <img src="https://i.postimg.cc/028s00gD/LP4.jpg" alt="外壁張り替えなどを行った古民家">
-                    </div>
-                     <div class="case-study__text md:col-span-1">
+            <!-- 実例② -->
+            <div aria-labelledby="case2-heading">
+                <h3 id="case2-heading">築100年の古民家を再生</h3>
+                 <div class="case-study__text mb-6">
+                    <p><strong>●実施したこと</strong><br>外壁のはり替え・サッシ交換・内装デザインの変更・造作収納増設・水廻り設備の交換・床の張り替え・壁の塗り替え</p>
+                </div>
+                <div class="case-study__gallery">
+                    <img src="https://i.postimg.cc/zX01tH5M/LP5.jpg" alt="天井裏の梁を見せる仕上げにした開放的なリビング。">
+                    <img src="https://i.postimg.cc/RZhxjCZ0/LP6.jpg" alt="食堂とリビングを一つにまとめた約19帖のLDK。">
+                    <img src="https://i.postimg.cc/028s00gD/LP4.jpg" alt="既存の天井を活かし、趣を残しながら和モダンに仕上げた内装。">
+                </div>
+                <div class="case-study__texts">
+                    <div class="case-study__text">
                         <p>今回、天井裏に隠れていた梁を見せる仕上げにしました。<br>天井が高くなることで、空間が立体的になり、<br>木の存在感や力強さを感じられます。</p>
                     </div>
-                    <div class="case-study__text md:col-span-2">
+                    <div class="case-study__text">
                         <p>「食堂」と「リビング」として区切られていたところを、<br>約19帖の1つの空間にまとめました。<br>床には桧、壁には珪藻土の塗り壁を採用し、<br>木の香りと共に家族が落ち着くLDKに。</p>
+                    </div>
+                    <div class="case-study__text">
+                        <p>「内装デザインを和モダンにしたい」というご要望から、既存の天井等活かし、趣を残しながら仕上げました。</p>
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 
