@@ -11,191 +11,119 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
     <style>
-        /* --- ① デザイン全体の印象変更 --- */
+        /* --- 既存スタイル --- */
         :root {
-            --color-primary: #8C7851; /* 温かみのあるブラウン */
-            --color-accent: #82956E; /* アースグリーン */
-            --color-text: #5D5443;   /* ダークブラウン */
-            --color-bg: #F9F8F6;      /* オフホワイト */
-            --color-bg-alt: #FFFFFF;
+            --color-primary: #8C7851; --color-accent: #82956E; --color-text: #5D5443; --color-bg: #F9F8F6; --color-bg-alt: #FFFFFF;
         }
+        * { font-family: 'Noto Serif JP', serif; }
+        body { background-color: var(--color-bg); color: var(--color-text); }
+        .hero-bg { background: linear-gradient(rgba(84, 73, 52, 0.6), rgba(84, 73, 52, 0.6)), url('https://i.postimg.cc/KcdVVS3b/RE-1.jpg'); background-size: cover; background-position: center; background-attachment: fixed; }
+        .btn-primary { background: var(--color-accent); transition: all 0.3s ease; border-radius: 9999px; }
+        .btn-primary:hover { background: #728460; transform: translateY(-2px); box-shadow: 0 10px 25px rgba(130, 149, 110, 0.3); }
+        .btn-secondary { background: white; color: var(--color-accent); border: 2px solid var(--color-accent); }
+        .troubles-section h2, .feature-section h2, .achievements-section h2, .case-study-section h2, .brochure-section h2 { font-size: 2.25rem; font-weight: 700; text-align: center; margin-bottom: 3rem; color: var(--color-primary); }
+        .troubles-section ul { max-width: 48rem; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+        .troubles-section li { background: var(--color-bg-alt); padding: 1.5rem; border-radius: 0.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: flex; align-items: center; }
+        .troubles-section li::before { content: '\f058'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: var(--color-accent); font-size: 1.25rem; margin-right: 1rem; }
+        .feature-section .feature__list { list-style: none; padding-left: 0; margin-top: 1.5rem; }
+        .feature-section .feature__item { position: relative; padding-left: 2rem; margin-bottom: 1rem; }
+        .feature-section .feature__item::before { content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: var(--color-accent); position: absolute; left: 0; top: 4px; }
+        .case-study-item h3 { font-size: 1.75rem; font-weight: 700; text-align: center; margin-bottom: 2rem; color: var(--color-primary); }
+        .case-image-wrapper { position: relative; }
+        .case-number { position: absolute; background-color: rgba(255,255,255,0.85); color: var(--color-primary); font-weight: 700; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+        .case-descriptions { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
+        .case-descriptions strong { color: var(--color-primary); }
+        @media (max-width: 768px) { .hero-bg { background-attachment: scroll; } }
 
-        * {
-            font-family: 'Noto Serif JP', serif; /* フォントをやわらかい印象の明朝体に */
-        }
-        body {
-            background-color: var(--color-bg);
-            color: var(--color-text);
-        }
-        
-        .hero-bg {
-            /* ヒーローの背景色を温かみのあるブラウン系に変更 */
-            background: linear-gradient(rgba(84, 73, 52, 0.6), rgba(84, 73, 52, 0.6)), url('https://i.postimg.cc/KcdVVS3b/RE-1.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-        
-        .btn-primary {
-            /* ボタンの色をアクセントカラーに変更 */
-            background: var(--color-accent);
-            transition: all 0.3s ease;
-            border-radius: 9999px; /* 角を丸くして柔らかい印象に */
-        }
-        
-        .btn-primary:hover {
-            background: #728460; /* ホバー色を少し濃く */
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(130, 149, 110, 0.3);
-        }
-
-        .btn-secondary {
-            background: white;
-            color: var(--color-accent);
-            border: 2px solid var(--color-accent);
-        }
-        
-        .section-bg {
-            background-color: var(--color-bg-alt);
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-        }
-        
-        .text-gradient {
-            /* テキストグラデーションもアースカラーに */
-            background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        @media (max-width: 768px) {
-            .hero-bg, .parallax {
-                background-attachment: scroll;
-            }
-        }
-
-        /* --- ② お悩みセクション用スタイル --- */
-        .troubles-section h2 {
-            font-size: 2.25rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: var(--color-primary);
-        }
-        .troubles-section ul {
-            max-width: 48rem;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-        .troubles-section li {
-            background: var(--color-bg-alt);
-            padding: 1.5rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            display: flex;
-            align-items: center;
-        }
-        .troubles-section li::before {
-            content: '\f058'; /* Font Awesome Check Circle */
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            color: var(--color-accent);
-            font-size: 1.25rem;
-            margin-right: 1rem;
-        }
-
-        /* --- ③ リフォーム・リノベーションセクション用スタイル --- */
-        .feature-section h2 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: var(--color-primary);
-        }
-        /* A/Bテスト用: 価格非表示 */
-        [data-show-price="false"] .price-block {
-            display: none;
-        }
-
-        /* --- ④ 実績紹介セクション用スタイル --- */
-        .achievements-section h2 {
-            font-size: 2.25rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: var(--color-primary);
-        }
-        .badge-list {
+        /* --- ② 実績紹介バッジのビジュアル刷新 (CSS追記) --- */
+        .achievements-section .badges {
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap: 2.5rem; /* バッジ間の余白 */
             flex-wrap: wrap;
+            padding: 2rem 0;
         }
-        .badge {
+        .badge.medal {
+            position: relative;
+            width: 200px;
+            height: 200px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            background: linear-gradient(145deg, #fdfbf7, #e9e5e0);
-            box-shadow: 8px 8px 16px #d1ccc7, -8px -8px 16px #ffffff;
-            text-align: center;
             color: var(--color-text);
+            text-align: center;
+            z-index: 1;
         }
-        .badge .label {
-            font-size: 0.9rem;
-        }
-        .badge .value {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--color-primary);
-            line-height: 1.2;
-        }
-
-        /* --- ⑤ 実例紹介セクション用スタイル --- */
-        .case-study-section h2 {
-            font-size: 2.25rem; font-weight: 700; text-align: center; margin-bottom: 3rem; color: var(--color-primary);
-        }
-        .case-study-item { margin-bottom: 5rem; }
-        .case-study-item h3 { font-size: 1.75rem; font-weight: 700; text-align: center; margin-bottom: 2rem; color: var(--color-primary); }
-        .case-image-wrapper { position: relative; }
-        .case-number {
+        .badge__body {
             position: absolute;
-            background-color: rgba(255,255,255,0.85);
-            color: var(--color-primary);
-            font-weight: 700;
+            width: 100%;
+            height: 100%;
             border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.25rem;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            background: radial-gradient(ellipse at center, #f6e7b2 0%, #b48b3c 100%);
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.2), 0 5px 15px rgba(0,0,0,0.2);
+            border: 5px solid #8a6a2c;
+            outline: 3px solid #f6e7b2;
+            z-index: 2;
         }
-        .case-descriptions {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
+        .badge__content {
+            position: relative;
+            z-index: 4;
         }
-        .case-descriptions strong { color: var(--color-primary); }
-
-        /* --- ⑥ パンフレット紹介セクション用スタイル --- */
-        .brochure-section {
-            background: var(--color-bg-alt);
+        .badge__title {
+            font-size: 1rem;
+            font-weight: 500;
         }
-         .brochure-section h2 {
-            font-size: 2.25rem; font-weight: 700; text-align: center; margin-bottom: 3rem; color: var(--color-primary);
+        .badge__value {
+            font-size: 2.75rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            line-height: 1.1;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
         }
-
+        .badge__band {
+            position: absolute;
+            bottom: 30px;
+            left: -15px;
+            right: -15px;
+            background: linear-gradient(to right, #8a6a2c, #a1803a);
+            color: white;
+            padding: 4px 0;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            z-index: 3;
+        }
+        /* リボン部分 */
+        .badge.medal::before, .badge.medal::after {
+            content: '';
+            position: absolute;
+            top: 130px;
+            border-top: 40px solid #8a6a2c;
+            border-bottom: 40px solid transparent;
+            z-index: 1;
+        }
+        .badge.medal::before {
+            left: 20px;
+            border-left: 40px solid transparent;
+            border-right: 40px solid #6c5422;
+            transform: rotate(-20deg);
+        }
+        .badge.medal::after {
+            right: 20px;
+            border-right: 40px solid transparent;
+            border-left: 40px solid #6c5422;
+            transform: rotate(20deg);
+        }
+        @media (max-width: 768px) {
+            .badge.medal { transform: scale(0.9); }
+            .achievements-section .badges { gap: 1rem; }
+        }
+        @media (max-width: 680px) {
+            .badge.medal:last-child { margin-top: 1.5rem; }
+        }
     </style>
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6S9PJSSY8D"></script>
@@ -203,11 +131,11 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-    
       gtag('config', 'G-6S9PJSSY8D');
     </script>
 </head>
-<body class="bg-gray-50"> <header class="hero-bg min-h-screen flex items-center justify-center text-white relative">
+<body>
+    <header class="hero-bg min-h-screen flex items-center justify-center text-white relative">
         <div class="container mx-auto px-4 text-center">
             <h1 class="text-4xl md:text-6xl font-bold mb-8 leading-tight" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.5);">
                 自然素材で、暮らしに温もりを。<br>
@@ -242,43 +170,64 @@
       </ul>
     </section>
 
+    <!-- ① 「アート・宙のリフォーム／リノベーション」紹介セクションの見直し -->
     <section class="feature-section py-20 px-6 bg-white">
         <div class="container mx-auto grid md:grid-cols-2 gap-16 items-start">
             <div>
               <h2>アート・宙のリフォーム</h2>
               <p>キッチン・お風呂などの部分的な改修から間取りの変更まで。お客様の現在の暮らしをより快適にするため、自然素材を活かした温もりのある空間づくりをお手伝いします。</p>
-              <div class="price-block mt-6 p-4 bg-gray-50 rounded-lg">
-                <span class="font-bold text-sm" style="color: var(--color-primary);">参考価格</span>
-                <div class="text-3xl font-bold" style="color: var(--color-primary);">XXX<span class="text-xl ml-1">万円〜</span></div>
-              </div>
+              <!-- 引用: https://www.artsora.com/reform/ -->
+              <ul class="feature__list">
+                <li class="feature__item">無垢材や漆喰など、調湿性に優れた呼吸する自然素材を標準採用。</li>
+                <li class="feature__item">一級建築士がお客様の暮らしに寄り添い、最適な動線をデザイン。</li>
+                <li class="feature__item">耐震補強や断熱性能の向上で、安心・快適な住まいへ。</li>
+                <li class="feature__item">経験豊富な職人による丁寧な施工と、安心のアフターメンテナンス。</li>
+              </ul>
             </div>
             <div>
               <h2>アート・宙のリノベーション</h2>
               <p>既存の構造を活かしつつ、デザイン性や性能を全面的に向上させ、住まいの価値を再生します。<br><strong style="color: var(--color-primary);">一戸建てはもちろん、中古マンションにも対応</strong>し、素材と設計で新しい暮らしを創ります。</p>
-              <div class="price-block mt-6 p-4 bg-gray-50 rounded-lg">
-                <span class="font-bold text-sm" style="color: var(--color-primary);">参考価格</span>
-                <div class="text-3xl font-bold" style="color: var(--color-primary);">XXX<span class="text-xl ml-1">万円〜</span></div>
-              </div>
+               <!-- 引用: https://www.artsora.com/reform/ -->
+              <ul class="feature__list">
+                <li class="feature__item">物件探しから資金計画、設計、施工までワンストップでサポート。</li>
+                <li class="feature__item">断熱・耐震・省エネ性能を新築同様の基準まで引き上げます。</li>
+                <li class="feature__item">ご家族のライフスタイルに合わせた、自由な間取り変更が可能。</li>
+                <li class="feature__item">自然素材をふんだんに使い、デザイン性と健康の両立を実現。</li>
+              </ul>
             </div>
         </div>
     </section>
 
-    <section class="achievements-section py-20 px-6">
+    <!-- ② 実績紹介バッジのビジュアル刷新 -->
+    <section class="achievements-section py-20 px-6" aria-label="実績">
       <h2>アート・宙の実績</h2>
-      <div class="badge-list">
-        <div class="badge">
-            <span class="label">創業</span>
-            <span class="value">22<span class="text-xl ml-1">年</span></span>
-        </div>
-        <div class="badge">
-            <span class="label">施工実績</span>
-            <span class="value">450<span class="text-xl ml-1">棟</span></span>
-        </div>
-        <div class="badge">
-            <span class="label">ご紹介率</span>
-            <span class="value">○<span class="text-xl ml-1">%</span></span>
-        </div>
-      </div>
+      <ul class="badges">
+        <li class="badge medal" aria-label="創業22年">
+            <div class="badge__body" aria-hidden="true"></div>
+            <div class="badge__content">
+                <span class="badge__title">創業</span>
+                <strong class="badge__value">22<small class="text-xl">年</small></strong>
+            </div>
+            <span class="badge__band" aria-hidden="true">RANKING</span>
+        </li>
+        <li class="badge medal" aria-label="施工実績450棟以上">
+            <div class="badge__body" aria-hidden="true"></div>
+            <div class="badge__content">
+                <span class="badge__title">施工実績</span>
+                <strong class="badge__value">450<small class="text-xl">棟</small></strong>
+            </div>
+            <span class="badge__band" aria-hidden="true">RANKING</span>
+        </li>
+        <li class="badge medal" aria-label="ご紹介率 要差し替え">
+             <div class="badge__body" aria-hidden="true"></div>
+            <div class="badge__content">
+                <span class="badge__title">ご紹介率</span>
+                <!-- ※実数入手後、以下の「—」を差し替え -->
+                <strong class="badge__value">—<small class="text-xl">%</small></strong>
+            </div>
+            <span class="badge__band" aria-hidden="true">RANKING</span>
+        </li>
+      </ul>
     </section>
 
     <section class="case-study-section py-20 px-6 bg-white">
@@ -311,13 +260,14 @@
         </div>
     </section>
 
+    <!-- ③ 資料請求フォーム直上のパンフレット案内の微修正 -->
     <section class="brochure-section py-20 px-6">
         <div class="container mx-auto">
-            <h2>パンフレットを無料でお届け！</h2>
+            <h2 class="uppercase">PRESENT</h2>
             <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 items-center bg-white p-8 rounded-lg shadow-lg">
-                <img src="https://i.postimg.cc/k4yYQ0dF/brochure-mockup.png" alt="アート・宙のリフォームパンフレットのイメージ画像" class="w-full max-w-sm mx-auto">
+                <img src="https://i.postimg.cc/GmVnRPZ8/2025-09-05-14-34-16.png" alt="アート・宙 リフォーム・リノベーション パンフレット" class="w-full max-w-sm mx-auto">
                 <div class="text-center md:text-left">
-                    <p class="text-lg font-semibold mb-4" style="color: var(--color-primary);">資料請求いただいた方に、アート・宙のこだわりが詰まったパンフレットをお届けします。</p>
+                    <p class="text-lg font-semibold mb-4" style="color: var(--color-primary);">資料請求いただいた方に、アート・宙のこだわりが詰まったパンフレットを無料進呈します。</p>
                     <p>アート・宙のリフォーム・リノベーションの特徴や施工事例のご紹介など、ホームページには掲載しきれない情報が盛りだくさんです。ぜひご覧ください。</p>
                     <a href="#contact-form" class="btn-primary inline-block mt-6 px-8 py-3">今すぐ資料請求する</a>
                 </div>
@@ -351,7 +301,6 @@
     </footer>
 
     <script>
-        // スムーススクロール
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
