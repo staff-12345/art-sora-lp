@@ -42,39 +42,72 @@
         .badge.medal::after { right: 20px; border-right: 40px solid transparent; border-left: 40px solid #6c5422; transform: rotate(20deg); }
         @media (max-width: 768px) { .badge.medal { transform: scale(0.9); } .achievements-section .badges { gap: 1rem; } }
         @media (max-width: 680px) { .badge.medal:last-child { margin-top: 1.5rem; } }
+        .case-study__gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .case-study__gallery img { width: 100%; height: 100%; object-fit: cover; border-radius: 0.5rem; box-shadow: 0 10px 25px rgba(0,0,0,0.1); aspect-ratio: 4 / 3; }
+        .case-study__texts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 1.5rem; }
+        .case-study__text p { line-height: 1.8; }
+        .case-study__text strong { color: var(--color-primary); font-weight: 700; }
+        @media (max-width: 768px) { .case-study__gallery, .case-study__texts { grid-template-columns: 1fr; } }
 
-        /* --- 施工実績セクション改修用スタイル --- */
-        .case-study__gallery {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
+        /* ====== Base: 安定化 ====== */
+        html { box-sizing: border-box; font-size: clamp(14px,1.6vw,18px); }
+        *,*::before,*::after { box-sizing: inherit; min-width: 0; }
+        body { -webkit-text-size-adjust: 100%; text-rendering: optimizeLegibility; }
+
+        /* 画像・埋め込みをはみ出させない */
+        img,svg,video,canvas,iframe { max-width: 100%; height: auto; display: block; }
+
+        /* コンテナの左右余白を自動調整 */
+        section, .container {
+          margin-inline: auto;
+          width: min(100%, 1200px);
+          padding-inline: clamp(16px, 4vw, 40px);
         }
-        .case-study__gallery img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 0.5rem;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            aspect-ratio: 4 / 3;
+
+        /* 見出しの改行をスマホで最適化 */
+        h1,h2,h3 { line-height: 1.25; text-wrap: balance; }
+        @media (max-width: 640px) {
+          h1 br, h2 br { display: none; }
         }
-        .case-study__texts {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin-top: 1.5rem;
+
+        /* ボタンを全幅化・タップしやすく */
+        a.button, .btn, button {
+          min-height: 44px;
+          line-height: 1.2;
+          text-align: center;
+          white-space: normal;
         }
-        .case-study__text p {
-            line-height: 1.8;
+        @media (max-width: 640px) {
+          a.button, .btn, button { width: 100%; }
         }
-        .case-study__text strong {
-            color: var(--color-primary);
-            font-weight: 700;
+
+        /* カードやグリッドを小画面で1列化 */
+        @media (max-width: 960px) {
+          .grid, .cards, .columns, .row, [class*="col-"], [class*="grid-cols-"] {
+            gap: clamp(12px, 2.5vw, 24px);
+          }
         }
-        @media (max-width: 768px) {
-            .case-study__gallery, .case-study__texts {
-                grid-template-columns: 1fr;
-            }
+        @media (max-width: 780px) {
+          .grid, .cards, .columns, .row, [class*="grid-cols-"] {
+            display: grid !important;
+            grid-template-columns: 1fr !important;
+          }
+          .flex { flex-wrap: wrap; }
         }
+
+        /* 日本語段落の読みやすさ */
+        p, li { line-height: 1.9; }
+        p { overflow-wrap: anywhere; }
+
+        /* iOS 100vh 問題 & ノッチ対応 */
+        :root { --vh: 1svh; }
+        .full-viewport, .hero, .min-h-screen { min-height: 100svh; }
+        @supports (padding: max(0px)) {
+          body { padding-bottom: env(safe-area-inset-bottom); }
+        }
+
+        /* セクション余白 */
+        section { padding-block: clamp(32px, 6vw, 72px); }
     </style>
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6S9PJSSY8D"></script>
@@ -179,12 +212,10 @@
       </ul>
     </section>
 
-    <!-- 施工実績のご紹介セクション改修 -->
     <section class="case-study-section py-20 px-6 bg-white">
         <div class="container mx-auto">
             <h2>施工実例のご紹介</h2>
             
-            <!-- 実例① -->
             <div class="mb-16" aria-labelledby="case1-heading">
                 <h3 id="case1-heading">家族がくつろげる広々としたLDKへ</h3>
                 <div class="case-study__text mb-6">
@@ -208,7 +239,6 @@
                 </div>
             </div>
 
-            <!-- 実例② -->
             <div aria-labelledby="case2-heading">
                 <h3 id="case2-heading">築100年の古民家を再生</h3>
                  <div class="case-study__text mb-6">
