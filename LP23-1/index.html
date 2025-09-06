@@ -8,19 +8,47 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
     <style>
         /* --- 既存スタイル --- */
         :root {
-            --color-primary: #8C7851; --color-accent: #82956E; --color-text: #5D5443; --color-bg: #F9F8F6; --color-bg-alt: #FFFFFF;
+            /* ① 全体の色味を変更 */
+            --color-primary: #8C7851; /* 温かみのあるブラウン (維持) */
+            --color-accent: #82956E;  /* 落ち着いたオリーブグリーン */
+            --color-text: #5D5443; 
+            --color-bg: #F9F8F6; 
+            --color-bg-alt: #FFFFFF;
         }
         * { font-family: 'Noto Serif JP', serif; }
         body { background-color: var(--color-bg); color: var(--color-text); }
         .hero-bg { background: linear-gradient(rgba(84, 73, 52, 0.6), rgba(84, 73, 52, 0.6)), url('https://i.postimg.cc/KcdVVS3b/RE-1.jpg'); background-size: cover; background-position: center; background-attachment: fixed; }
-        .btn-primary { background: var(--color-accent); transition: all 0.3s ease; border-radius: 9999px; }
-        .btn-primary:hover { background: #728460; transform: translateY(-2px); box-shadow: 0 10px 25px rgba(130, 149, 110, 0.3); }
-        .btn-secondary { background: white; color: var(--color-accent); border: 2px solid var(--color-accent); }
+        
+        .btn-primary { 
+            background: var(--color-accent); 
+            color: #FFFFFF;
+            transition: all 0.3s ease; 
+            border-radius: 9999px; 
+        }
+        .btn-primary:hover { 
+            background: #728460; /* オリーブグリーンのホバー色 */
+            transform: translateY(-2px); 
+            box-shadow: 0 10px 25px rgba(130, 149, 110, 0.3); 
+        }
+        /* ② 「今すぐ資料請求する」ボタンの配色修正 */
+        .brochure-section .btn-primary {
+            background-color: #4CAF50;
+        }
+        .brochure-section .btn-primary:hover {
+            background-color: #66BB6A;
+        }
+
+        /* ③ 他のボタンについて */
+        .btn-secondary { 
+            background: white; 
+            color: var(--color-accent); 
+            border: 2px solid var(--color-accent); 
+        }
         .troubles-section h2, .feature-section h2, .achievements-section h2, .case-study-section h2, .brochure-section h2 { font-size: 2.25rem; font-weight: 700; text-align: center; margin-bottom: 3rem; color: var(--color-primary); }
         .troubles-section ul { max-width: 48rem; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
         .troubles-section li { background: var(--color-bg-alt); padding: 1.5rem; border-radius: 0.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: flex; align-items: center; }
@@ -30,19 +58,6 @@
         .feature-section .feature__item::before { content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: var(--color-accent); position: absolute; left: 0; top: 4px; }
         .case-study-section h3 { font-size: 1.75rem; font-weight: 700; text-align: left; margin-bottom: 2rem; color: var(--color-primary); border-bottom: 2px solid var(--color-accent); padding-bottom: 0.5rem;}
         @media (max-width: 768px) { .hero-bg { background-attachment: scroll; } }
-        .achievements-section .badges { display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap; padding: 2rem 0; }
-        .badge.medal { position: relative; width: 200px; height: 200px; z-index: 1; }
-        .badge__body { position: absolute; width: 100%; height: 100%; border-radius: 50%; background: radial-gradient(ellipse at center, #f6e7b2 0%, #b48b3c 100%); box-shadow: inset 0 0 20px rgba(0,0,0,0.2), 0 5px 15px rgba(0,0,0,0.2); border: 5px solid #8a6a2c; outline: 3px solid #f6e7b2; z-index: 2; }
-        .badge__content { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; line-height: 1.1; z-index: 4; }
-        .badge__label { font-size: clamp(14px, 1.6vw, 18px); opacity: .85; }
-        .badge__value { font-size: clamp(28px, 4.5vw, 52px); font-weight: 600; color: var(--color-primary); text-shadow: 1px 1px 2px rgba(255,255,255,0.5); }
-        .badge__unit { font-size: clamp(14px, 1.6vw, 18px); opacity: .85; margin-left: .15em; }
-        .badge__band { position: absolute; bottom: 30px; left: -15px; right: -15px; background: linear-gradient(to right, #8a6a2c, #a1803a); color: #FFD700; padding: 4px 0; font-size: 1.2rem; font-weight: 700; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); box-shadow: 0 2px 4px rgba(0,0,0,0.3); z-index: 3; text-align: center; letter-spacing: .08em; }
-        .badge.medal::before, .badge.medal::after { content: ''; position: absolute; top: 130px; border-top: 40px solid #8a6a2c; border-bottom: 40px solid transparent; z-index: 1; }
-        .badge.medal::before { left: 20px; border-left: 40px solid transparent; border-right: 40px solid #6c5422; transform: rotate(-20deg); }
-        .badge.medal::after { right: 20px; border-right: 40px solid transparent; border-left: 40px solid #6c5422; transform: rotate(20deg); }
-        @media (max-width: 768px) { .badge.medal { transform: scale(0.9); } .achievements-section .badges { gap: 1rem; } }
-        @media (max-width: 680px) { .badge.medal:last-child { margin-top: 1.5rem; } }
         .case-study__gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
         .case-study__gallery img { width: 100%; height: 100%; object-fit: cover; border-radius: 0.5rem; box-shadow: 0 10px 25px rgba(0,0,0,0.1); aspect-ratio: 4 / 3; }
         .case-study__texts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 1.5rem; }
@@ -100,7 +115,6 @@
             <div>
               <h2>アート・宙のリフォーム</h2>
               <p>キッチン・お風呂などの部分的な改修から間取りの変更まで。お客様の現在の暮らしをより快適にするため、自然素材を活かした温もりのある空間づくりをお手伝いします。</p>
-              <!-- 引用: https://www.artsora.com/reform/ -->
               <ul class="feature__list">
                 <li class="feature__item">無垢材や漆喰など、調湿性に優れた呼吸する自然素材を標準採用。</li>
                 <li class="feature__item">一級建築士がお客様の暮らしに寄り添い、最適な動線をデザイン。</li>
@@ -111,7 +125,6 @@
             <div>
               <h2>アート・宙のリノベーション</h2>
               <p>既存の構造を活かしつつ、デザイン性や性能を全面的に向上させ、住まいの価値を再生します。<br><strong style="color: var(--color-primary);">一戸建てはもちろん、中古マンションにも対応</strong>し、素材と設計で新しい暮らしを創ります。</p>
-               <!-- 引用: https://www.artsora.com/reform/ -->
               <ul class="feature__list">
                 <li class="feature__item">物件探しから資金計画、設計、施工までワンストップでサポート。</li>
                 <li class="feature__item">断熱・耐震・省エネ性能を新築同様の基準まで引き上げます。</li>
@@ -124,41 +137,9 @@
 
     <section class="achievements-section py-20 px-6" aria-label="実績">
       <h2>アート・宙の実績</h2>
-      <ul class="badges">
-        <li class="badge medal" aria-label="創業22年">
-            <div class="badge__body" aria-hidden="true"></div>
-            <div class="badge__content">
-                <div>
-                    <span class="badge__label">創業</span>
-                    <div><span class="badge__value">22</span><span class="badge__unit">年</span></div>
-                </div>
-            </div>
-            <div class="badge__band" aria-hidden="true">⭐️⭐️⭐️</div>
-        </li>
-        <li class="badge medal" aria-label="施工実績450棟以上">
-            <div class="badge__body" aria-hidden="true"></div>
-            <div class="badge__content">
-                 <div>
-                    <span class="badge__label">施工実績</span>
-                    <div><span class="badge__value">450</span><span class="badge__unit">棟</span></div>
-                </div>
-            </div>
-            <div class="badge__band" aria-hidden="true">⭐️⭐️⭐️</div>
-        </li>
-        <li class="badge medal" aria-label="ご紹介率 要差し替え">
-             <div class="badge__body" aria-hidden="true"></div>
-            <div class="badge__content">
-                <div>
-                    <span class="badge__label">ご紹介率</span>
-                    <div>
-                        <!-- ※実数入手後、以下の「—」を差し替え -->
-                        <span class="badge__value">—</span><span class="badge__unit">%</span>
-                    </div>
-                </div>
-            </div>
-            <div class="badge__band" aria-hidden="true">⭐️⭐️⭐️</div>
-        </li>
-      </ul>
+      <div class="container mx-auto text-center">
+        <img src="https://i.postimg.cc/jqNWwHZ2/image.png" alt="アート・宙の実績（受賞・年数・件数のバッジ一覧）" class="mx-auto max-w-full h-auto rounded-lg shadow-md">
+      </div>
     </section>
 
     <section class="case-study-section py-20 px-6 bg-white">
