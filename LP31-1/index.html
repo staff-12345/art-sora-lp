@@ -33,24 +33,35 @@
         .achievements-section .badges { display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap; padding: 2rem 0; }
         .badge.medal { position: relative; width: 200px; height: 200px; display: flex; flex-direction: column; justify-content: center; align-items: center; color: var(--color-text); text-align: center; z-index: 1; }
         .badge__body { position: absolute; width: 100%; height: 100%; border-radius: 50%; background: radial-gradient(ellipse at center, #f6e7b2 0%, #b48b3c 100%); box-shadow: inset 0 0 20px rgba(0,0,0,0.2), 0 5px 15px rgba(0,0,0,0.2); border: 5px solid #8a6a2c; outline: 3px solid #f6e7b2; z-index: 2; }
-        .badge__content { position: relative; z-index: 4; }
+        
+        /* -- バッジ中央配置の是正 -- */
+        .badge__content { 
+            position: absolute; 
+            inset: 0;
+            display: grid;
+            place-items: center;
+            text-align: center;
+            z-index: 4; 
+            line-height: 1.2;
+        }
         .badge__title { font-size: 1rem; font-weight: 500; }
         .badge__value { font-size: 2.75rem; font-weight: 700; color: var(--color-primary); line-height: 1.1; text-shadow: 1px 1px 2px rgba(255,255,255,0.5); }
         
-        /* -- バッジデザイン修正 -- */
+        /* -- バッジリボン文言の置換 -- */
         .badge__band { 
             position: absolute; 
             bottom: 30px; 
             left: -15px; 
             right: -15px; 
             background: linear-gradient(to right, #8a6a2c, #a1803a); 
-            color: #FFD700; /* 星の色をゴールドに */
+            color: #FFD700;
             padding: 4px 0; 
-            font-size: 1.2rem; /* 星のサイズ調整 */
+            font-size: 1.2rem;
             font-weight: 700; 
             text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
             box-shadow: 0 2px 4px rgba(0,0,0,0.3); 
             z-index: 3; 
+            text-align: center; /* 念のため中央揃え */
         }
         .badge.medal::before, .badge.medal::after { content: ''; position: absolute; top: 130px; border-top: 40px solid #8a6a2c; border-bottom: 40px solid transparent; z-index: 1; }
         .badge.medal::before { left: 20px; border-left: 40px solid transparent; border-right: 40px solid #6c5422; transform: rotate(-20deg); }
@@ -141,24 +152,31 @@
         <li class="badge medal" aria-label="創業22年">
             <div class="badge__body" aria-hidden="true"></div>
             <div class="badge__content">
-                <span class="badge__title">創業</span>
-                <strong class="badge__value">22<small class="text-xl">年</small></strong>
+                <div>
+                    <span class="badge__title">創業</span><br>
+                    <strong class="badge__value">22<small class="text-xl">年</small></strong>
+                </div>
             </div>
             <span class="badge__band" aria-hidden="true">⭐️⭐️⭐️</span>
         </li>
         <li class="badge medal" aria-label="施工実績450棟以上">
             <div class="badge__body" aria-hidden="true"></div>
             <div class="badge__content">
-                <span class="badge__title">施工実績</span>
-                <strong class="badge__value">450<small class="text-xl">棟</small></strong>
+                <div>
+                    <span class="badge__title">施工実績</span><br>
+                    <strong class="badge__value">450<small class="text-xl">棟</small></strong>
+                </div>
             </div>
             <span class="badge__band" aria-hidden="true">⭐️⭐️⭐️</span>
         </li>
         <li class="badge medal" aria-label="ご紹介率 要差し替え">
              <div class="badge__body" aria-hidden="true"></div>
             <div class="badge__content">
-                <span class="badge__title">ご紹介率</span>
-                <strong class="badge__value">—<small class="text-xl">%</small></strong>
+                <div>
+                    <span class="badge__title">ご紹介率</span><br>
+                    <!-- ※実数入手後、以下の「—」を差し替え -->
+                    <strong class="badge__value">—<small class="text-xl">%</small></strong>
+                </div>
             </div>
             <span class="badge__band" aria-hidden="true">⭐️⭐️⭐️</span>
         </li>
