@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
     <style>
         /* --- 既存スタイル --- */
@@ -31,48 +31,18 @@
         .case-study-section h3 { font-size: 1.75rem; font-weight: 700; text-align: left; margin-bottom: 2rem; color: var(--color-primary); border-bottom: 2px solid var(--color-accent); padding-bottom: 0.5rem;}
         @media (max-width: 768px) { .hero-bg { background-attachment: scroll; } }
         .achievements-section .badges { display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap; padding: 2rem 0; }
-
-        /* --- バッジデザイン修正 --- */
         .badge.medal { position: relative; width: 200px; height: 200px; z-index: 1; }
         .badge__body { position: absolute; width: 100%; height: 100%; border-radius: 50%; background: radial-gradient(ellipse at center, #f6e7b2 0%, #b48b3c 100%); box-shadow: inset 0 0 20px rgba(0,0,0,0.2), 0 5px 15px rgba(0,0,0,0.2); border: 5px solid #8a6a2c; outline: 3px solid #f6e7b2; z-index: 2; }
-        
-        /* B. 数値・単位/ラベルを円の幾何学的中心に揃える */
-        .badge__content { 
-            position: absolute; 
-            inset: 0;
-            display: grid;
-            place-items: center;
-            text-align: center;
-            z-index: 4; 
-            line-height: 1.1;
-        }
+        .badge__content { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; line-height: 1.1; z-index: 4; }
         .badge__label { font-size: clamp(14px, 1.6vw, 18px); opacity: .85; }
         .badge__value { font-size: clamp(28px, 4.5vw, 52px); font-weight: 600; color: var(--color-primary); text-shadow: 1px 1px 2px rgba(255,255,255,0.5); }
         .badge__unit { font-size: clamp(14px, 1.6vw, 18px); opacity: .85; margin-left: .15em; }
-
-        /* A. リボンの「RANKING」を「⭐️⭐️⭐️」に確実置換 */
-        .badge__band { 
-            position: absolute; 
-            bottom: 30px; 
-            left: -15px; 
-            right: -15px; 
-            background: linear-gradient(to right, #8a6a2c, #a1803a); 
-            color: #FFD700;
-            padding: 4px 0; 
-            font-size: 1.2rem;
-            font-weight: 700; 
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.3); 
-            z-index: 3; 
-            text-align: center;
-            letter-spacing: .08em;
-        }
+        .badge__band { position: absolute; bottom: 30px; left: -15px; right: -15px; background: linear-gradient(to right, #8a6a2c, #a1803a); color: #FFD700; padding: 4px 0; font-size: 1.2rem; font-weight: 700; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); box-shadow: 0 2px 4px rgba(0,0,0,0.3); z-index: 3; text-align: center; letter-spacing: .08em; }
         .badge.medal::before, .badge.medal::after { content: ''; position: absolute; top: 130px; border-top: 40px solid #8a6a2c; border-bottom: 40px solid transparent; z-index: 1; }
         .badge.medal::before { left: 20px; border-left: 40px solid transparent; border-right: 40px solid #6c5422; transform: rotate(-20deg); }
         .badge.medal::after { right: 20px; border-right: 40px solid transparent; border-left: 40px solid #6c5422; transform: rotate(20deg); }
         @media (max-width: 768px) { .badge.medal { transform: scale(0.9); } .achievements-section .badges { gap: 1rem; } }
         @media (max-width: 680px) { .badge.medal:last-child { margin-top: 1.5rem; } }
-
         .case-study__gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
         .case-study__gallery img { width: 100%; height: 100%; object-fit: cover; border-radius: 0.5rem; box-shadow: 0 10px 25px rgba(0,0,0,0.1); aspect-ratio: 4 / 3; }
         .case-study__texts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 1.5rem; }
@@ -130,6 +100,7 @@
             <div>
               <h2>アート・宙のリフォーム</h2>
               <p>キッチン・お風呂などの部分的な改修から間取りの変更まで。お客様の現在の暮らしをより快適にするため、自然素材を活かした温もりのある空間づくりをお手伝いします。</p>
+              <!-- 引用: https://www.artsora.com/reform/ -->
               <ul class="feature__list">
                 <li class="feature__item">無垢材や漆喰など、調湿性に優れた呼吸する自然素材を標準採用。</li>
                 <li class="feature__item">一級建築士がお客様の暮らしに寄り添い、最適な動線をデザイン。</li>
@@ -140,6 +111,7 @@
             <div>
               <h2>アート・宙のリノベーション</h2>
               <p>既存の構造を活かしつつ、デザイン性や性能を全面的に向上させ、住まいの価値を再生します。<br><strong style="color: var(--color-primary);">一戸建てはもちろん、中古マンションにも対応</strong>し、素材と設計で新しい暮らしを創ります。</p>
+               <!-- 引用: https://www.artsora.com/reform/ -->
               <ul class="feature__list">
                 <li class="feature__item">物件探しから資金計画、設計、施工までワンストップでサポート。</li>
                 <li class="feature__item">断熱・耐震・省エネ性能を新築同様の基準まで引き上げます。</li>
@@ -161,7 +133,7 @@
                     <div><span class="badge__value">22</span><span class="badge__unit">年</span></div>
                 </div>
             </div>
-            <span class="badge__band" aria-hidden="true">⭐️⭐️⭐️</span>
+            <div class="badge__band" aria-hidden="true">⭐️⭐️⭐️</div>
         </li>
         <li class="badge medal" aria-label="施工実績450棟以上">
             <div class="badge__body" aria-hidden="true"></div>
@@ -171,7 +143,7 @@
                     <div><span class="badge__value">450</span><span class="badge__unit">棟</span></div>
                 </div>
             </div>
-            <span class="badge__band" aria-hidden="true">⭐️⭐️⭐️</span>
+            <div class="badge__band" aria-hidden="true">⭐️⭐️⭐️</div>
         </li>
         <li class="badge medal" aria-label="ご紹介率 要差し替え">
              <div class="badge__body" aria-hidden="true"></div>
@@ -184,7 +156,7 @@
                     </div>
                 </div>
             </div>
-            <span class="badge__band" aria-hidden="true">⭐️⭐️⭐️</span>
+            <div class="badge__band" aria-hidden="true">⭐️⭐️⭐️</div>
         </li>
       </ul>
     </section>
@@ -292,3 +264,4 @@
     </script>
 </body>
 </html>
+
