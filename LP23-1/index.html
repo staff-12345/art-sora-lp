@@ -1,248 +1,373 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>株式会社アート・宙 | 三重の自然素材リフォーム・リノベーション</title>
-    <meta name="description" content="三重県で自然素材を活かした高品質なリフォーム・リノベーションならアート・宙へ。創業22年、450棟の実績で、お客様一人ひとりの暮らしに寄り添った温かい住まいをご提案します。">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
-    <style>
-        /* --- 既存スタイル --- */
-        :root {
-            /* ① 全体の色味を変更 */
-            --color-primary: #8C7851; /* 温かみのあるブラウン (維持) */
-            --color-accent: #82956E;  /* 落ち着いたオリーブグリーン */
-            --color-text: #5D5443; 
-            --color-bg: #F9F8F6; 
-            --color-bg-alt: #FFFFFF;
-        }
-        * { font-family: 'Noto Serif JP', serif; }
-        body { background-color: var(--color-bg); color: var(--color-text); }
-        .hero-bg { background: linear-gradient(rgba(84, 73, 52, 0.6), rgba(84, 73, 52, 0.6)), url('https://i.postimg.cc/KcdVVS3b/RE-1.jpg'); background-size: cover; background-position: center; background-attachment: fixed; }
-        
-        .btn-primary { 
-            background: var(--color-accent); 
-            color: #FFFFFF;
-            transition: all 0.3s ease; 
-            border-radius: 9999px; 
-        }
-        .btn-primary:hover { 
-            background: #728460; /* オリーブグリーンのホバー色 */
-            transform: translateY(-2px); 
-            box-shadow: 0 10px 25px rgba(130, 149, 110, 0.3); 
-        }
-        /* ② 「今すぐ資料請求する」ボタンの配色修正 */
-        .brochure-section .btn-primary {
-            background-color: #4CAF50;
-            font-weight: bold; /* ① ボタンを太字に変更 */
-        }
-        .brochure-section .btn-primary:hover {
-            background-color: #66BB6A;
-        }
+\<\!DOCTYPE html\>
 
-        /* ③ 他のボタンについて */
-        .btn-secondary { 
-            background: white; 
-            color: var(--color-accent); 
-            border: 2px solid var(--color-accent); 
-        }
-        .troubles-section h2, .feature-section h2, .achievements-section h2, .case-study-section h2, .brochure-section h2 { font-size: 2.25rem; font-weight: 700; text-align: center; margin-bottom: 3rem; color: var(--color-primary); }
-        .troubles-section ul { max-width: 48rem; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
-        .troubles-section li { background: var(--color-bg-alt); padding: 1.5rem; border-radius: 0.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: flex; align-items: center; }
-        .troubles-section li::before { content: '\f058'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: var(--color-accent); font-size: 1.25rem; margin-right: 1rem; }
-        .feature-section .feature__list { list-style: none; padding-left: 0; margin-top: 1.5rem; }
-        .feature-section .feature__item { position: relative; padding-left: 2rem; margin-bottom: 1rem; }
-        .feature-section .feature__item::before { content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: var(--color-accent); position: absolute; left: 0; top: 4px; }
-        .case-study-section h3 { font-size: 1.75rem; font-weight: 700; text-align: left; margin-bottom: 2rem; color: var(--color-primary); border-bottom: 2px solid var(--color-accent); padding-bottom: 0.5rem;}
-        @media (max-width: 768px) { .hero-bg { background-attachment: scroll; } }
-        .case-study__gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-        .case-study__gallery img { width: 100%; height: 100%; object-fit: cover; border-radius: 0.5rem; box-shadow: 0 10px 25px rgba(0,0,0,0.1); aspect-ratio: 4 / 3; }
-        .case-study__texts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 1.5rem; }
-        .case-study__text p { line-height: 1.8; }
-        .case-study__text strong { color: var(--color-primary); font-weight: 700; }
-        @media (max-width: 768px) { .case-study__gallery, .case-study__texts { grid-template-columns: 1fr; } }
-    </style>
-    
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6S9PJSSY8D"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-6S9PJSSY8D');
-    </script>
-</head>
-<body>
-    <header class="hero-bg min-h-screen flex items-center justify-center text-white relative">
-        <div class="container mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-6xl font-bold mb-8 leading-tight" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.5);">
-                自然素材で、暮らしに温もりを。<br>
-                <span class="text-yellow-200">新しい暮らしを、アート・宙と。</span>
-            </h1>
-            <p class="text-xl md:text-2xl mb-12 max-w-4xl mx-auto leading-relaxed" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.5);">
-                三重県でリフォーム・リノベーションするならアート・宙
-            </p>
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="#contact-form" class="btn-primary inline-block px-12 py-4 text-lg font-semibold text-white no-underline shadow-lg w-full sm:w-auto">
-                    <i class="fas fa-file-alt mr-2"></i>
-                    資料請求・無料相談
-                </a>
-                <a href="tel:059-356-0817" aria-label="電話で問い合わせる" class="btn-primary btn-secondary inline-block px-12 py-4 text-lg font-semibold no-underline shadow-lg w-full sm:w-auto">
-                    <i class="fas fa-phone mr-2"></i>
-                    お電話はこちら
-                </a>
+\<html lang="ja"\>
+\<head\>
+\<meta charset="UTF-8"\>
+\<meta name="viewport" content="width=device-width, initial-scale=1.0"\>
+\<title\>株式会社アート・宙 | 三重の自然素材リフォーム・リノベーション\</title\>
+\<meta name="description" content="三重県で自然素材を活かした高品質なリフォーム・リノベーションならアート・宙へ。創業22年、450棟の実績で、お客様一人ひとりの暮らしに寄り添った温かい住まいをご提案します。"\>
+\<link href="[https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css](https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css)" rel="stylesheet"\>
+\<link rel="preconnect" href="[https://fonts.googleapis.com](https://fonts.googleapis.com)"\>
+\<link rel="preconnect" href="[https://fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin\>
+\<link href="[https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700\&display=swap](https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700&display=swap)" rel="stylesheet"\>
+\<link href="[https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700\&display=swap](https://www.google.com/search?q=https://fonts.googleapis.com/css2%3Ffamily%3DNoto%2BSans%2BJP:wght%40400%3B700%26display%3Dswap)" rel="stylesheet"\>
+\<link rel="stylesheet" href="[https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css](https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css)"\>
+\<style\>
+/\* --- 既存スタイル --- */
+:root {
+/* ① 全体の色味を変更 */
+\--color-primary: \#8C7851; /* 温かみのあるブラウン (維持) */
+\--color-accent: \#82956E;  /* 落ち着いたオリーブグリーン \*/
+\--color-text: \#5D5443;
+\--color-bg: \#F9F8F6;
+\--color-bg-alt: \#FFFFFF;
+}
+\* { font-family: 'Noto Serif JP', serif; }
+body { background-color: var(--color-bg); color: var(--color-text); }
+.hero-bg { background: linear-gradient(rgba(84, 73, 52, 0.6), rgba(84, 73, 52, 0.6)), url('[https://i.postimg.cc/KcdVVS3b/RE-1.jpg](https://i.postimg.cc/KcdVVS3b/RE-1.jpg)'); background-size: cover; background-position: center; background-attachment: fixed; }
+
+```
+    .btn-primary { 
+        background: var(--color-accent); 
+        color: #FFFFFF;
+        transition: all 0.3s ease; 
+        border-radius: 9999px; 
+    }
+    .btn-primary:hover { 
+        background: #728460; /* オリーブグリーンのホバー色 */
+        transform: translateY(-2px); 
+        box-shadow: 0 10px 25px rgba(130, 149, 110, 0.3); 
+    }
+    /* ② 「今すぐ資料請求する」ボタンの配色修正 */
+    .brochure-section .btn-primary {
+        background-color: #4CAF50;
+        font-weight: bold; /* ① ボタンを太字に変更 */
+    }
+    .brochure-section .btn-primary:hover {
+        background-color: #66BB6A;
+    }
+
+    /* ③ 他のボタンについて */
+    .btn-secondary { 
+        background: white; 
+        color: var(--color-accent); 
+        border: 2px solid var(--color-accent); 
+    }
+    .troubles-section h2, .feature-section h2, .achievements-section h2, .case-study-section h2, .brochure-section h2 { font-size: 2.25rem; font-weight: 700; text-align: center; margin-bottom: 3rem; color: var(--color-primary); }
+    .troubles-section ul { max-width: 48rem; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+    .troubles-section li { background: var(--color-bg-alt); padding: 1.5rem; border-radius: 0.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: flex; align-items: center; }
+    .troubles-section li::before { content: '\f058'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: var(--color-accent); font-size: 1.25rem; margin-right: 1rem; }
+    .feature-section .feature__list { list-style: none; padding-left: 0; margin-top: 1.5rem; }
+    .feature-section .feature__item { position: relative; padding-left: 2rem; margin-bottom: 1rem; }
+    .feature-section .feature__item::before { content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: var(--color-accent); position: absolute; left: 0; top: 4px; }
+    .case-study-section h3 { font-size: 1.75rem; font-weight: 700; text-align: left; margin-bottom: 2rem; color: var(--color-primary); border-bottom: 2px solid var(--color-accent); padding-bottom: 0.5rem;}
+    @media (max-width: 768px) { .hero-bg { background-attachment: scroll; } }
+    .case-study__gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .case-study__gallery img { width: 100%; height: 100%; object-fit: cover; border-radius: 0.5rem; box-shadow: 0 10px 25px rgba(0,0,0,0.1); aspect-ratio: 4 / 3; }
+    .case-study__texts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 1.5rem; }
+    .case-study__text p { line-height: 1.8; }
+    .case-study__text strong { color: var(--color-primary); font-weight: 700; }
+    @media (max-width: 768px) { .case-study__gallery, .case-study__texts { grid-template-columns: 1fr; } }
+</style>
+
+<script async src="[https://www.googletagmanager.com/gtag/js?id=G-6S9PJSSY8D](https://www.googletagmanager.com/gtag/js?id=G-6S9PJSSY8D)"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6S9PJSSY8D');
+</script>
+<style id="warm-theme-overrides">
+    :root {
+        /* Base */
+        --bg:            #FBF6EF;
+        --surface:       #F2E7D8;
+        --text:          #3E3A35;
+        --muted-text:    #6E6153;
+
+        /* Wood / Brand */
+        --wood-brown:    #7A5230;
+        --heading-brown: #6B4C2E;
+        --olive:         #6D7F5D;
+        --terracotta:    #C86E3F;
+
+        /* CTA（主要） */
+        --cta-bg:        #E79E59;
+        --cta-text:      #FFFFFF;
+        --cta-hover:     #D67A2C;
+        --cta-focus:     #4A331F;
+
+        /* ボーダー/影 */
+        --border:        #E6D8C7;
+        --shadow:        0 10px 24px rgba(122, 82, 48, .10);
+    }
+
+    /* 1. Typography */
+    body {
+        font-family: 'Noto Sans JP', sans-serif !important;
+        background-color: var(--bg) !important;
+        color: var(--text) !important;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Noto Serif JP', serif !important;
+        color: var(--heading-brown) !important;
+    }
+    p {
+        color: var(--text);
+    }
+    .hero-bg h1, .hero-bg p {
+        color: #FFFFFF !important;
+    }
+    .hero-bg h1 span {
+        color: #FDE68A !important;
+    }
+
+    /* 2. Layout & Element Colors */
+    .bg-white,
+    .troubles-section li,
+    .brochure-section .bg-white,
+    .mx-auto .bg-white {
+        background-color: var(--surface) !important;
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow) !important;
+    }
+    #contact-form {
+        background-color: var(--bg) !important;
+    }
+    footer {
+        background-color: var(--wood-brown) !important;
+    }
+    strong, .case-study__text strong {
+        color: var(--wood-brown) !important;
+    }
+
+    /* 3. Accents & Icons */
+    .troubles-section li::before,
+    .feature-section .feature__item::before {
+        color: var(--olive) !important;
+    }
+    .case-study-section h3 {
+        border-color: var(--terracotta) !important;
+    }
+    .brochure-section p.font-semibold {
+        color: var(--heading-brown) !important;
+    }
+
+    /* 4. Buttons */
+    .btn-primary-warm {
+        background-color: var(--cta-bg) !important;
+        color: var(--cta-text) !important;
+        font-weight: 700 !important;
+        border-radius: 9999px;
+        box-shadow: var(--shadow) !important;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    .btn-primary-warm:hover {
+        background-color: var(--cta-hover) !important;
+        transform: translateY(-2px);
+    }
+    .btn-primary-warm:focus-visible {
+        outline: 2px solid var(--cta-focus);
+        outline-offset: 2px;
+    }
+
+    .btn-secondary {
+        background: transparent !important;
+        color: var(--wood-brown) !important;
+        border: 2px solid var(--wood-brown) !important;
+        box-shadow: none !important;
+    }
+    .btn-secondary:hover {
+        background: rgba(122, 82, 48, .08) !important;
+        color: var(--heading-brown) !important;
+        transform: translateY(-2px);
+        box-shadow: var(--shadow) !important;
+    }
+
+    .btn-primary:not(.btn-primary-warm) {
+        background-color: var(--olive) !important;
+        color: var(--cta-text) !important;
+        box-shadow: var(--shadow) !important;
+    }
+    .btn-primary:not(.btn-primary-warm):hover {
+        background-color: #5a6b4c !important; /* Darker olive */
+        transform: translateY(-2px);
+    }
+</style>
+```
+
+\</head\>
+\<body\>
+\<header class="hero-bg min-h-screen flex items-center justify-center text-white relative"\>
+\<div class="container mx-auto px-4 text-center"\>
+\<h1 class="text-4xl md:text-6xl font-bold mb-8 leading-tight" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.5);"\>
+自然素材で、暮らしに温もりを。\<br\>
+\<span class="text-yellow-200"\>新しい暮らしを、アート・宙と。\</span\>
+\</h1\>
+\<p class="text-xl md:text-2xl mb-12 max-w-4xl mx-auto leading-relaxed" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.5);"\>
+三重県でリフォーム・リノベーションするならアート・宙
+\</p\>
+\<div class="flex flex-col sm:flex-row items-center justify-center gap-4"\>
+\<a href="\#contact-form" class="btn-primary inline-block px-12 py-4 text-lg font-semibold text-white no-underline shadow-lg w-full sm:w-auto"\>
+\<i class="fas fa-file-alt mr-2"\>\</i\>
+資料請求・無料相談
+\</a\>
+\<a href="tel:059-356-0817" aria-label="電話で問い合わせる" class="btn-primary btn-secondary inline-block px-12 py-4 text-lg font-semibold no-underline shadow-lg w-full sm:w-auto"\>
+\<i class="fas fa-phone mr-2"\>\</i\>
+お電話はこちら
+\</a\>
+\</div\>
+\</div\>
+\</header\>
+
+```
+<section class="troubles-section py-20 px-6">
+  <h2>こんなお悩みはありませんか？</h2>
+  <ul>
+    <li>年齢を重ねて、今の家での暮らしに不便を感じることが増えた。</li>
+    <li>家の老朽化が心配。</li>
+    <li>夏暑くて冬は寒い…体への負担が大きい。</li>
+    <li>足腰が悪く、階段の上り下りが大変。</li>
+    <li>昔ながらの大きな家で、使っていない部屋がありもったいない。</li>
+    <li>家の中が暗い。</li>
+    <li>中古マンションの購入を考えている。</li>
+  </ul>
+</section>
+
+<section class="feature-section py-20 px-6 bg-white">
+    <div class="container mx-auto grid md:grid-cols-2 gap-16 items-start">
+        <div>
+          <h2>アート・宙のリフォーム</h2>
+          <p>キッチン・お風呂などの部分的な改修から間取りの変更まで。お客様の現在の暮らしをより快適にするため、自然素材を活かした温もりのある空間づくりをお手伝いします。</p>
+          <ul class="feature__list">
+            <li class="feature__item">無垢材や漆喰など、調湿性に優れた呼吸する自然素材を標準採用。</li>
+            <li class="feature__item">一級建築士がお客様の暮らしに寄り添い、最適な動線をデザイン。</li>
+            <li class="feature__item">耐震補強や断熱性能の向上で、安心・快適な住まいへ。</li>
+            <li class="feature__item">経験豊富な職人による丁寧な施工と、安心のアフターメンテナンス。</li>
+          </ul>
+        </div>
+        <div>
+          <h2>アート・宙のリノベーション</h2>
+          <p>既存の構造を活かしつつ、デザイン性や性能を全面的に向上させ、住まいの価値を再生します。<br><strong style="color: var(--color-primary);">一戸建てはもちろん、中古マンションにも対応</strong>し、素材と設計で新しい暮らしを創ります。</p>
+          <ul class="feature__list">
+            <li class="feature__item">物件探しから資金計画、設計、施工までワンストップでサポート。</li>
+            <li class="feature__item">断熱・耐震・省エネ性能を新築同様の基準まで引き上げます。</li>
+            <li class="feature__item">ご家族のライフスタイルに合わせた、自由な間取り変更が可能。</li>
+            <li class="feature__item">自然素材をふんだんに使い、デザイン性と健康の両立を実現。</li>
+          </ul>
+        </div>
+    </div>
+</section>
+
+<section class="achievements-section py-20 px-6" aria-label="実績">
+  <h2>アート・宙の実績</h2>
+  <div class="container mx-auto text-center">
+    <img src="[https://i.postimg.cc/jqNWwHZ2/image.png](https://i.postimg.cc/jqNWwHZ2/image.png)" alt="アート・宙の実績（受賞・年数・件数のバッジ一覧）" class="mx-auto max-w-full h-auto rounded-lg shadow-md">
+  </div>
+</section>
+
+<section class="case-study-section py-20 px-6 bg-white">
+    <div class="container mx-auto">
+        <h2>施工実例のご紹介</h2>
+       
+        <div class="mb-16" aria-labelledby="case1-heading">
+            <h3 id="case1-heading">家族がくつろげる広々としたLDKへ</h3>
+            <div class="case-study__text mb-6">
+                <p><strong>●実施したこと</strong><br>サッシ交換・内装デザインの変更・造作収納増設・水廻り設備の交換・床の張り替え・壁の塗り替え</p>
+            </div>
+            <div class="case-study__gallery">
+                <img src="[https://i.postimg.cc/bJ2Mqd7z/LP2.jpg](https://i.postimg.cc/bJ2Mqd7z/LP2.jpg)" alt="以前は和室だった場所をLDKに取り込み、約17帖の広々とした空間を実現。">
+                <img src="[https://i.postimg.cc/0N9WLcf0/LP7.jpg](https://i.postimg.cc/0N9WLcf0/LP7.jpg)" alt="寒さ対策として入れ替えた高断熱の窓。">
+                <img src="[https://i.postimg.cc/GpfV0vS7/LP3.jpg](https://i.postimg.cc/GpfV0vS7/LP3.jpg)" alt="新しいデザインに溶け込むよう、丁寧に保存された床柱。">
+            </div>
+            <div class="case-study__texts">
+                <div class="case-study__text">
+                    <p>以前は和室が続いていた間取りでしたが、<br>壁を取り払ってLDKの一部に取り込むことで、<br>家族全員がくつろげる約17帖の広々とした空間が生まれました。</p>
+                </div>
+                <div class="case-study__text">
+                    <p>「とにかく寒いことに悩んでいる」というお悩みから、窓を入れ替えました。<br>窓のリノベーションは住みながらの工事も可能なため、工事期間中に仮住まいへの引っ越しといった負担がありません。</p>
+                </div>
+                <div class="case-study__text">
+                    <p>床柱はそのままの状態で丁寧に残しました。<br>昔からの落ち着きを感じさせながら、新しいデザインの中にも自然に溶け込み、<br>家全体に奥深い味わいを添えています。</p>
+                </div>
             </div>
         </div>
-    </header>
 
-    <section class="troubles-section py-20 px-6">
-      <h2>こんなお悩みはありませんか？</h2>
-      <ul>
-        <li>年齢を重ねて、今の家での暮らしに不便を感じることが増えた。</li>
-        <li>家の老朽化が心配。</li>
-        <li>夏暑くて冬は寒い…体への負担が大きい。</li>
-        <li>足腰が悪く、階段の上り下りが大変。</li>
-        <li>昔ながらの大きな家で、使っていない部屋がありもったいない。</li>
-        <li>家の中が暗い。</li>
-        <li>中古マンションの購入を考えている。</li>
-      </ul>
-    </section>
-
-    <section class="feature-section py-20 px-6 bg-white">
-        <div class="container mx-auto grid md:grid-cols-2 gap-16 items-start">
-            <div>
-              <h2>アート・宙のリフォーム</h2>
-              <p>キッチン・お風呂などの部分的な改修から間取りの変更まで。お客様の現在の暮らしをより快適にするため、自然素材を活かした温もりのある空間づくりをお手伝いします。</p>
-              <ul class="feature__list">
-                <li class="feature__item">無垢材や漆喰など、調湿性に優れた呼吸する自然素材を標準採用。</li>
-                <li class="feature__item">一級建築士がお客様の暮らしに寄り添い、最適な動線をデザイン。</li>
-                <li class="feature__item">耐震補強や断熱性能の向上で、安心・快適な住まいへ。</li>
-                <li class="feature__item">経験豊富な職人による丁寧な施工と、安心のアフターメンテナンス。</li>
-              </ul>
+        <div aria-labelledby="case2-heading">
+            <h3 id="case2-heading">築100年の古民家を再生</h3>
+             <div class="case-study__text mb-6">
+                <p><strong>●実施したこと</strong><br>外壁のはり替え・サッシ交換・内装デザインの変更・造作収納増設・水廻り設備の交換・床の張り替え・壁の塗り替え</p>
             </div>
-            <div>
-              <h2>アート・宙のリノベーション</h2>
-              <p>既存の構造を活かしつつ、デザイン性や性能を全面的に向上させ、住まいの価値を再生します。<br><strong style="color: var(--color-primary);">一戸建てはもちろん、中古マンションにも対応</strong>し、素材と設計で新しい暮らしを創ります。</p>
-              <ul class="feature__list">
-                <li class="feature__item">物件探しから資金計画、設計、施工までワンストップでサポート。</li>
-                <li class="feature__item">断熱・耐震・省エネ性能を新築同様の基準まで引き上げます。</li>
-                <li class="feature__item">ご家族のライフスタイルに合わせた、自由な間取り変更が可能。</li>
-                <li class="feature__item">自然素材をふんだんに使い、デザイン性と健康の両立を実現。</li>
-              </ul>
+            <div class="case-study__gallery">
+                <img src="[https://i.postimg.cc/zX01tH5M/LP5.jpg](https://i.postimg.cc/zX01tH5M/LP5.jpg)" alt="天井裏の梁を見せる仕上げにした開放的なリビング。">
+                <img src="[https://i.postimg.cc/RZhxjCZ0/LP6.jpg](https://i.postimg.cc/RZhxjCZ0/LP6.jpg)" alt="食堂とリビングを一つにまとめた約19帖のLDK。">
+                <img src="[https://i.postimg.cc/028s00gD/LP4.jpg](https://i.postimg.cc/028s00gD/LP4.jpg)" alt="既存の天井を活かし、趣を残しながら和モダンに仕上げた内装。">
             </div>
-        </div>
-    </section>
-
-    <section class="achievements-section py-20 px-6" aria-label="実績">
-      <h2>アート・宙の実績</h2>
-      <div class="container mx-auto text-center">
-        <img src="https://i.postimg.cc/jqNWwHZ2/image.png" alt="アート・宙の実績（受賞・年数・件数のバッジ一覧）" class="mx-auto max-w-full h-auto rounded-lg shadow-md">
-      </div>
-    </section>
-
-    <section class="case-study-section py-20 px-6 bg-white">
-        <div class="container mx-auto">
-            <h2>施工実例のご紹介</h2>
-            
-            <div class="mb-16" aria-labelledby="case1-heading">
-                <h3 id="case1-heading">家族がくつろげる広々としたLDKへ</h3>
-                <div class="case-study__text mb-6">
-                    <p><strong>●実施したこと</strong><br>サッシ交換・内装デザインの変更・造作収納増設・水廻り設備の交換・床の張り替え・壁の塗り替え</p>
+            <div class="case-study__texts">
+                <div class="case-study__text">
+                    <p>今回、天井裏に隠れていた梁を見せる仕上げにしました。<br>天井が高くなることで、空間が立体的になり、<br>木の存在感や力強さを感じられます。</p>
                 </div>
-                <div class="case-study__gallery">
-                    <img src="https://i.postimg.cc/bJ2Mqd7z/LP2.jpg" alt="以前は和室だった場所をLDKに取り込み、約17帖の広々とした空間を実現。">
-                    <img src="https://i.postimg.cc/0N9WLcf0/LP7.jpg" alt="寒さ対策として入れ替えた高断熱の窓。">
-                    <img src="https://i.postimg.cc/GpfV0vS7/LP3.jpg" alt="新しいデザインに溶け込むよう、丁寧に保存された床柱。">
+                <div class="case-study__text">
+                    <p>「食堂」と「リビング」として区切られていたところを、<br>約19帖の1つの空間にまとめました。<br>床には桧、壁には珪藻土の塗り壁を採用し、<br>木の香りと共に家族が落ち着くLDKに。</p>
                 </div>
-                <div class="case-study__texts">
-                    <div class="case-study__text">
-                        <p>以前は和室が続いていた間取りでしたが、<br>壁を取り払ってLDKの一部に取り込むことで、<br>家族全員がくつろげる約17帖の広々とした空間が生まれました。</p>
-                    </div>
-                    <div class="case-study__text">
-                        <p>「とにかく寒いことに悩んでいる」というお悩みから、窓を入れ替えました。<br>窓のリノベーションは住みながらの工事も可能なため、工事期間中に仮住まいへの引っ越しといった負担がありません。</p>
-                    </div>
-                    <div class="case-study__text">
-                        <p>床柱はそのままの状態で丁寧に残しました。<br>昔からの落ち着きを感じさせながら、新しいデザインの中にも自然に溶け込み、<br>家全体に奥深い味わいを添えています。</p>
-                    </div>
-                </div>
-            </div>
-
-            <div aria-labelledby="case2-heading">
-                <h3 id="case2-heading">築100年の古民家を再生</h3>
-                 <div class="case-study__text mb-6">
-                    <p><strong>●実施したこと</strong><br>外壁のはり替え・サッシ交換・内装デザインの変更・造作収納増設・水廻り設備の交換・床の張り替え・壁の塗り替え</p>
-                </div>
-                <div class="case-study__gallery">
-                    <img src="https://i.postimg.cc/zX01tH5M/LP5.jpg" alt="天井裏の梁を見せる仕上げにした開放的なリビング。">
-                    <img src="https://i.postimg.cc/RZhxjCZ0/LP6.jpg" alt="食堂とリビングを一つにまとめた約19帖のLDK。">
-                    <img src="https://i.postimg.cc/028s00gD/LP4.jpg" alt="既存の天井を活かし、趣を残しながら和モダンに仕上げた内装。">
-                </div>
-                <div class="case-study__texts">
-                    <div class="case-study__text">
-                        <p>今回、天井裏に隠れていた梁を見せる仕上げにしました。<br>天井が高くなることで、空間が立体的になり、<br>木の存在感や力強さを感じられます。</p>
-                    </div>
-                    <div class="case-study__text">
-                        <p>「食堂」と「リビング」として区切られていたところを、<br>約19帖の1つの空間にまとめました。<br>床には桧、壁には珪藻土の塗り壁を採用し、<br>木の香りと共に家族が落ち着くLDKに。</p>
-                    </div>
-                    <div class="case-study__text">
-                        <p>「内装デザインを和モダンにしたい」というご要望から、既存の天井等活かし、趣を残しながら仕上げました。</p>
-                    </div>
+                <div class="case-study__text">
+                    <p>「内装デザインを和モダンにしたい」というご要望から、既存の天井等活かし、趣を残しながら仕上げました。</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="brochure-section py-20 px-6">
-        <div class="container mx-auto">
-            <h2 class="uppercase">PRESENT</h2>
-            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 items-center bg-white p-8 rounded-lg shadow-lg">
-                <img src="https://i.postimg.cc/GmVnRPZ8/2025-09-05-14-34-16.png" alt="アート・宙 リフォーム・リノベーション パンフレット" class="w-full max-w-sm mx-auto">
-                <div class="text-center md:text-left">
-                    <p class="text-lg font-semibold mb-4" style="color: var(--color-primary);">資料請求いただいた方に、アート・宙のこだわりが詰まったパンフレットを無料進呈します。</p>
-                    <p>アート・宙のリフォーム・リノベーションの特徴や施工事例のご紹介など、ホームページには掲載しきれない情報が盛りだくさんです。ぜひご覧ください。</p>
-                    <a href="#contact-form" class="btn-primary inline-block mt-6 px-8 py-3">今すぐ資料請求する</a>
-                </div>
+<section class="brochure-section py-20 px-6">
+    <div class="container mx-auto">
+        <h2 class="uppercase">PRESENT</h2>
+        <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 items-center bg-white p-8 rounded-lg shadow-lg">
+            <img src="[https://i.postimg.cc/GmVnRPZ8/2025-09-05-14-34-16.png](https://i.postimg.cc/GmVnRPZ8/2025-09-05-14-34-16.png)" alt="アート・宙 リフォーム・リノベーション パンフレット" class="w-full max-w-sm mx-auto">
+            <div class="text-center md:text-left">
+                <p class="text-lg font-semibold mb-4" style="color: var(--color-primary);">資料請求いただいた方に、アート・宙のこだわりが詰まったパンフレットを無料進呈します。</p>
+                <p>アート・宙のリフォーム・リノベーションの特徴や施工事例のご紹介など、ホームページには掲載しきれない情報が盛りだくさんです。ぜひご覧ください。</p>
+                <a href="#contact-form" class="btn-primary inline-block mt-6 px-8 py-3 btn-primary-warm">今すぐ資料請求する</a>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section id="contact-form" class="py-20" style="background-color: #ECE8E1;">
-        <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16" style="color: var(--color-primary);">
-                    お問い合わせ・資料請求
-                </h2>
-                <div class="bg-white p-4 sm:p-8 rounded-lg shadow-lg">
-                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdzWiC2E6jyxa6d4nYnULTxSUVYIEGIAtdCsENUQW-Ua90Uzw/viewform?embedded=true" width="100%" height="1200" frameborder="0" marginheight="0" marginwidth="0" title="お問い合わせフォーム">読み込んでいます…</iframe>
-                </div>
+<section id="contact-form" class="py-20" style="background-color: #ECE8E1;">
+    <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16" style="color: var(--color-primary);">
+                お問い合わせ・資料請求
+            </h2>
+            <div class="bg-white p-4 sm:p-8 rounded-lg shadow-lg">
+                <iframe src="[https://docs.google.com/forms/d/e/1FAIpQLSdzWiC2E6jyxa6d4nYnULTxSUVYIEGIAtdCsENUQW-Ua90Uzw/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLSdzWiC2E6jyxa6d4nYnULTxSUVYIEGIAtdCsENUQW-Ua90Uzw/viewform?embedded=true)" width="100%" height="1200" frameborder="0" marginheight="0" marginwidth="0" title="お問い合わせフォーム">読み込んでいます…</iframe>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <footer class="py-16" style="background-color: var(--color-primary);">
-        <div class="container mx-auto px-4 text-center text-white">
-            <div class="max-w-6xl mx-auto">
-                 <div class="text-2xl font-bold mb-6">株式会社アート・宙</div>
-                 <p class="text-sm">〒510-0081 三重県四日市市北町3番4号<br>TEL: 059-356-0817</p>
-                <div class="border-t border-white/20 mt-8 pt-8 text-xs text-white/70">
-                    <p>&copy; 2025 Art-Sora Inc. All Rights Reserved.</p>
-                </div>
+<footer class="py-16" style="background-color: var(--color-primary);">
+    <div class="container mx-auto px-4 text-center text-white">
+        <div class="max-w-6xl mx-auto">
+             <div class="text-2xl font-bold mb-6">株式会社アート・宙</div>
+             <p class="text-sm">〒510-0081 三重県四日市市北町3番4号<br>TEL: 059-356-0817</p>
+            <div class="border-t border-white/20 mt-8 pt-8 text-xs text-white/70">
+                <p>&copy; 2025 Art-Sora Inc. All Rights Reserved.</p>
             </div>
         </div>
-    </footer>
+    </div>
+</footer>
 
-    <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+<script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
             });
         });
-    </script>
-</body>
-</html>
+    });
+</script>
+```
+
+\</body\>
+\</html\>
