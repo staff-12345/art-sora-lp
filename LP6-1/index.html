@@ -81,7 +81,6 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
 .slide-left{opacity:0;transform:translateX(-26px);transition:opacity .8s ease, transform .8s ease}
 .slide-right{opacity:0;transform:translateX(26px);transition:opacity .8s ease, transform .8s ease}
 .slide-up{opacity:0;transform:translateY(18px);transition:opacity .8s ease, transform .8s ease}
-/* .slid は .revealed に統一するため削除 */
 
 /* お悩み：横スクロールカード */
 .worries-rail{display:flex;gap:14px;overflow-x:auto;padding:8px;scroll-snap-type:x mandatory}
@@ -201,7 +200,7 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
   <div class="container">
     <h2 class="reveal">アート宙のリフォーム・リノベーションについて</h2>
     <div class="grid-2">
-      <div class="card card-strong service-card slide-left" id="svc1" style="padding:1.1rem 1.1rem">
+      <div class="card card-strong service-card" id="svc1" style="padding:1.1rem 1.1rem">
         <h3>アート・宙のリフォーム</h3>
         <p style="margin-top:.6rem">
           部分改修から断熱・耐震・水回りまで。住みながらの工事が可能なメニューもあり、
@@ -222,7 +221,7 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
           </p>
         </div>
       </div>
-      <div class="card card-strong service-card slide-right" id="svc2" style="padding:1.1rem 1.1rem">
+      <div class="card card-strong service-card" id="svc2" style="padding:1.1rem 1.1rem">
         <h3>アート・宙のリノベーション（戸建・マンション対応）</h3>
         <p style="margin-top:.6rem">
           間取りの再構築や内装一新、設備の総入れ替えまで。
@@ -369,8 +368,7 @@ const io = new IntersectionObserver(entries=>{
     if(e.isIntersecting){ e.target.classList.add('revealed'); io.unobserve(e.target);} 
   });
 },{threshold:.12});
-// ★★★ 修正点 ★★★
-// .revealだけでなく、.slide-left, .slide-right, .slide-up もアニメーションの対象に含めるように修正しました。
+// .revealだけでなく、他のアニメーションクラスも対象にします
 for(const el of document.querySelectorAll('.reveal, .slide-left, .slide-right, .slide-up')) io.observe(el);
 
 /** Parallax (軽量) */
