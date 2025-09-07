@@ -83,11 +83,23 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
 .slide-up{opacity:0;transform:translateY(18px);transition:opacity .8s ease, transform .8s ease}
 .slid{opacity:1;transform:none}
 
-/* お悩み */
-.worry-list{list-style:none;margin:0;padding:1.1rem}
-.worry-item{display:flex;align-items:flex-start;gap:.6rem;padding:.55rem .2rem}
-.badge-num{min-width:28px;height:28px;border-radius:999px;background:var(--brand);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:700;transition:transform .15s ease, box-shadow .2s ease}
-.worry-item:hover .badge-num{transform:translateY(-1px);box-shadow:0 6px 16px rgba(216,155,92,.35)}
+/* お悩み：正方形カード＋横スクロール（流れる） */
+.worries-wrap{overflow:hidden}
+.worries-rail{
+  display:flex;gap:12px;align-items:stretch;
+  animation:marq 28s linear infinite;
+  padding:4px;
+}
+.worry-card{
+  flex:0 0 220px;height:220px;display:flex;align-items:center;justify-content:center;text-align:center;
+  background:var(--paper-2);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:14px;
+}
+.worry-card strong{color:var(--brand-ink)}
+.worries-wrap:hover .worries-rail{animation-play-state:paused}
+@keyframes marq{
+  0%{transform:translateX(0)}
+  100%{transform:translateX(-50%)}
+}
 
 /* サービス */
 .grid-2{display:grid;gap:1.2rem;grid-template-columns:1fr}
@@ -99,23 +111,18 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
 .service-card.open{transform:translateY(-1px) scale(1.01)}
 .service-card.open .service-content{max-height:300px}
 
-/* 実績（カウントアップ＋バウンス） */
+/* 実績（画像のみ表示に簡素化） */
 .ach-band{background:linear-gradient(135deg, var(--paper-3), var(--paper-2));border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:1.2rem}
-.ach-grid{display:grid;gap:1rem;grid-template-columns:repeat(1,1fr)}
-@media (min-width:680px){.ach-grid{grid-template-columns:repeat(3,1fr)}}
-.counter{font-size:2.2rem;font-weight:800;color:var(--brand-ink);display:inline-block}
-@keyframes bounce{0%{transform:scale(1)}60%{transform:scale(1.1)}100%{transform:scale(1)}}
-.counter.bounce{animation:bounce .35s ease}
+.achievements-img{display:block;max-width:920px;width:100%;margin:0 auto;border-radius:12px;box-shadow:0 12px 28px rgba(0,0,0,.08)}
 
 /* 事例 — ジグザグ */
 .zig{display:grid;gap:1.2rem;grid-template-columns:1fr}
 @media (min-width:980px){.zig{grid-template-columns:1.1fr .9fr}}
 .frame{border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow)}
-.caption{background:var(--paper-2);border:1px solid var(--line);border-top:0;border-radius:0 0 var(--r) var(--r);padding:.8rem 1rem}
-.num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:999px;background:var(--brand);color:#fff;font-weight:700;margin-right:.4rem;opacity:.5}
-.num.on{opacity:1}
+.caption{background:var(--paper-2);border:1px solid var(--line);border-top:0;border-radius:0 0 var(--r) var(--r);padding:1rem 1.2rem}
+.caption .small{font-size:1rem;line-height:1.9} /* ← 説明を大きく */
 
-/* Before/After スライダー */
+/* Before/After スライダー（現状維持） */
 .ba{position:relative;border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow)}
 .ba img{display:block;width:100%;height:auto}
 .ba .after{position:absolute;inset:0;overflow:hidden}
@@ -125,7 +132,7 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
 .ba input[type=range]::-webkit-slider-thumb{appearance:none;width:18px;height:18px;border-radius:50%;background:var(--brand);margin-top:-7px;border:2px solid #fff}
 .ba .divider{position:absolute;top:0;bottom:0;left:50%;width:2px;background:var(--brand-ink)}
 
-/* ギャラリー（マasonry + ライトボックス + チルト） */
+/* ギャラリー（既存維持） */
 .masonry{columns:2;column-gap:12px}
 @media (min-width:920px){.masonry{columns:3}}
 .tile{break-inside:avoid;margin-bottom:12px;border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);cursor:zoom-in;opacity:0;transform:translateY(10px) rotate(0.6deg);transition:opacity .6s ease, transform .6s ease}
@@ -145,14 +152,6 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
 .faq summary::-webkit-details-marker{display:none}
 .faq details[open]{background:var(--paper-3)}
 .rotate{transition:transform .25s ease}
-
-/* CTA（今回削除セクションだったためCSSそのままでも未使用） */
-.cta{position:relative;overflow:hidden;border-radius:var(--r-lg);background:linear-gradient(135deg,var(--paper-3),var(--paper-2));border:1px solid var(--line);box-shadow:var(--shadow)}
-.cta .glow{position:absolute;inset:auto -40px -40px auto;width:220px;height:220px;background:radial-gradient(circle, rgba(216,155,92,.25), transparent 60%);filter:blur(18px);border-radius:50%;animation:float 6s ease-in-out infinite alternate}
-@keyframes float{to{transform:translateY(12px)}}
-.cta .btn-primary{animation:pulse 2.8s ease-in-out infinite}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(216,155,92,.0)}50%{box-shadow:0 0 0 12px rgba(216,155,92,.15)}}
-.btn.lift{transform:translateY(-2px)}
 
 /* 小ユーティリティ */
 .grid-3{display:grid;gap:12px;grid-template-columns:repeat(3,1fr)}
@@ -187,11 +186,13 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
   <div class="container hero-wrap">
     <div>
       <p class="reveal" style="font-family:'Cormorant Garamond',serif;color:var(--brand-ink);letter-spacing:.2em;text-transform:uppercase;font-size:.8rem">Warmth & Wood</p>
-      <h1 class="reveal" style="margin-top:.4rem">自然素材で、暮らしにぬくもりを。<br>新しい暮らしを、アート・宙と。</h1>
+      <h1 class="reveal" style="margin-top:.4rem;white-space:pre-line">
+自然素材で
+暮らしにぬくもりを
+新しい暮らしを
+アート・宙と</h1>
       <p class="reveal" style="margin-top:1rem">三重県でリフォーム・リノベーションするなら<strong>株式会社アート・宙</strong>。自然素材とやさしい色調で、住まいの「居ごこち」を丁寧に整えます。</p>
-      <div class="reveal" style="margin-top:1rem;display:flex;gap:.5rem;flex-wrap:wrap">
-        <span class="chip">自然素材</span><span class="chip">断熱・窓改修</span><span class="chip">動線見直し</span><span class="chip">マンション可</span>
-      </div>
+      <!-- 指示：Heroのチップ群は削除 -->
       <div class="reveal" style="margin-top:1rem;display:flex;gap:.6rem;flex-wrap:wrap">
         <a href="#contact-form" class="btn btn-primary">資料請求</a>
         <a href="#services" class="btn btn-outline">サービスを見る</a>
@@ -205,25 +206,25 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
   </div>
 </section>
 
-<!-- ===== （削除済み）全体のデザインについて ===== -->
-<!-- ※ 指示によりこのセクションは削除 -->
-
-<!-- ===== お悩み（順次スライドイン） ===== -->
+<!-- ===== お悩み（正方形カードが横に流れる） ===== -->
 <section class="section" id="worries">
   <div class="container">
     <h2 class="reveal">こんなお悩みはありませんか？</h2>
-    <div class="grid-2">
-      <ul class="card reveal worry-list">
-        <li class="worry-item"><span class="badge-num">1</span>年齢を重ねて、今の家での暮らしに不便が増えた</li>
-        <li class="worry-item"><span class="badge-num">2</span>家の老朽化が心配</li>
-        <li class="worry-item"><span class="badge-num">3</span>夏は暑く冬は寒い——体への負担が大きい</li>
-        <li class="worry-item"><span class="badge-num">4</span>足腰が悪く、階段の上り下りが大変</li>
-      </ul>
-      <ul class="card reveal worry-list">
-        <li class="worry-item"><span class="badge-num">5</span>昔ながらの大きな家で、使っていない部屋が多い</li>
-        <li class="worry-item"><span class="badge-num">6</span>家の中が暗い</li>
-        <li class="worry-item"><span class="badge-num">7</span>中古マンションを購入してリノベしたい</li>
-      </ul>
+    <div class="worries-wrap">
+      <div class="worries-rail" id="worriesRail">
+        <div class="worry-card"><p><strong>加齢で不便</strong><br>暮らしの負担が増えてきた</p></div>
+        <div class="worry-card"><p><strong>老朽化が心配</strong><br>劣化箇所をどう直す？</p></div>
+        <div class="worry-card"><p><strong>暑い／寒い</strong><br>夏冬の体負担が大きい</p></div>
+        <div class="worry-card"><p><strong>階段がつらい</strong><br>足腰に配慮した動線へ</p></div>
+        <div class="worry-card"><p><strong>使ってない部屋</strong><br>広さを有効活用したい</p></div>
+        <div class="worry-card"><p><strong>家が暗い</strong><br>光の取り入れを改善</p></div>
+        <div class="worry-card"><p><strong>中古マンション</strong><br>購入＋リノベを相談</p></div>
+        <!-- ループ用に複製（半分分） -->
+        <div class="worry-card"><p><strong>加齢で不便</strong><br>暮らしの負担が増えてきた</p></div>
+        <div class="worry-card"><p><strong>老朽化が心配</strong><br>劣化箇所をどう直す？</p></div>
+        <div class="worry-card"><p><strong>暑い／寒い</strong><br>夏冬の体負担が大きい</p></div>
+        <div class="worry-card"><p><strong>階段がつらい</strong><br>足腰に配慮した動線へ</p></div>
+      </div>
     </div>
     <div class="small" style="margin-top:1rem">※ 断熱窓や動線調整、照明計画などで“温度差”や“暮らしの負担”の改善をご提案します。</div>
   </div>
@@ -254,29 +255,13 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
   </div>
 </section>
 
-<!-- ===== 実績（数字＋画像） ===== -->
+<!-- ===== 実績（画像のみ） ===== -->
 <section class="section" id="achievements">
   <div class="container">
     <div class="ach-band reveal">
       <h2 style="margin-bottom:.6rem">実績紹介</h2>
-      <div class="ach-grid">
-        <div class="card" style="padding:1rem">
-          <p class="small" style="opacity:.8">創業から</p>
-          <p class="counter" data-target="22">0</p>
-          <p class="small">年</p>
-        </div>
-        <div class="card" style="padding:1rem">
-          <p class="small" style="opacity:.8">施工実績</p>
-          <p class="counter" data-target="450">0</p>
-          <p class="small">棟 近く</p>
-        </div>
-        <div class="card" style="padding:1rem">
-          <p class="small" style="opacity:.8">ご紹介率</p>
-          <p class="counter" data-target="0">0</p>
-          <p class="small">%</p>
-        </div>
-      </div>
-      <img class="achievements-img" src="https://i.postimg.cc/8zskxC18/image.png" alt="アート・宙の実績（受賞・年数・件数のバッジ一覧）" style="margin-top:1.2rem">
+      <!-- 指示：カウンター削除、画像のみ -->
+      <img class="achievements-img" src="https://i.postimg.cc/8zskxC18/image.png" alt="アート・宙の実績（受賞・年数・件数のバッジ一覧）">
     </div>
   </div>
 </section>
@@ -291,12 +276,12 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
       <div>
         <h3 class="slide-up">事例1｜和室続き→ワンフロア化でつながるLDK（鈴鹿市）</h3>
         <p class="small slide-up" style="margin-top:.35rem">サッシ交換／内装デザイン変更／造作収納／水まわり交換／床張替／壁塗替 など</p>
-        <div class="frame slide-up" style="margin-top:.6rem"><img src="https://i.postimg.cc/bvSKVn63/image.png" alt="断熱窓入替"></div>
+        <!-- 指示：2枚目の画像を削除 -->
         <div class="caption">
           <p class="small">
-            <span class="num">1</span>続き間の和室をLDKに取り込み約17帖の広がりに。
-            <br><span class="num">2</span>窓入替で断熱性能を改善。
-            <br><span class="num">3</span>既存意匠を活かし丸窓を新設し和モダンに。
+            <span class="num">1</span>続き間の和室をLDKに取り込み約17帖の広がりに。<br>
+            <span class="num">2</span>窓入替で断熱性能を改善。<br>
+            <span class="num">3</span>既存意匠を活かし丸窓を新設し和モダンに。
           </p>
           <p class="small" style="margin-top:.4rem"><a href="https://www.artsora.com/case_newly/18217/" target="_blank" rel="noopener">公式の事例ページを見る</a></p>
         </div>
@@ -312,9 +297,9 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
         <div class="frame slide-up" style="margin-top:.6rem"><img src="https://i.postimg.cc/6QzGS7y4/image.png" alt="梁あらわし"></div>
         <div class="caption">
           <p class="small">
-            <span class="num">1</span>梁あらわしで立体感を演出。
-            <br><span class="num">2</span>食堂とリビングを約19帖の一体空間へ。
-            <br><span class="num">3</span>桧床・珪藻土壁で調湿と木の香り。
+            <span class="num">1</span>梁あらわしで立体感を演出。<br>
+            <span class="num">2</span>食堂とリビングを約19帖の一体空間へ。<br>
+            <span class="num">3</span>桧床・珪藻土壁で調湿と木の香り。
           </p>
           <p class="small" style="margin-top:.4rem"><a href="https://www.artsora.com/case_newly/14836/" target="_blank" rel="noopener">公式の事例ページを見る</a></p>
         </div>
@@ -325,18 +310,18 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
   </div>
 </section>
 
-<!-- ===== Gallery（復活） ===== -->
+<!-- ===== Gallery（既存構成のまま） ===== -->
 <section class="section" id="gallery">
   <div class="container">
     <h2 class="reveal">Gallery</h2>
     <div class="masonry" id="masonry">
-      <img class="tile tiltL" src="https://i.postimg.cc/KcdVVS3b/RE-1.jpg" alt="Hero使用カット">
-      <img class="tile tiltR" src="https://i.postimg.cc/1zMJH3SJ/image.png" alt="LDKリフォーム 1">
-      <img class="tile tiltL" src="https://i.postimg.cc/bvSKVn63/image.png" alt="LDKリフォーム 2">
-      <img class="tile tiltR" src="https://i.postimg.cc/6QzGS7y4/image.png" alt="古民家再生 1">
-      <img class="tile tiltL" src="https://i.postimg.cc/zvhC9zmm/image.png" alt="古民家再生 2">
-      <img class="tile tiltR" src="https://i.postimg.cc/GmVnRPZ8/2025-09-05-14-34-16.png" alt="パンフレット表紙">
-      <img class="tile tiltL" src="https://i.postimg.cc/8zskxC18/image.png" alt="実績バッジ一覧">
+      <img loading="lazy" class="tile tiltL" src="https://i.postimg.cc/KcdVVS3b/RE-1.jpg" alt="Hero使用カット">
+      <img loading="lazy" class="tile tiltR" src="https://i.postimg.cc/1zMJH3SJ/image.png" alt="LDKリフォーム 1">
+      <img loading="lazy" class="tile tiltL" src="https://i.postimg.cc/bvSKVn63/image.png" alt="LDKリフォーム 2">
+      <img loading="lazy" class="tile tiltR" src="https://i.postimg.cc/6QzGS7y4/image.png" alt="古民家再生 1">
+      <img loading="lazy" class="tile tiltL" src="https://i.postimg.cc/zvhC9zmm/image.png" alt="古民家再生 2">
+      <img loading="lazy" class="tile tiltR" src="https://i.postimg.cc/GmVnRPZ8/2025-09-05-14-34-16.png" alt="パンフレット表紙">
+      <img loading="lazy" class="tile tiltL" src="https://i.postimg.cc/8zskxC18/image.png" alt="実績バッジ一覧">
     </div>
   </div>
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="拡大写真">
@@ -344,18 +329,16 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
   </div>
 </section>
 
-<!-- ===== FAQ（復活） ===== -->
+<!-- ===== FAQ（公式サイトリンクを追記） ===== -->
 <section class="section" id="faq" style="background:var(--paper-2)">
   <div class="container faq">
     <h2 class="reveal">FAQ</h2>
     <details class="reveal"><summary>住みながら工事は可能ですか？ <span class="rotate">▾</span></summary><div class="small" style="margin-top:.6rem">工事範囲や工程を調整しながら可能です。騒音や粉じん対策、仮設の動線づくりもご提案します。</div></details>
     <details class="reveal"><summary>マンションのリノベも対応していますか？ <span class="rotate">▾</span></summary><div class="small" style="margin-top:.6rem">管理規約の確認・近隣調整・資材搬入経路の設計までワンストップで対応します。</div></details>
     <details class="reveal"><summary>費用感を教えてください <span class="rotate">▾</span></summary><div class="small" style="margin-top:.6rem">A/Bテスト運用で価格表示ON/OFFを切り替えます。概算はお問い合わせください。</div></details>
+    <p class="small" style="margin-top:1rem;text-align:center"><a href="https://www.artsora.com/" target="_blank" rel="noopener" style="color:var(--brand-ink);text-decoration:underline">公式HPを見る（アート・宙）</a></p>
   </div>
 </section>
-
-<!-- ===== （削除済み）CTA「木漏れ日の温もりを体感しませんか？」 ===== -->
-<!-- ※ 指示によりこのセクションは削除 -->
 
 <!-- ===== PRESENT（追記あり） ===== -->
 <section class="section" id="present" style="background:var(--paper-2)">
@@ -423,46 +406,6 @@ document.querySelectorAll('.service-toggle').forEach(btn=>{
     const expanded = card.classList.contains('open');
     btn.setAttribute('aria-expanded', expanded);
   });
-});
-
-/** Counters + bounce */
-const counters = document.querySelectorAll('.counter');
-const io2 = new IntersectionObserver(es=>{
-  es.forEach(e=>{
-    if(!e.isIntersecting) return; const el = e.target; const target = +el.dataset.target; let cur = 0;
-    const step = Math.max(1, Math.ceil(target/50));
-    const timer = setInterval(()=>{ cur+=step; if(cur>=target){cur=target; clearInterval(timer); el.classList.add('bounce');}
-      el.textContent = cur; }, 28);
-    io2.unobserve(el);
-  })
-},{threshold:.6});
-counters.forEach(c=>io2.observe(c));
-
-/** Before/After slider */
-document.querySelectorAll('.ba').forEach(ba=>{
-  const range = ba.querySelector('input[type=range]');
-  const after = ba.querySelector('.after');
-  const divider = ba.querySelector('.divider');
-  const update = v=>{ after.style.width = v+'%'; divider.style.left = v+'%'; };
-  if(range){ range.addEventListener('input',e=>update(e.target.value)); }
-});
-
-/** Slide-in for case images & texts */
-const slideTargets = document.querySelectorAll('.slide-left, .slide-right, .slide-up');
-const io3 = new IntersectionObserver(es=>{
-  es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('slid'); io3.unobserve(e.target);} });
-},{threshold:.2});
-slideTargets.forEach(t=>io3.observe(t));
-
-/** Caption numbering: sequential highlight */
-document.querySelectorAll('.caption').forEach(cap=>{
-  const nums = cap.querySelectorAll('.num');
-  const io4 = new IntersectionObserver(es=>{
-    es.forEach(e=>{
-      if(!e.isIntersecting) return; let i=0; const t=setInterval(()=>{ if(i<nums.length){nums[i++].classList.add('on');} else {clearInterval(t);} }, 280); io4.unobserve(cap);
-    });
-  },{threshold:.4});
-  io4.observe(cap);
 });
 
 /** Masonry lightbox + reveal tilts */
