@@ -146,7 +146,7 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
 .faq details[open]{background:var(--paper-3)}
 .rotate{transition:transform .25s ease}
 
-/* CTA */
+/* CTA（今回削除セクションだったためCSSそのままでも未使用） */
 .cta{position:relative;overflow:hidden;border-radius:var(--r-lg);background:linear-gradient(135deg,var(--paper-3),var(--paper-2));border:1px solid var(--line);box-shadow:var(--shadow)}
 .cta .glow{position:absolute;inset:auto -40px -40px auto;width:220px;height:220px;background:radial-gradient(circle, rgba(216,155,92,.25), transparent 60%);filter:blur(18px);border-radius:50%;animation:float 6s ease-in-out infinite alternate}
 @keyframes float{to{transform:translateY(12px)}}
@@ -158,23 +158,17 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
 .grid-3{display:grid;gap:12px;grid-template-columns:repeat(3,1fr)}
 @media (max-width:720px){.grid-3{grid-template-columns:1fr 1fr}}
 .btn:focus, a:focus{outline:2px dashed var(--brand-ink);outline-offset:3px}
+
+/* 追加：見やすい太線 */
+.hr-bold{border:0;height:4px;background:var(--brand-ink);margin:2rem 0;border-radius:2px}
 </style>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6S9PJSSY8D"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);} 
-    gtag('js', new Date()); gtag('config','G-6S9PJSSY8D');
-  </script>
 </head>
 <body data-show-price="false">
 
 <!-- ===== Header ===== -->
 <header class="header">
   <div class="container" style="display:flex;justify-content:space-between;align-items:center;padding-block:.7rem;">
-    <div style="display:flex;align-items:baseline;gap:.5rem">
-      <span style="font-family:'Cormorant Garamond',serif;color:var(--brand-ink);letter-spacing:.08em;text-transform:uppercase;font-size:.9rem">Works</span>
-      <span class="small" style="color:var(--ink);opacity:.9">リフォーム・リノベーション</span>
-    </div>
+    <div style="font-family:'Cormorant Garamond',serif;color:var(--brand-ink);letter-spacing:.08em;font-size:.9rem">ArtSora</div>
     <nav class="nav small">
       <a href="#worries">お悩み</a>
       <a href="#services">サービス</a>
@@ -182,7 +176,8 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
       <a href="#cases">実例</a>
       <a href="#gallery">写真</a>
       <a href="#faq">FAQ</a>
-      <a href="#cta" class="btn btn-primary">来場予約</a>
+      <a href="#present">PRESENT</a>
+      <a href="#contact-form">お問い合わせ</a>
     </nav>
   </div>
 </header>
@@ -198,7 +193,7 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
         <span class="chip">自然素材</span><span class="chip">断熱・窓改修</span><span class="chip">動線見直し</span><span class="chip">マンション可</span>
       </div>
       <div class="reveal" style="margin-top:1rem;display:flex;gap:.6rem;flex-wrap:wrap">
-        <a href="#cta" class="btn btn-primary">来場予約</a>
+        <a href="#contact-form" class="btn btn-primary">資料請求</a>
         <a href="#services" class="btn btn-outline">サービスを見る</a>
       </div>
     </div>
@@ -210,15 +205,8 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
   </div>
 </section>
 
-<!-- ===== 追加: 全体のデザインについて ===== -->
-<section class="section" id="design-policy" style="background:var(--paper-2)">
-  <div class="container">
-    <h2>全体のデザインについて</h2>
-    <div class="card" style="padding:1.1rem 1.1rem">
-      <p>宙様へご依頼される多くの方は、<strong>“木のやわらかい雰囲気”</strong>を好まれます。そこで本LPでは、従来の無機質・工業的印象から離れ、<strong>上質でありながらも、やわらかく、あたたかい</strong>トーンに全面刷新しました。背景は生成り系、見出しは明朝×こげ茶、本文は丸みのあるゴシックで可読性を確保。写真は夕景や暖色照明のカットを推奨します。</p>
-    </div>
-  </div>
-</section>
+<!-- ===== （削除済み）全体のデザインについて ===== -->
+<!-- ※ 指示によりこのセクションは削除 -->
 
 <!-- ===== お悩み（順次スライドイン） ===== -->
 <section class="section" id="worries">
@@ -244,7 +232,7 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
 <!-- ===== サービス（重なりカード＋アコーディオン） ===== -->
 <section class="section" id="services" style="background:var(--paper-2)">
   <div class="container">
-    <h2 class="reveal">宙様のリフォーム・リノベーションについて</h2>
+    <h2 class="reveal">アート宙のリフォーム・リノベーションについて</h2>
     <div class="grid-2">
       <div class="card card-strong service-card slide-left" id="svc1" style="padding:1.1rem 1.1rem">
         <h3>アート・宙のリフォーム</h3>
@@ -266,11 +254,11 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
   </div>
 </section>
 
-<!-- ===== 実績（カウントアップ） ===== -->
+<!-- ===== 実績（数字＋画像） ===== -->
 <section class="section" id="achievements">
   <div class="container">
     <div class="ach-band reveal">
-      <h2 style="margin-bottom:.2rem">実績紹介</h2>
+      <h2 style="margin-bottom:.6rem">実績紹介</h2>
       <div class="ach-grid">
         <div class="card" style="padding:1rem">
           <p class="small" style="opacity:.8">創業から</p>
@@ -288,11 +276,12 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
           <p class="small">%</p>
         </div>
       </div>
+      <img class="achievements-img" src="https://i.postimg.cc/8zskxC18/image.png" alt="アート・宙の実績（受賞・年数・件数のバッジ一覧）" style="margin-top:1.2rem">
     </div>
   </div>
 </section>
 
-<!-- ===== 実例 1（ジグザグ＋ナンバリング＋スライドイン） ===== -->
+<!-- ===== 実例（2件／間に太線） ===== -->
 <section class="section" id="cases" style="background:var(--paper-2)">
   <div class="container">
     <h2 class="reveal">実例紹介</h2>
@@ -305,24 +294,17 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
         <div class="frame slide-up" style="margin-top:.6rem"><img src="https://i.postimg.cc/bvSKVn63/image.png" alt="断熱窓入替"></div>
         <div class="caption">
           <p class="small">
-            <span class="num">1</span>壁を取り払い、続き間の和室をLDKに取り込んで約17帖の広がりに。
-            <br><span class="num">2</span>「とにかく寒い」悩みに対して窓を入替え、断熱性能を改善。
-            <br><span class="num">3</span>玄関は既存意匠を活かし、丸窓を新設して和モダンに。
+            <span class="num">1</span>続き間の和室をLDKに取り込み約17帖の広がりに。
+            <br><span class="num">2</span>窓入替で断熱性能を改善。
+            <br><span class="num">3</span>既存意匠を活かし丸窓を新設し和モダンに。
           </p>
           <p class="small" style="margin-top:.4rem"><a href="https://www.artsora.com/case_newly/18217/" target="_blank" rel="noopener">公式の事例ページを見る</a></p>
         </div>
       </div>
     </div>
 
-    <!-- Before/After スライダー（体験要素） -->
-    <div class="ba reveal" style="margin-top:1.2rem">
-      <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1600&auto=format&fit=crop" alt="Before">
-      <div class="after" style="width:50%"><img src="https://images.unsplash.com/photo-1600585154154-8d2d83d1a88e?q=80&w=1600&auto=format&fit=crop" alt="After"></div>
-      <div class="divider" style="left:50%"></div>
-      <input type="range" min="0" max="100" value="50" aria-label="Before/After 比較" />
-    </div>
+    <hr class="hr-bold" aria-hidden="true">
 
-    <!-- 実例 2（左右反転＋スライドイン） -->
     <div class="zig" style="margin-top:1.4rem">
       <div>
         <h3 class="slide-up">事例2｜梁あらわし仕上げで趣を活かす（津市）</h3>
@@ -330,9 +312,9 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
         <div class="frame slide-up" style="margin-top:.6rem"><img src="https://i.postimg.cc/6QzGS7y4/image.png" alt="梁あらわし"></div>
         <div class="caption">
           <p class="small">
-            <span class="num">1</span>天井裏の梁を見せる設えで立体感を演出。
+            <span class="num">1</span>梁あらわしで立体感を演出。
             <br><span class="num">2</span>食堂とリビングを約19帖の一体空間へ。
-            <br><span class="num">3</span>床に桧、壁に珪藻土を採用し、木の香りと調湿性を確保。
+            <br><span class="num">3</span>桧床・珪藻土壁で調湿と木の香り。
           </p>
           <p class="small" style="margin-top:.4rem"><a href="https://www.artsora.com/case_newly/14836/" target="_blank" rel="noopener">公式の事例ページを見る</a></p>
         </div>
@@ -343,7 +325,7 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
   </div>
 </section>
 
-<!-- ===== ギャラリー（マasonry + ライトボックス + 交互チルト） ===== -->
+<!-- ===== Gallery（復活） ===== -->
 <section class="section" id="gallery">
   <div class="container">
     <h2 class="reveal">Gallery</h2>
@@ -362,7 +344,7 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
   </div>
 </section>
 
-<!-- ===== FAQ（アコーディオン） ===== -->
+<!-- ===== FAQ（復活） ===== -->
 <section class="section" id="faq" style="background:var(--paper-2)">
   <div class="container faq">
     <h2 class="reveal">FAQ</h2>
@@ -372,27 +354,10 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
   </div>
 </section>
 
-<!-- ===== CTA（発光＋ボタン浮上） ===== -->
-<section class="section" id="cta">
-  <div class="container">
-    <div class="cta reveal" style="padding:1.3rem 1.3rem">
-      <div style="display:grid;gap:1rem;grid-template-columns:1fr;align-items:center">
-        <div>
-          <h3 style="font-size:clamp(22px,2.2vw,28px)">木漏れ日の温もりを体感しませんか？</h3>
-          <p style="margin-top:.4rem">ご相談・お打ち合わせは無料。電話・オンラインどちらも承ります。</p>
-          <p class="small" style="margin-top:.6rem"><strong>TEL：</strong><a href="tel:059-356-0817" style="color:var(--brand-ink);text-decoration:underline">059-356-0817</a>　<strong>受付：</strong>9:00〜18:00（火・水定休）<br><strong>住所：</strong>〒510-0081 三重県四日市市北町3番4号</p>
-        </div>
-        <div style="display:flex;gap:.6rem;flex-wrap:wrap">
-          <a href="#" class="btn btn-primary" id="ctaReserve">来場予約</a>
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdzWiC2E6jyxa6d4nYnULTxSUVYIEGIAtdCsENUQW-Ua90Uzw/viewform?embedded=true" target="_blank" rel="noopener" class="btn btn-outline" id="ctaCatalog">カタログ請求</a>
-        </div>
-      </div>
-      <i class="glow" aria-hidden="true"></i>
-    </div>
-  </div>
-</section>
+<!-- ===== （削除済み）CTA「木漏れ日の温もりを体感しませんか？」 ===== -->
+<!-- ※ 指示によりこのセクションは削除 -->
 
-<!-- ===== PRESENT（追加） ===== -->
+<!-- ===== PRESENT（追記あり） ===== -->
 <section class="section" id="present" style="background:var(--paper-2)">
   <div class="container">
     <h2 class="reveal" style="text-align:center">PRESENT</h2>
@@ -400,14 +365,14 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
       <img src="https://i.postimg.cc/GmVnRPZ8/2025-09-05-14-34-16.png" alt="アート・宙 パンフレット" style="max-width:420px;margin-inline:auto;border-radius:12px;box-shadow:var(--shadow)">
       <div class="small" style="text-align:center">
         <p class="small" style="font-weight:600;color:var(--brand-ink);margin-bottom:.4rem">資料請求いただいた方に、アート・宙のこだわりが詰まったパンフレットを無料進呈します。</p>
-        <p>コンセプトや施工事例など、Webに載せきれない情報をお届けします。</p>
+        <p>アート・宙のリフォーム・リノベーションの特徴や施工事例のご紹介など、ホームページには掲載しきれない情報が盛りだくさんです。ぜひご覧ください。</p>
         <p style="margin-top:.6rem"><a href="#contact-form" class="btn btn-primary">今すぐ資料請求する</a></p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== Googleフォーム（追加） ===== -->
+<!-- ===== Googleフォーム ===== -->
 <section class="section" id="contact-form">
   <div class="container">
     <h2 class="reveal" style="text-align:center">お問い合わせ・資料請求</h2>
@@ -416,6 +381,22 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
     </div>
   </div>
 </section>
+
+<!-- ===== 会社情報（追加） ===== -->
+<section class="section" id="company">
+  <div class="container">
+    <h2>会社情報</h2>
+    <p>株式会社アート・宙</p>
+    <p>〒510-0081 三重県四日市市北町3番4号</p>
+    <p>TEL: 059-356-0817</p>
+    <p>受付時間: 9:00〜18:00（火・水定休）</p>
+  </div>
+</section>
+
+<!-- ===== Footer（表記変更：ArtSora） ===== -->
+<footer style="background:var(--brand-ink);color:#fff;text-align:center;padding:2rem 1rem;margin-top:2rem">
+  <p>&copy; 2025 ArtSora Inc. All Rights Reserved.</p>
+</footer>
 
 <script>
 /** Scroll reveal */
@@ -463,7 +444,7 @@ document.querySelectorAll('.ba').forEach(ba=>{
   const after = ba.querySelector('.after');
   const divider = ba.querySelector('.divider');
   const update = v=>{ after.style.width = v+'%'; divider.style.left = v+'%'; };
-  range.addEventListener('input',e=>update(e.target.value));
+  if(range){ range.addEventListener('input',e=>update(e.target.value)); }
 });
 
 /** Slide-in for case images & texts */
@@ -492,17 +473,10 @@ const io5 = new IntersectionObserver(es=>{
   es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('on'); io5.unobserve(e.target);} });
 },{threshold:.1});
 tiles.forEach(t=>io5.observe(t));
-document.getElementById('masonry').addEventListener('click',e=>{
+document.getElementById('masonry')?.addEventListener('click',e=>{
   const t = e.target.closest('.tile'); if(!t) return; lbImg.src = t.src; lb.classList.add('open');
 });
 lb.addEventListener('click',()=>lb.classList.remove('open'));
-
-/** CTA lift when visible */
-const ctaBtns = [document.getElementById('ctaReserve'), document.getElementById('ctaCatalog')].filter(Boolean);
-const io6 = new IntersectionObserver(es=>{
-  es.forEach(e=>{ if(e.isIntersecting){ ctaBtns.forEach(b=>b.classList.add('lift')); io6.disconnect(); } });
-},{threshold:.5});
-if(ctaBtns.length) io6.observe(document.getElementById('cta'));
 </script>
 </body>
 </html>
