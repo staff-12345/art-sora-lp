@@ -3,275 +3,523 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>空間を変えたら、暮らしも変わった。｜株式会社アート・宙</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>株式会社アート・宙 - 自然素材で暮らしに温もりを</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
-        .font-playfair { font-family: 'Playfair Display', serif; }
-        .font-noto { font-family: 'Noto Sans JP', sans-serif; }
-        .hero-gradient { background: linear-gradient(135deg, rgba(248, 250, 252, 0.9) 0%, rgba(241, 245, 249, 0.9) 100%); }
-        .btn-primary { 
-            background: linear-gradient(135deg, #fb923c 0%, #f97316 100%);
-            transition: all 0.3s ease;
+        body {
+            font-family: "Noto Sans JP", sans-serif;
         }
-        .btn-primary:hover { 
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(251, 146, 60, 0.3);
+        .hero-bg {
+            background-image: url('https://via.placeholder.com/1600x600');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
-        .section-padding { padding: 4rem 0; }
-        .natural-shadow { box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); }
-        .text-shadow { text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); }
-        .honeypot { position: absolute; left: -9999px; }
-        @media print {
-            body { -webkit-print-color-adjust: exact; }
-            .section-padding { padding: 2rem 0; }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.8s ease forwards;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .section-spacing {
+            margin: 48px 0;
+        }
+        @media (max-width: 768px) {
+            .section-spacing {
+                margin: 32px 0;
+            }
         }
     </style>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6S9PJSSY8D"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'G-6S9PJSSY8D');
-    </script>
 </head>
-<body class="font-noto text-gray-800 leading-relaxed">
+<body class="bg-white text-gray-900 leading-relaxed">
 
-    <section class="hero-gradient min-h-screen flex items-center section-padding">
-        <div class="container mx-auto px-4">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="text-center lg:text-left">
-                    <h1 class="font-playfair text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 text-shadow">
-                        空間を変えたら、<br>
-                        <span class="text-orange-500">暮らしも変わった。</span>
-                    </h1>
-                    <p class="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed">
-                        家事・育児・在宅ワークを効率よく両立する、<br>
-                        ナチュラルでスマートな家づくり。
-                    </p>
-                    <a href="#request-form" class="btn-primary text-white px-8 py-4 rounded-full text-lg font-semibold hover:scale-105 transition-all duration-300 inline-block">
-                        資料を無料で受け取る
-                    </a>
-                </div>
-                <div class="relative">
-                    <img src="https://i.postimg.cc/fLs7XCJ6/02-LDK-05-scaled.jpg" alt="効率的で美しい空間" class="w-full h-auto rounded-2xl natural-shadow"/>
-                    <div class="absolute -bottom-4 -right-4 bg-white rounded-2xl p-4 natural-shadow">
-                        <p class="text-sm text-gray-600 font-medium">効率的で美しい空間</p>
-                    </div>
-                </div>
+    <!-- Hero Section / ヒーローセクション -->
+    <section class="hero-bg min-h-screen flex items-center justify-center relative">
+        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+        <div class="relative z-10 text-center text-white px-4">
+            <h1 class="text-4xl md:text-6xl font-light mb-4 fade-in">
+                Natural Materials
+                <br>
+                <span class="text-2xl md:text-3xl font-normal">自然素材で、暮らしに温もりを。</span>
+            </h1>
+            <p class="text-lg md:text-xl font-light mb-8 fade-in" style="animation-delay: 0.3s;">
+                新しい暮らしを、アート・宙と。
+                <br>
+                三重県でリフォーム・リノベーションするならアート・宙
+            </p>
+            <div class="space-y-4 md:space-y-0 md:space-x-4 md:flex md:justify-center fade-in" style="animation-delay: 0.6s;">
+                <button class="bg-white text-gray-900 px-8 py-3 rounded-md font-medium hover:bg-gray-100 transition-colors w-full md:w-auto">
+                    資料請求・無料相談
+                </button>
+                <button class="border-2 border-white text-white px-8 py-3 rounded-md font-medium hover:bg-white hover:text-gray-900 transition-colors w-full md:w-auto">
+                    お電話はこちら
+                </button>
             </div>
         </div>
     </section>
 
-    <section class="bg-white section-padding">
-        <div class="container mx-auto px-4">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="order-2 lg:order-1">
-                    <img src="https://i.postimg.cc/FRXV5FbY/RE-14.jpg" alt="家事や育児の時間を効率よく使うための家" class="w-full h-auto rounded-2xl natural-shadow"/>
-                </div>
-                <div class="order-1 lg:order-2">
-                    <h2 class="font-playfair text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                        家事や育児、仕事の時間を<br>
-                        <span class="text-orange-500">効率よく使いたい</span>
-                    </h2>
-                    <p class="text-gray-700 text-lg leading-relaxed mb-6">
-                        毎日の家事や育児、在宅ワークで忙しいあなた。どこから手をつけるべきか、家づくりのアイデアが湧かない、そんな不安を抱えるあなたに、この家づくりを提案したい。
-                    </p>
-                    <div class="space-y-4">
-                        <div class="flex items-center">
-                            <div class="w-3 h-3 bg-orange-400 rounded-full mr-4"></div>
-                            <p class="text-gray-600">家事動線が複雑で時間がかかる</p>
-                        </div>
-                        <div class="flex items-center">
-                            <div class="w-3 h-3 bg-orange-400 rounded-full mr-4"></div>
-                            <p class="text-gray-600">在宅ワークと育児の両立が困難</p>
-                        </div>
-                        <div class="flex items-center">
-                            <div class="w-3 h-3 bg-orange-400 rounded-full mr-4"></div>
-                            <p class="text-gray-600">収納が不十分で片付かない</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div class="max-w-6xl mx-auto px-4">
 
-    <section class="bg-gray-50 section-padding">
-        <div class="container mx-auto px-4">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Basic Information / 基本情報セクション -->
+        <section class="section-spacing fade-in">
+            <div class="grid md:grid-cols-2 gap-8 items-start">
                 <div>
-                    <h2 class="font-playfair text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                        家事も育児も、もっと楽に。<br>
-                        <span class="text-orange-500">未来の暮らしが豊かに。</span>
+                    <h2 class="text-3xl md:text-4xl font-light mb-6">
+                        Company Info
+                        <br>
+                        <span class="text-lg text-gray-600">会社基本情報</span>
                     </h2>
-                    <p class="text-gray-700 text-lg leading-relaxed mb-8">
-                        効率的な動線とナチュラルなデザインが、あなたの毎日をサポート。家事も育児も仕事も、スマートに両立できる家づくり。
-                    </p>
-                    <div class="grid md:grid-cols-2 gap-6 mb-8">
-                        <div class="bg-white p-6 rounded-xl natural-shadow">
-                            <h4 class="font-semibold text-gray-900 mb-2">時短効果</h4>
-                            <p class="text-gray-600 text-sm">効率的な動線で家事時間を30%短縮</p>
-                        </div>
-                        <div class="bg-white p-6 rounded-xl natural-shadow">
-                            <h4 class="font-semibold text-gray-900 mb-2">快適性向上</h4>
-                            <p class="text-gray-600 text-sm">ナチュラル素材で心地よい空間</p>
-                        </div>
-                        <div class="bg-white p-6 rounded-xl natural-shadow">
-                            <h4 class="font-semibold text-gray-900 mb-2">在宅ワーク</h4>
-                            <p class="text-gray-600 text-sm">集中できる専用ワークスペース</p>
-                        </div>
-                        <div class="bg-white p-6 rounded-xl natural-shadow">
-                            <h4 class="font-semibold text-gray-900 mb-2">子育て支援</h4>
-                            <p class="text-gray-600 text-sm">見守りながら作業できる間取り</p>
-                        </div>
-                    </div>
-                    <a href="#request-form" class="btn-primary text-white px-6 py-3 rounded-full font-semibold hover:scale-105 transition-all duration-300">
-                        無料相談を申し込む
-                    </a>
                 </div>
-                <div>
-                    <img src="https://i.postimg.cc/qMFnHM4p/RE-28.jpg" alt="未来の暮らしを豊かにする家" class="w-full h-auto rounded-2xl natural-shadow"/>
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <table class="w-full">
+                        <tr class="border-b border-gray-200">
+                            <td class="py-3 pr-4 text-gray-600 font-medium">創業</td>
+                            <td class="py-3">22年</td>
+                        </tr>
+                        <tr class="border-b border-gray-200">
+                            <td class="py-3 pr-4 text-gray-600 font-medium">施工実績</td>
+                            <td class="py-3">450棟</td>
+                        </tr>
+                        <tr class="border-b border-gray-200">
+                            <td class="py-3 pr-4 text-gray-600 font-medium">対応エリア</td>
+                            <td class="py-3">三重県全域</td>
+                        </tr>
+                        <tr class="border-b border-gray-200">
+                            <td class="py-3 pr-4 text-gray-600 font-medium">特徴</td>
+                            <td class="py-3">#自然素材 #リフォーム #リノベーション</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 pr-4 text-gray-600 font-medium">受賞歴</td>
+                            <td class="py-3">グッドデザイン賞受賞</td>
+                        </tr>
+                    </table>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="bg-white section-padding">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="font-playfair text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                    私たちの家づくりとは
-                </h2>
-                <p class="text-lg text-gray-700 max-w-3xl mx-auto">
-                    忙しい生活を支える、機能的でナチュラルな家づくり
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8 mb-12">
-                <div class="text-center p-8 bg-gray-50 rounded-2xl">
-                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <div class="w-8 h-8 bg-orange-500 rounded-full"></div>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-4">効率的な動線設計</h3>
-                    <p class="text-gray-600">家事を効率よくこなせる最適な動線で、毎日の負担を軽減します。</p>
-                </div>
-                
-                <div class="text-center p-8 bg-gray-50 rounded-2xl">
-                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <div class="w-8 h-8 bg-orange-500 rounded-full"></div>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-4">フレキシブル空間</h3>
-                    <p class="text-gray-600">育児や在宅ワークに対応する柔軟性のある空間設計。</p>
-                </div>
-                
-                <div class="text-center p-8 bg-gray-50 rounded-2xl">
-                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <div class="w-8 h-8 bg-orange-500 rounded-full"></div>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-4">最新住宅性能</h3>
-                    <p class="text-gray-600">最新の住宅性能を兼ね備えた安心の設計。</p>
-                </div>
-            </div>
-            
-            <div class="text-center">
-                <img src="https://i.postimg.cc/C5FXmdh8/RE-8.jpg" alt="私たちの家づくりのコンセプトイメージ" class="w-full max-w-4xl mx-auto rounded-2xl natural-shadow"/>
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-gray-50 section-padding">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="font-playfair text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                    実際の施工事例
-                </h2>
-                <p class="text-lg text-gray-700">
-                    空間を変えて、暮らしが変わったお客様の事例をご紹介します
-                </p>
-            </div>
-            
-            <div class="grid lg:grid-cols-3 gap-8">
-                <div class="bg-white rounded-2xl natural-shadow overflow-hidden">
-                    <img src="https://i.postimg.cc/3WQ783YJ/RE-14.jpg" alt="家事動線を最適化したキッチンの施工事例" class="w-full h-48 object-cover"/>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-3">家事動線を最適化したキッチン</h3>
-                        <p class="text-gray-600">効率的な動線で、家事をスマートにこなせるナチュラルキッチンの実現。</p>
-                    </div>
-                </div>
-                
-                <div class="bg-white rounded-2xl natural-shadow overflow-hidden">
-                    <img src="https://i.postimg.cc/XYvzBVTw/RE-20.jpg" alt="オープンで機能的なリビングの施工事例" class="w-full h-48 object-cover"/>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-3">オープンで機能的なリビング</h3>
-                        <p class="text-gray-600">家族みんなが集まる、開放感あふれる心地よいリビング空間。</p>
-                    </div>
-                </div>
-                
-                <div class="bg-white rounded-2xl natural-shadow overflow-hidden">
-                    <img src="https://i.postimg.cc/cHyBZPjs/image.jpg" alt="在宅ワーク専用ワークスペースの施工事例" class="w-full h-48 object-cover"/>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-3">在宅ワーク専用ワークスペース</h3>
-                        <p class="text-gray-600">仕事と育児の両立をサポートする、静かで集中できる作業空間。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="request-form" class="bg-gray-50 section-padding">
-        <div class="container mx-auto px-4">
+        <!-- Problems Section / お悩みセクション -->
+        <section class="section-spacing fade-in">
             <div class="text-center mb-12">
-                <h2 class="font-playfair text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                    資料を無料で受け取る
+                <h2 class="text-3xl md:text-4xl font-light mb-4">
+                    Problems
+                    <br>
+                    <span class="text-lg text-gray-600">こんなお悩みはありませんか？</span>
                 </h2>
-                <p class="text-lg text-gray-700">
-                    家事・育児・在宅ワークを効率よく両立する家づくりの詳しい資料をお送りします
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-gray-50 p-6 rounded-lg text-center">
+                    <div class="text-4xl mb-4">🏠</div>
+                    <h3 class="font-medium mb-2">建物の老朽化</h3>
+                    <p class="text-sm text-gray-600">築年数が経過し、設備や構造に不安を感じている</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg text-center">
+                    <div class="text-4xl mb-4">❄️</div>
+                    <h3 class="font-medium mb-2">冬の寒さ</h3>
+                    <p class="text-sm text-gray-600">断熱性能が低く、光熱費が高い</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg text-center">
+                    <div class="text-4xl mb-4">💡</div>
+                    <h3 class="font-medium mb-2">部屋の暗さ</h3>
+                    <p class="text-sm text-gray-600">自然光が入らず、照明に頼りがち</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg text-center">
+                    <div class="text-4xl mb-4">🪜</div>
+                    <h3 class="font-medium mb-2">階段の急勾配</h3>
+                    <p class="text-sm text-gray-600">高齢になると昇降が不安</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg text-center">
+                    <div class="text-4xl mb-4">🚪</div>
+                    <h3 class="font-medium mb-2">使っていない部屋</h3>
+                    <p class="text-sm text-gray-600">間取りが現在のライフスタイルに合わない</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg text-center">
+                    <div class="text-4xl mb-4">🏢</div>
+                    <h3 class="font-medium mb-2">中古マンション検討</h3>
+                    <p class="text-sm text-gray-600">購入前にリノベーション計画を立てたい</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section / サービス紹介セクション -->
+        <section class="section-spacing fade-in">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-light mb-4">
+                    Services
+                    <br>
+                    <span class="text-lg text-gray-600">アート・宙のサービス</span>
+                </h2>
+            </div>
+            
+            <!-- リフォーム -->
+            <div class="mb-16">
+                <div class="grid md:grid-cols-2 gap-8 items-center mb-8">
+                    <div>
+                        <h3 class="text-2xl font-medium mb-4">リフォーム</h3>
+                        <p class="text-gray-600 mb-6">
+                            住まいの機能性と快適性を向上させる部分的な改修工事。設備の交換から間取り変更まで、お客様のご要望に応じて最適なプランをご提案いたします。
+                        </p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="text-center p-4 bg-gray-50 rounded-lg">
+                                <div class="font-medium text-sm">自然素材使用</div>
+                            </div>
+                            <div class="text-center p-4 bg-gray-50 rounded-lg">
+                                <div class="font-medium text-sm">断熱性能向上</div>
+                            </div>
+                            <div class="text-center p-4 bg-gray-50 rounded-lg">
+                                <div class="font-medium text-sm">バリアフリー対応</div>
+                            </div>
+                            <div class="text-center p-4 bg-gray-50 rounded-lg">
+                                <div class="font-medium text-sm">省エネ設備</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="https://via.placeholder.com/800x500" alt="リフォーム" class="w-full rounded-lg shadow-lg">
+                    </div>
+                </div>
+            </div>
+
+            <!-- リノベーション -->
+            <div>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="md:order-2">
+                        <h3 class="text-2xl font-medium mb-4">リノベーション</h3>
+                        <p class="text-gray-600 mb-6">
+                            既存の建物を活かしながら、現代のライフスタイルに合わせて大幅に改修。間取りの変更から設備の一新まで、住まい全体を生まれ変わらせます。
+                        </p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="text-center p-4 bg-gray-50 rounded-lg">
+                                <div class="font-medium text-sm">間取り変更</div>
+                            </div>
+                            <div class="text-center p-4 bg-gray-50 rounded-lg">
+                                <div class="font-medium text-sm">耐震補強</div>
+                            </div>
+                            <div class="text-center p-4 bg-gray-50 rounded-lg">
+                                <div class="font-medium text-sm">デザイン性重視</div>
+                            </div>
+                            <div class="text-center p-4 bg-gray-50 rounded-lg">
+                                <div class="font-medium text-sm">価値向上</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:order-1">
+                        <img src="https://via.placeholder.com/800x500" alt="リノベーション" class="w-full rounded-lg shadow-lg">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Points Section / こだわりセクション -->
+        <section class="section-spacing fade-in">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-light mb-4">
+                    Our Commitment
+                    <br>
+                    <span class="text-lg text-gray-600">アート・宙のこだわり</span>
+                </h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    木の温もりを活かした、自然素材の美しい暮らし。
+                    <br>
+                    光と風が心地よく通り抜け、家族の笑顔が溢れる住まいづくりを目指しています。
+                </p>
+            </div>
+
+            <div class="space-y-16">
+                <!-- Point 01 -->
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <div class="text-sm text-gray-500 mb-2">Point 01</div>
+                        <h3 class="text-xl font-medium mb-4">自然素材へのこだわり</h3>
+                        <p class="text-gray-600">
+                            無垢材や漆喰など、人と環境に優しい自然素材を使用。シックハウス症候群の心配がなく、調湿効果で一年中快適な住環境を実現します。
+                        </p>
+                    </div>
+                    <div>
+                        <img src="https://via.placeholder.com/800x500" alt="自然素材" class="w-full rounded-lg shadow-lg">
+                    </div>
+                </div>
+
+                <!-- Point 02 -->
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="md:order-2">
+                        <div class="text-sm text-gray-500 mb-2">Point 02</div>
+                        <h3 class="text-xl font-medium mb-4">職人の技術力</h3>
+                        <p class="text-gray-600">
+                            長年培った確かな技術と経験を持つ職人が、細部まで丁寧に仕上げます。伝統的な技法と最新の工法を組み合わせた高品質な施工をお約束します。
+                        </p>
+                    </div>
+                    <div class="md:order-1">
+                        <img src="https://via.placeholder.com/800x500" alt="職人技術" class="w-full rounded-lg shadow-lg">
+                    </div>
+                </div>
+
+                <!-- Point 03 -->
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <div class="text-sm text-gray-500 mb-2">Point 03</div>
+                        <h3 class="text-xl font-medium mb-4">デザイン性と機能性の両立</h3>
+                        <p class="text-gray-600">
+                            美しいデザインはもちろん、日々の暮らしやすさを第一に考えた設計。動線や収納を最適化し、家族みんなが快適に過ごせる住まいを創造します。
+                        </p>
+                    </div>
+                    <div>
+                        <img src="https://via.placeholder.com/800x500" alt="デザイン" class="w-full rounded-lg shadow-lg">
+                    </div>
+                </div>
+
+                <!-- Point 04 -->
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="md:order-2">
+                        <div class="text-sm text-gray-500 mb-2">Point 04</div>
+                        <h3 class="text-xl font-medium mb-4">アフターサポート</h3>
+                        <p class="text-gray-600">
+                            工事完了後も長期にわたってサポート。定期点検やメンテナンス、小さな修理まで、末永くお客様の住まいを見守り続けます。
+                        </p>
+                    </div>
+                    <div class="md:order-1">
+                        <img src="https://via.placeholder.com/800x500" alt="アフターサポート" class="w-full rounded-lg shadow-lg">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section / ギャラリーセクション -->
+        <section class="section-spacing fade-in">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-light mb-4">
+                    Gallery
+                    <br>
+                    <span class="text-lg text-gray-600">施工実例ギャラリー</span>
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                <div class="relative group">
+                    <img src="https://via.placeholder.com/600x400" alt="LDKリフォーム before" class="w-full rounded-lg shadow-lg">
+                    <div class="absolute top-4 left-4 bg-white bg-opacity-90 px-3 py-1 rounded-full text-sm font-medium">1/8</div>
+                    <div class="absolute bottom-4 left-4 bg-black bg-opacity-75 text-white px-4 py-2 rounded-lg">
+                        <div class="font-medium">LDKリフォーム（Before）</div>
+                        <div class="text-sm opacity-90">床柱を保存し歴史を残す</div>
+                    </div>
+                </div>
+                <div class="relative group">
+                    <img src="https://via.placeholder.com/600x400" alt="LDKリフォーム after" class="w-full rounded-lg shadow-lg">
+                    <div class="absolute top-4 left-4 bg-white bg-opacity-90 px-3 py-1 rounded-full text-sm font-medium">2/8</div>
+                    <div class="absolute bottom-4 left-4 bg-black bg-opacity-75 text-white px-4 py-2 rounded-lg">
+                        <div class="font-medium">LDKリフォーム（After）</div>
+                        <div class="text-sm opacity-90">サッシ交換で明るい空間に</div>
+                    </div>
+                </div>
+                <div class="relative group">
+                    <img src="https://via.placeholder.com/600x400" alt="古民家リノベーション before" class="w-full rounded-lg shadow-lg">
+                    <div class="absolute top-4 left-4 bg-white bg-opacity-90 px-3 py-1 rounded-full text-sm font-medium">3/8</div>
+                    <div class="absolute bottom-4 left-4 bg-black bg-opacity-75 text-white px-4 py-2 rounded-lg">
+                        <div class="font-medium">古民家リノベーション（Before）</div>
+                        <div class="text-sm opacity-90">床壁を一新し現代的に</div>
+                    </div>
+                </div>
+                <div class="relative group">
+                    <img src="https://via.placeholder.com/600x400" alt="古民家リノベーション after" class="w-full rounded-lg shadow-lg">
+                    <div class="absolute top-4 left-4 bg-white bg-opacity-90 px-3 py-1 rounded-full text-sm font-medium">4/8</div>
+                    <div class="absolute bottom-4 left-4 bg-black bg-opacity-75 text-white px-4 py-2 rounded-lg">
+                        <div class="font-medium">古民家リノベーション（After）</div>
+                        <div class="text-sm opacity-90">造作洗面台でオリジナリティを</div>
+                    </div>
+                </div>
+                <div class="relative group">
+                    <img src="https://via.placeholder.com/600x400" alt="梁を活かした設計" class="w-full rounded-lg shadow-lg">
+                    <div class="absolute top-4 left-4 bg-white bg-opacity-90 px-3 py-1 rounded-full text-sm font-medium">5/8</div>
+                    <div class="absolute bottom-4 left-4 bg-black bg-opacity-75 text-white px-4 py-2 rounded-lg">
+                        <div class="font-medium">構造美を活かす</div>
+                        <div class="text-sm opacity-90">既存の梁をデザインに取り入れ</div>
+                    </div>
+                </div>
+                <div class="relative group">
+                    <img src="https://via.placeholder.com/600x400" alt="19帖のLDK" class="w-full rounded-lg shadow-lg">
+                    <div class="absolute top-4 left-4 bg-white bg-opacity-90 px-3 py-1 rounded-full text-sm font-medium">6/8</div>
+                    <div class="absolute bottom-4 left-4 bg-black bg-opacity-75 text-white px-4 py-2 rounded-lg">
+                        <div class="font-medium">開放感のある19帖LDK</div>
+                        <div class="text-sm opacity-90">家族が集う大空間</div>
+                    </div>
+                </div>
+                <div class="relative group">
+                    <img src="https://via.placeholder.com/600x400" alt="和モダンデザイン" class="w-full rounded-lg shadow-lg">
+                    <div class="absolute top-4 left-4 bg-white bg-opacity-90 px-3 py-1 rounded-full text-sm font-medium">7/8</div>
+                    <div class="absolute bottom-4 left-4 bg-black bg-opacity-75 text-white px-4 py-2 rounded-lg">
+                        <div class="font-medium">和モダンテイスト</div>
+                        <div class="text-sm opacity-90">伝統と現代の融合</div>
+                    </div>
+                </div>
+                <div class="relative group">
+                    <img src="https://via.placeholder.com/600x400" alt="トクラス水まわり" class="w-full rounded-lg shadow-lg">
+                    <div class="absolute top-4 left-4 bg-white bg-opacity-90 px-3 py-1 rounded-full text-sm font-medium">8/8</div>
+                    <div class="absolute bottom-4 left-4 bg-black bg-opacity-75 text-white px-4 py-2 rounded-lg">
+                        <div class="font-medium">トクラス水まわり設備</div>
+                        <div class="text-sm opacity-90">高品質で長持ち</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Present Section / プレゼントセクション -->
+        <section class="section-spacing fade-in">
+            <div class="bg-gray-50 rounded-2xl p-8 md:p-12">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl md:text-4xl font-light mb-4">
+                        PRESENT
+                        <br>
+                        <span class="text-lg text-gray-600">資料請求特典</span>
+                    </h2>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="text-center">
+                        <img src="https://via.placeholder.com/400x300" alt="資料パンフレット" class="w-full max-w-sm mx-auto rounded-lg shadow-lg mb-4">
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-medium mb-4">資料請求いただいた方に無料進呈</h3>
+                        <p class="text-gray-600 mb-6">
+                            ホームページには掲載していない詳細な施工事例や、リフォーム・リノベーションの進め方、費用の目安などを分かりやすくまとめた資料を無料でお送りいたします。
+                        </p>
+                        <ul class="text-sm text-gray-600 space-y-2 mb-6">
+                            <li>✓ HP未掲載の施工事例多数</li>
+                            <li>✓ 工事の流れを詳しく解説</li>
+                            <li>✓ 費用の目安と補助金情報</li>
+                            <li>✓ よくあるご質問集</li>
+                        </ul>
+                        <button class="bg-gray-900 text-white px-8 py-3 rounded-md font-medium hover:bg-gray-800 transition-colors w-full md:w-auto">
+                            今すぐ資料請求
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form Section / お問い合わせフォームセクション -->
+        <section class="section-spacing fade-in">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-light mb-4">
+                    Contact
+                    <br>
+                    <span class="text-lg text-gray-600">お問い合わせ・資料請求</span>
+                </h2>
+                <p class="text-gray-600">
+                    リフォーム・リノベーションに関するご相談は、お気軽にお問い合わせください。
                 </p>
             </div>
             
-            <div class="max-w-3xl mx-auto">
-               <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdzWiC2E6jyxa6d4nYnULTxSUVYIEGIAtdCsENUQW-Ua90Uzw/viewform?embedded=true" width="100%" height="1864" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
-            </div>
-        </div>
-    </section>
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-2 gap-8">
-                <div>
-                    <h3 class="font-playfair text-2xl font-bold mb-4">株式会社アート・宙</h3>
-                    <div class="space-y-2 text-gray-300">
-                        <p><strong>本社</strong></p>
-                        <p>〒510-0081 三重県四日市市北町3番4号</p>
-                        <p>TEL 059-356-0817</p>
-                    </div>
-                </div>
-                <div>
-                    <div class="space-y-2 text-gray-300 text-sm">
-                        <p>建設業許可 三重県知事 許可(般4) 第21401号</p>
-                        <p>一級建築士事務所登録 三重知事登録 第1-1703号</p>
-                        <p>宅地建物取引業者免許 三重県知事(5) 第2825号</p>
+            <div class="max-w-2xl mx-auto">
+                <div class="bg-gray-50 p-8 rounded-lg">
+                    <p class="text-center text-gray-600 mb-6">
+                        下記のGoogleフォームからお問い合わせください
+                    </p>
+                    <!-- Googleフォーム埋め込みエリア -->
+                    <div class="bg-white p-8 rounded-lg border-2 border-dashed border-gray-300 text-center">
+                        <div class="text-gray-500 mb-4">
+                            <svg class="w-12 h-12 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                        </div>
+                        <p class="text-gray-600 mb-4">Googleフォーム埋め込みエリア</p>
+                        <p class="text-sm text-gray-500">
+                            ここにGoogleフォームのiframeを埋め込んでください
+                        </p>
                     </div>
                 </div>
             </div>
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                <p>@2022 三重県四日市市で自然素材の注文住宅を建てるならアート・宙 Created by jeengross</p>
+        </section>
+
+        <!-- Navigation Section / 前後ナビゲーションセクション -->
+        <section class="section-spacing fade-in">
+            <div class="flex justify-between items-center border-t border-gray-200 pt-8">
+                <button class="flex items-center space-x-2 text-gray-600 hover:text-gray-900 transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="15 19l-7-7 7-7"></path>
+                    </svg>
+                    <span>Prev</span>
+                </button>
+                
+                <button class="bg-gray-900 text-white px-6 py-2 rounded-md font-medium hover:bg-gray-800 transition-colors">
+                    Back to Index
+                </button>
+                
+                <button class="flex items-center space-x-2 text-gray-600 hover:text-gray-900 transition-colors">
+                    <span>Next</span>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer / フッターセクション -->
+    <footer class="bg-gray-900 text-white py-12 mt-16">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="font-medium mb-4">株式会社アート・宙</h4>
+                    <p class="text-sm text-gray-300 mb-2">〒123-4567</p>
+                    <p class="text-sm text-gray-300 mb-2">三重県●●市●●町1-2-3</p>
+                    <p class="text-sm text-gray-300">TEL: 059-123-4567</p>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-4">営業時間</h4>
+                    <p class="text-sm text-gray-300 mb-2">平日 9:00～18:00</p>
+                    <p class="text-sm text-gray-300 mb-2">土曜 9:00～17:00</p>
+                    <p class="text-sm text-gray-300">定休日：日曜・祝日</p>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-4">サービス</h4>
+                    <ul class="text-sm text-gray-300 space-y-1">
+                        <li>リフォーム</li>
+                        <li>リノベーション</li>
+                        <li>設計・デザイン</li>
+                        <li>アフターメンテナンス</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-4">お問い合わせ</h4>
+                    <button class="bg-white text-gray-900 px-4 py-2 rounded text-sm font-medium hover:bg-gray-100 transition-colors w-full mb-2">
+                        資料請求
+                    </button>
+                    <button class="border border-white text-white px-4 py-2 rounded text-sm font-medium hover:bg-white hover:text-gray-900 transition-colors w-full">
+                        無料相談
+                    </button>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 mt-8 text-center">
+                <p class="text-sm text-gray-400">© 2024 株式会社アート・宙. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // スムーズスクロール
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+        // フェードインアニメーションの遅延設定
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.animationPlayState = 'running';
+                        }, index * 100);
+                    }
+                });
+            });
+            
+            fadeElements.forEach(element => {
+                element.style.animationPlayState = 'paused';
+                observer.observe(element);
             });
         });
     </script>
