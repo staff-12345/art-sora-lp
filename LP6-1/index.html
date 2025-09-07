@@ -474,14 +474,29 @@ const io6 = new IntersectionObserver(es=>{
 },{threshold:.5});
 if(ctaBtns.length) io6.observe(document.getElementById('cta'));
 </script>
-  <!-- Google Form埋め込み -->
-  <section id="contact-form" class="section" style="background:var(--paper-2)">
-    <div class="container">
-      <h2 class=\"reveal\">お問い合わせ・注点・資料請求</h2>
-      <div class="card" style="padding:1rem">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdzWiC2E6jyxa6d4nYnULTxSUVYIEGIAtdCsENUQW-Ua90Uzw/viewform?embedded=true" width="100%" height="1200" frameborder="0" marginheight="0" marginwidth="0" title="お問い合わせフォーム">読み込んでいます…</iframe>
+  <!-- PRESENT セクション -->
+<section class=\"brochure-section py-20 px-6\" style=\"background: var(--color-bg);\">
+  <div class=\"container mx-auto\">
+    <h2 class=\"uppercase text-center mb-8\">PRESENT</h2>
+    <div class=\"max-w-5xl mx-auto grid md:grid-cols-2 gap-8 items-center card-surface p-8\">
+      <img src=\"https://i.postimg.cc/GmVnRPZ8/2025-09-05-14-34-16.png\" alt=\"アート・宙 パンフレット\" class=\"w-full max-w-sm mx-auto rounded shadow\"/>
+      <div class=\"text-center md:text-left\">
+        <p class=\"text-lg font-semibold mb-4\" style=\"color: var(--color-primary);\">資料請求いただいた方に、アート・宙のこだわりが詰まったパンフレットを無料進呈します。</p>
+        <p>コンセプトブックや施工事例集など、ホームページに載せきれない情報が盛りだくさん。ぜひご覧ください。</p>
+        <a href=\"#contact-form\" class=\"btn-primary inline-block mt-6 px-8 py-3\">今すぐ資料請求する</a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
+<!-- Google Form埋め込み -->
+<section id=\"contact-form\" class=\"section\" style=\"background:var(--paper-2)\">
+  <div class=\"container\">
+    <h2 class=\"reveal text-center mb-8\">お問い合わせ・資料請求</h2>
+    <div class=\"card\" style=\"padding:1rem\">
+      <iframe src=\"https://docs.google.com/forms/d/e/1FAIpQLSdzWiC2E6jyxa6d4nYnULTxSUVYIEGIAtdCsENUQW-Ua90Uzw/viewform?embedded=true\" width=\"100%\" height=\"1200\" frameborder=\"0\" marginheight=\"0\" marginwidth=\"0\" title=\"お問い合わせフォーム\">読み込んでいます…</iframe>
+    </div>
+  </div>
+</section>
 </body>
 </html>
