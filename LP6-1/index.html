@@ -77,10 +77,16 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
 .reveal{opacity:0;transform:translateY(14px);transition:opacity .7s ease, transform .7s ease}
 .revealed{opacity:1;transform:none}
 
+/* スライドイン（左右） */
+.slide-left{opacity:0;transform:translateX(-26px);transition:opacity .8s ease, transform .8s ease}
+.slide-right{opacity:0;transform:translateX(26px);transition:opacity .8s ease, transform .8s ease}
+.slide-up{opacity:0;transform:translateY(18px);transition:opacity .8s ease, transform .8s ease}
+.slid{opacity:1;transform:none}
+
 /* お悩み */
 .worry-list{list-style:none;margin:0;padding:1.1rem}
 .worry-item{display:flex;align-items:flex-start;gap:.6rem;padding:.55rem .2rem}
-.badge-num{min-width:28px;height:28px;border-radius:999px;background:var(--brand);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:700}
+.badge-num{min-width:28px;height:28px;border-radius:999px;background:var(--brand);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:700;transition:transform .15s ease, box-shadow .2s ease}
 .worry-item:hover .badge-num{transform:translateY(-1px);box-shadow:0 6px 16px rgba(216,155,92,.35)}
 
 /* サービス */
@@ -90,21 +96,24 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
 .service-card:before{content:"";position:absolute;inset:-30% -30% auto auto;height:180px;width:180px;background:radial-gradient(circle, rgba(216,155,92,.15), transparent 60%);transform:rotate(12deg)}
 .service-toggle{cursor:pointer;display:inline-flex;align-items:center;gap:.4rem}
 .service-content{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.service-card.open{transform:translateY(-1px) scale(1.01)}
 .service-card.open .service-content{max-height:300px}
 
-/* 実績（カウントアップ） */
+/* 実績（カウントアップ＋バウンス） */
 .ach-band{background:linear-gradient(135deg, var(--paper-3), var(--paper-2));border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:1.2rem}
 .ach-grid{display:grid;gap:1rem;grid-template-columns:repeat(1,1fr)}
 @media (min-width:680px){.ach-grid{grid-template-columns:repeat(3,1fr)}}
-.counter{font-size:2.2rem;font-weight:800;color:var(--brand-ink)}
+.counter{font-size:2.2rem;font-weight:800;color:var(--brand-ink);display:inline-block}
+@keyframes bounce{0%{transform:scale(1)}60%{transform:scale(1.1)}100%{transform:scale(1)}}
+.counter.bounce{animation:bounce .35s ease}
 
 /* 事例 — ジグザグ */
 .zig{display:grid;gap:1.2rem;grid-template-columns:1fr}
 @media (min-width:980px){.zig{grid-template-columns:1.1fr .9fr}}
-.zig.reverse{@media (min-width:980px){grid-template-columns:.9fr 1.1fr}}
 .frame{border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow)}
 .caption{background:var(--paper-2);border:1px solid var(--line);border-top:0;border-radius:0 0 var(--r) var(--r);padding:.8rem 1rem}
-.num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:999px;background:var(--brand);color:#fff;font-weight:700;margin-right:.4rem}
+.num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:999px;background:var(--brand);color:#fff;font-weight:700;margin-right:.4rem;opacity:.5}
+.num.on{opacity:1}
 
 /* Before/After スライダー */
 .ba{position:relative;border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow)}
@@ -116,10 +125,15 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
 .ba input[type=range]::-webkit-slider-thumb{appearance:none;width:18px;height:18px;border-radius:50%;background:var(--brand);margin-top:-7px;border:2px solid #fff}
 .ba .divider{position:absolute;top:0;bottom:0;left:50%;width:2px;background:var(--brand-ink)}
 
-/* ギャラリー（マasonry + ライトボックス） */
+/* ギャラリー（マasonry + ライトボックス + チルト） */
 .masonry{columns:2;column-gap:12px}
 @media (min-width:920px){.masonry{columns:3}}
-.tile{break-inside:avoid;margin-bottom:12px;border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);cursor:zoom-in}
+.tile{break-inside:avoid;margin-bottom:12px;border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);cursor:zoom-in;opacity:0;transform:translateY(10px) rotate(0.6deg);transition:opacity .6s ease, transform .6s ease}
+.tile.tiltL{transform:translateY(10px) rotate(-1.2deg)}
+.tile.tiltR{transform:translateY(10px) rotate(1.2deg)}
+.tile.on{opacity:1;transform:none}
+.tile:hover{filter:brightness(1.02)}
+
 .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;padding:24px;z-index:90}
 .lightbox.open{display:flex}
 .lightbox img{max-width:min(1200px,90vw);max-height:90vh;border-radius:14px}
@@ -138,14 +152,12 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
 @keyframes float{to{transform:translateY(12px)}}
 .cta .btn-primary{animation:pulse 2.8s ease-in-out infinite}
 @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(216,155,92,.0)}50%{box-shadow:0 0 0 12px rgba(216,155,92,.15)}}
+.btn.lift{transform:translateY(-2px)}
 
 /* 小ユーティリティ */
 .grid-3{display:grid;gap:12px;grid-template-columns:repeat(3,1fr)}
 @media (max-width:720px){.grid-3{grid-template-columns:1fr 1fr}}
-
-/* アクセシビリティ配慮 */
 .btn:focus, a:focus{outline:2px dashed var(--brand-ink);outline-offset:3px}
-
 </style>
 </head>
 <body data-show-price="false">
@@ -219,6 +231,7 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
         <li class="worry-item"><span class="badge-num">7</span>中古マンションを購入してリノベしたい</li>
       </ul>
     </div>
+    <div class="small" style="margin-top:1rem">※ 断熱窓や動線調整、照明計画などで“温度差”や“暮らしの負担”の改善をご提案します。</div>
   </div>
 </section>
 
@@ -227,7 +240,7 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
   <div class="container">
     <h2 class="reveal">宙様のリフォーム・リノベーションについて</h2>
     <div class="grid-2">
-      <div class="card card-strong service-card reveal" id="svc1" style="padding:1.1rem 1.1rem">
+      <div class="card card-strong service-card slide-left" id="svc1" style="padding:1.1rem 1.1rem">
         <h3>アート・宙のリフォーム</h3>
         <p style="margin-top:.6rem">部分改修から断熱・耐震・水回りまで。住みながらの工事が可能なメニューもあり、身体の負担や仮住まいのコストを抑えられます。</p>
         <button class="service-toggle small" aria-controls="svc1c" aria-expanded="false">詳細を読む <svg class="rotate" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
@@ -235,7 +248,7 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
           <hr class="hr"><p>水回り・内装・断熱窓・動線改善・手すり設置など。設計監理〜施工までワンストップで対応します。</p>
         </div>
       </div>
-      <div class="card card-strong service-card reveal" id="svc2" style="padding:1.1rem 1.1rem">
+      <div class="card card-strong service-card slide-right" id="svc2" style="padding:1.1rem 1.1rem">
         <h3>アート・宙のリノベーション（戸建・マンション対応）</h3>
         <p style="margin-top:.6rem">間取りの再構築や内装一新、設備の総入れ替えまで。<strong>マンションのリノベーション</strong>にも対応し、管理規約や工期の調整もお任せください。</p>
         <button class="service-toggle small" aria-controls="svc2c" aria-expanded="false">詳細を読む <svg class="rotate" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
@@ -273,21 +286,23 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
   </div>
 </section>
 
-<!-- ===== 実例 1（ジグザグ＋ナンバリング） ===== -->
+<!-- ===== 実例 1（ジグザグ＋ナンバリング＋スライドイン） ===== -->
 <section class="section" id="cases" style="background:var(--paper-2)">
   <div class="container">
     <h2 class="reveal">実例紹介</h2>
 
-    <div class="zig reveal">
-      <div class="frame"><img src="https://images.unsplash.com/photo-1505691723518-36a5ac3b2b8f?q=80&w=1600&auto=format&fit=crop" alt="和室続き→LDK化"></div>
+    <div class="zig">
+      <div class="frame slide-left"><img src="https://images.unsplash.com/photo-1505691723518-36a5ac3b2b8f?q=80&w=1600&auto=format&fit=crop" alt="和室続き→LDK化"></div>
       <div>
-        <h3>事例1｜和室続き→ワンフロア化でつながるLDK（鈴鹿市）</h3>
-        <p class="small" style="margin-top:.35rem">サッシ交換／内装デザイン変更／造作収納／水まわり交換／床張替／壁塗替 など</p>
-        <div class="frame" style="margin-top:.6rem"><img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1600&auto=format&fit=crop" alt="断熱窓入替"></div>
+        <h3 class="slide-up">事例1｜和室続き→ワンフロア化でつながるLDK（鈴鹿市）</h3>
+        <p class="small slide-up" style="margin-top:.35rem">サッシ交換／内装デザイン変更／造作収納／水まわり交換／床張替／壁塗替 など</p>
+        <div class="frame slide-up" style="margin-top:.6rem"><img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1600&auto=format&fit=crop" alt="断熱窓入替"></div>
         <div class="caption">
-          <p class="small"><span class="num">1</span>壁を取り払い、続き間の和室をLDKに取り込んで約17帖の広がりに。
-          <br><span class="num">2</span>「とにかく寒い」悩みに対して窓を入替え、断熱性能を改善。
-          <br><span class="num">3</span>玄関は既存意匠を活かし、丸窓を新設して和モダンに。</p>
+          <p class="small">
+            <span class="num">1</span>壁を取り払い、続き間の和室をLDKに取り込んで約17帖の広がりに。
+            <br><span class="num">2</span>「とにかく寒い」悩みに対して窓を入替え、断熱性能を改善。
+            <br><span class="num">3</span>玄関は既存意匠を活かし、丸窓を新設して和モダンに。
+          </p>
           <p class="small" style="margin-top:.4rem"><a href="https://www.artsora.com/case_newly/18217/" target="_blank" rel="noopener">公式の事例ページを見る</a></p>
         </div>
       </div>
@@ -301,36 +316,38 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
       <input type="range" min="0" max="100" value="50" aria-label="Before/After 比較" />
     </div>
 
-    <!-- 実例 2（左右反転） -->
-    <div class="zig reveal" style="margin-top:1.4rem">
+    <!-- 実例 2（左右反転＋スライドイン） -->
+    <div class="zig" style="margin-top:1.4rem">
       <div>
-        <h3>事例2｜梁あらわし仕上げで趣を活かす（津市）</h3>
-        <p class="small" style="margin-top:.35rem">外壁張替／サッシ交換／内装デザイン変更／造作収納／水まわり交換／床張替／壁塗替 等</p>
-        <div class="frame" style="margin-top:.6rem"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1600&auto=format&fit=crop" alt="梁あらわし"></div>
+        <h3 class="slide-up">事例2｜梁あらわし仕上げで趣を活かす（津市）</h3>
+        <p class="small slide-up" style="margin-top:.35rem">外壁張替／サッシ交換／内装デザイン変更／造作収納／水まわり交換／床張替／壁塗替 等</p>
+        <div class="frame slide-up" style="margin-top:.6rem"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1600&auto=format&fit=crop" alt="梁あらわし"></div>
         <div class="caption">
-          <p class="small"><span class="num">1</span>天井裏の梁を見せる設えで立体感を演出。
-          <br><span class="num">2</span>食堂とリビングを約19帖の一体空間へ。
-          <br><span class="num">3</span>床に桧、壁に珪藻土を採用し、木の香りと調湿性を確保。</p>
+          <p class="small">
+            <span class="num">1</span>天井裏の梁を見せる設えで立体感を演出。
+            <br><span class="num">2</span>食堂とリビングを約19帖の一体空間へ。
+            <br><span class="num">3</span>床に桧、壁に珪藻土を採用し、木の香りと調湿性を確保。
+          </p>
           <p class="small" style="margin-top:.4rem"><a href="https://www.artsora.com/case_newly/14836/" target="_blank" rel="noopener">公式の事例ページを見る</a></p>
         </div>
       </div>
-      <div class="frame"><img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=1600&auto=format&fit=crop" alt="リビング俯瞰"></div>
+      <div class="frame slide-right"><img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=1600&auto=format&fit=crop" alt="リビング俯瞰"></div>
     </div>
 
   </div>
 </section>
 
-<!-- ===== ギャラリー（マasonry + ライトボックス） ===== -->
+<!-- ===== ギャラリー（マasonry + ライトボックス + 交互チルト） ===== -->
 <section class="section" id="gallery">
   <div class="container">
     <h2 class="reveal">Gallery</h2>
-    <div class="masonry reveal" id="masonry">
-      <img class="tile" src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=1200&auto=format&fit=crop" alt="梁と天井">
-      <img class="tile" src="https://images.unsplash.com/photo-1505691723518-36a5ac3b2b8f?q=80&w=900&auto=format&fit=crop" alt="木の階段">
-      <img class="tile" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=900&auto=format&fit=crop" alt="広角リビング">
-      <img class="tile" src="https://images.unsplash.com/photo-1582582429416-2b5f7e85e49e?q=80&w=900&auto=format&fit=crop" alt="造作収納アップ">
-      <img class="tile" src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=900&auto=format&fit=crop" alt="窓辺の光">
-      <img class="tile" src="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=900&auto=format&fit=crop" alt="Before 別カット">
+    <div class="masonry" id="masonry">
+      <img class="tile tiltL" src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=1200&auto=format&fit=crop" alt="梁と天井">
+      <img class="tile tiltR" src="https://images.unsplash.com/photo-1505691723518-36a5ac3b2b8f?q=80&w=900&auto=format&fit=crop" alt="木の階段">
+      <img class="tile tiltL" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=900&auto=format&fit=crop" alt="広角リビング">
+      <img class="tile tiltR" src="https://images.unsplash.com/photo-1582582429416-2b5f7e85e49e?q=80&w=900&auto=format&fit=crop" alt="造作収納アップ">
+      <img class="tile tiltL" src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=900&auto=format&fit=crop" alt="窓辺の光">
+      <img class="tile tiltR" src="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=900&auto=format&fit=crop" alt="Before 別カット">
     </div>
   </div>
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="拡大写真">
@@ -348,7 +365,7 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
   </div>
 </section>
 
-<!-- ===== CTA（発光＋葉影の浮遊） ===== -->
+<!-- ===== CTA（発光＋ボタン浮上） ===== -->
 <section class="section" id="cta">
   <div class="container">
     <div class="cta reveal" style="padding:1.3rem 1.3rem">
@@ -359,8 +376,8 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
           <p class="small" style="margin-top:.6rem"><strong>TEL：</strong><a href="tel:000-0000-0000" style="color:var(--brand-ink);text-decoration:underline">000-0000-0000</a>　<strong>受付：</strong>9:00〜18:00（火・水定休）</p>
         </div>
         <div style="display:flex;gap:.6rem;flex-wrap:wrap">
-          <a href="#" class="btn btn-primary">来場予約</a>
-          <a href="#" class="btn btn-outline">カタログ請求</a>
+          <a href="#" class="btn btn-primary" id="ctaReserve">来場予約</a>
+          <a href="#" class="btn btn-outline" id="ctaCatalog">カタログ請求</a>
         </div>
       </div>
       <i class="glow" aria-hidden="true"></i>
@@ -369,9 +386,7 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
 </section>
 
 <script>
-/**
- * Scroll reveal / IntersectionObserver
- */
+/** Scroll reveal */
 const io = new IntersectionObserver(entries=>{
   entries.forEach(e=>{
     if(e.isIntersecting){ e.target.classList.add('revealed'); io.unobserve(e.target);} 
@@ -383,7 +398,7 @@ for(const el of document.querySelectorAll('.reveal')) io.observe(el);
 const pv = document.getElementById('parallaxLayer');
 window.addEventListener('scroll',()=>{
   const rect = pv?.parentElement?.getBoundingClientRect?.();
-  if(!rect) return; const offset = (window.innerHeight - rect.top) * 0.03; // 係数で控えめに
+  if(!rect) return; const offset = (window.innerHeight - rect.top) * 0.03; // 控えめ
   pv.style.transform = `translateY(${offset}px)`;
 });
 
@@ -397,13 +412,14 @@ document.querySelectorAll('.service-toggle').forEach(btn=>{
   });
 });
 
-/** Counters */
+/** Counters + bounce */
 const counters = document.querySelectorAll('.counter');
 const io2 = new IntersectionObserver(es=>{
   es.forEach(e=>{
     if(!e.isIntersecting) return; const el = e.target; const target = +el.dataset.target; let cur = 0;
     const step = Math.max(1, Math.ceil(target/50));
-    const timer = setInterval(()=>{ cur+=step; if(cur>=target){cur=target; clearInterval(timer);} el.textContent = cur; }, 28);
+    const timer = setInterval(()=>{ cur+=step; if(cur>=target){cur=target; clearInterval(timer); el.classList.add('bounce');}
+      el.textContent = cur; }, 28);
     io2.unobserve(el);
   })
 },{threshold:.6});
@@ -418,14 +434,43 @@ document.querySelectorAll('.ba').forEach(ba=>{
   range.addEventListener('input',e=>update(e.target.value));
 });
 
-/** Masonry lightbox */
+/** Slide-in for case images & texts */
+const slideTargets = document.querySelectorAll('.slide-left, .slide-right, .slide-up');
+const io3 = new IntersectionObserver(es=>{
+  es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('slid'); io3.unobserve(e.target);} });
+},{threshold:.2});
+slideTargets.forEach(t=>io3.observe(t));
+
+/** Caption numbering: sequential highlight */
+document.querySelectorAll('.caption').forEach(cap=>{
+  const nums = cap.querySelectorAll('.num');
+  const io4 = new IntersectionObserver(es=>{
+    es.forEach(e=>{
+      if(!e.isIntersecting) return; let i=0; const t=setInterval(()=>{ if(i<nums.length){nums[i++].classList.add('on');} else {clearInterval(t);} }, 280); io4.unobserve(cap);
+    });
+  },{threshold:.4});
+  io4.observe(cap);
+});
+
+/** Masonry lightbox + reveal tilts */
 const lb = document.getElementById('lightbox');
 const lbImg = lb.querySelector('img');
+const tiles = document.querySelectorAll('.tile');
+const io5 = new IntersectionObserver(es=>{
+  es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('on'); io5.unobserve(e.target);} });
+},{threshold:.1});
+tiles.forEach(t=>io5.observe(t));
 document.getElementById('masonry').addEventListener('click',e=>{
   const t = e.target.closest('.tile'); if(!t) return; lbImg.src = t.src; lb.classList.add('open');
 });
 lb.addEventListener('click',()=>lb.classList.remove('open'));
 
+/** CTA lift when visible */
+const ctaBtns = [document.getElementById('ctaReserve'), document.getElementById('ctaCatalog')].filter(Boolean);
+const io6 = new IntersectionObserver(es=>{
+  es.forEach(e=>{ if(e.isIntersecting){ ctaBtns.forEach(b=>b.classList.add('lift')); io6.disconnect(); } });
+},{threshold:.5});
+if(ctaBtns.length) io6.observe(document.getElementById('cta'));
 </script>
 </body>
 </html>
