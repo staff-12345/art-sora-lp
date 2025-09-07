@@ -104,6 +104,9 @@
     .case-study__gallery{
       display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem;
     }
+    .case-study__gallery.two-col{
+      grid-template-columns: repeat(2,1fr); /* 2枚並び */
+    }
     .case-study__gallery img{
       width:100%; height:100%; object-fit:cover; border-radius:.5rem;
       box-shadow: 0 10px 25px rgba(0,0,0,.1); aspect-ratio: 4 / 3;
@@ -113,18 +116,11 @@
     }
     .case-study__text p{ line-height:1.8; }
     .case-study__text strong{ color: var(--color-green); font-weight:700; }
-    @media (max-width: 768px){ .case-study__gallery, .case-study__texts{ grid-template-columns:1fr; } }
-
-    /* 1段目：ナンバリング画像用 */
-    .numshot { position: relative; max-width: 1200px; margin: 0 auto; }
-    .numshot img { width: 100%; height: auto; display: block; border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,.08); }
-    .pin{
-      position:absolute; transform:translate(-50%,-50%);
-      width:42px; height:42px; line-height:42px; text-align:center;
-      border-radius:9999px; background: var(--color-green); color:#fff; font-weight:700;
-      box-shadow: 0 6px 16px rgba(0,0,0,.15), inset 0 0 0 2px rgba(255,255,255,.25);
-      font-family: 'Noto Serif JP', serif;
+    @media (max-width: 768px){
+      .case-study__gallery, .case-study__gallery.two-col, .case-study__texts{ grid-template-columns:1fr; }
     }
+
+    /* 1段目：番号説明リスト（画像のナンバリングは画像側で実施） */
     .numdesc{
       max-width:1100px; margin:1.5rem auto 0;
       display:grid; grid-template-columns: repeat(2,minmax(0,1fr));
@@ -135,6 +131,28 @@
     }
     .numdesc li strong{ color:#765B2E; }
     @media (max-width:768px){ .numdesc{ grid-template-columns:1fr; } }
+
+    /* PRESENTカード */
+    .card-surface{
+      background: var(--surface);
+      border-radius: .75rem;
+      box-shadow: 0 10px 24px rgba(0,0,0,.08);
+    }
+    .brochure-section .btn-primary{
+      background: var(--color-green); /* 資料請求CTAは深緑で差別化 */
+      font-weight: 700;
+    }
+    .brochure-section .btn-primary:hover{
+      background: #24462C; /* 深緑濃いめ */
+    }
+
+    /* フォーム背景 */
+    #contact-form{ background: #F1DECA; } /* 白を使わず温かい下地 */
+    .panel-surface{
+      background: var(--surface);
+      border-radius: .75rem;
+      box-shadow: 0 10px 24px rgba(0,0,0,.08);
+    }
   </style>
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-6S9PJSSY8D"></script>
@@ -220,20 +238,16 @@
     <div class="container mx-auto">
       <h2>施工実例のご紹介</h2>
 
-      <!-- ▼ 1段目：ナンバリング画像に差し替え ▼ -->
+      <!-- ▼ 1段目：横並び2枚（ナンバリングは画像側で実施） ▼ -->
       <div class="mb-16" aria-labelledby="case1-heading">
         <h3 id="case1-heading">家族がくつろげる広々としたLDKへ</h3>
 
-        <figure class="numshot">
-          <img src="https://i.postimg.cc/dtG4LBh2/image.png"
-               alt="LDKの俯瞰写真。①壁面とワークスペース、②床と内装更新、③サッシ交換、④キッチン側造作の位置が分かる画像。">
-          <!-- ピン位置は写真に合わせて微調整可能 -->
-          <span class="pin" style="top:30%; left:56%;">①</span>
-          <span class="pin" style="top:72%; left:21%;">②</span>
-          <span class="pin" style="top:30%; left:96%;">③</span>
-          <span class="pin" style="top:33%; left:10%;">④</span>
-        </figure>
+        <div class="case-study__gallery two-col">
+          <img src="https://i.postimg.cc/HxQFdg1M/image.png" alt="LDKリフォーム：ナンバリング済み写真その1"/>
+          <img src="https://i.postimg.cc/bvSKVn63/image.png" alt="LDKリフォーム：ナンバリング済み写真その2"/>
+        </div>
 
+        <!-- 画像の番号に対応する説明（①〜④） -->
         <ol class="numdesc">
           <li>
             <strong>① 和室を取り込んだワンフロア化（約17帖）</strong><br>
@@ -253,18 +267,17 @@
           </li>
         </ol>
       </div>
-      <!-- ▲ 1段目ここまで（2段目は従来のまま） ▲ -->
+      <!-- ▲ 1段目ここまで ▲ -->
 
+      <!-- ▼ 2段目：横並び2枚＋説明（4つ目文言をトクラスに置換） ▼ -->
       <div aria-labelledby="case2-heading">
         <h3 id="case2-heading">築100年の古民家を再生</h3>
-        <div class="case-study__text mb-6">
-          <p><strong>●実施したこと</strong><br/>外壁のはり替え・サッシ交換・内装デザインの変更・造作収納増設・水廻り設備の交換・床の張り替え・壁の塗り替え</p>
+
+        <div class="case-study__gallery two-col">
+          <img src="https://i.postimg.cc/6QzGS7y4/image.png" alt="古民家再生：ナンバリング済み写真その1"/>
+          <img src="https://i.postimg.cc/zvhC9zmm/image.png" alt="古民家再生：ナンバリング済み写真その2"/>
         </div>
-        <div class="case-study__gallery">
-          <img src="https://i.postimg.cc/zX01tH5M/LP5.jpg" alt="天井裏の梁を見せる仕上げにした開放的なリビング。"/>
-          <img src="https://i.postimg.cc/RZhxjCZ0/LP6.jpg" alt="食堂とリビングを一つにまとめた約19帖のLDK。"/>
-          <img src="https://i.postimg.cc/028s00gD/LP4.jpg" alt="既存の天井を活かし、趣を残しながら和モダンに仕上げた内装。"/>
-        </div>
+
         <div class="case-study__texts">
           <div class="case-study__text">
             <p>今回、天井裏に隠れていた梁を見せる仕上げにしました。<br/>天井が高くなることで、空間が立体的になり、<br/>木の存在感や力強さを感じられます。</p>
@@ -275,8 +288,13 @@
           <div class="case-study__text">
             <p>「内装デザインを和モダンにしたい」というご要望から、既存の天井等活かし、趣を残しながら仕上げました。</p>
           </div>
+          <div class="case-study__text">
+            <p>キッチン・浴室・洗面化粧台を全てトクラスの設備に入れ替えました。<br/>トクラスはオリジナルの人造大理石の素材にこだわり、<br/>高い耐久性とメンテナンスのしやすさが特徴です。</p>
+          </div>
         </div>
       </div>
+      <!-- ▲ 2段目ここまで ▲ -->
+
     </div>
   </section>
 
