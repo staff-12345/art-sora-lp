@@ -35,6 +35,7 @@ h2{font-size:clamp(22px,2.3vw,30px);line-height:1.28;margin-bottom:.5em}
 h3{font-size:clamp(18px,1.7vw,22px);line-height:1.3}
 p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
 .small{font-size:.92rem}
+
 .container{max-width:1120px;margin-inline:auto;padding-inline:clamp(16px,3vw,32px)}
 .section{padding-block:clamp(56px,7vw,96px)}
 .card{background:var(--paper-2);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}
@@ -99,16 +100,6 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
 .caption{background:var(--paper-2);border:1px solid var(--line);border-top:0;border-radius:0 0 var(--r) var(--r);padding:1.2rem}
 .caption .big{font-size:1.05rem;line-height:2}
 .num{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:999px;background:var(--brand);color:#fff;font-weight:700;margin-right:.45rem}
-
-/* BA slider (kept if used elsewhere) */
-.ba{position:relative;border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow)}
-.ba img{display:block;width:100%;height:auto}
-.ba .after{position:absolute;inset:0;overflow:hidden}
-.ba .after img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.ba input[type=range]{position:absolute;inset:auto 0 10px 0;width:100%;appearance:none;background:transparent}
-.ba input[type=range]::-webkit-slider-runnable-track{height:4px;background:var(--brand-ink);border-radius:999px}
-.ba input[type=range]::-webkit-slider-thumb{appearance:none;width:18px;height:18px;border-radius:50%;background:var(--brand);margin-top:-7px;border:2px solid #fff}
-.ba .divider{position:absolute;top:0;bottom:0;left:50%;width:2px;background:var(--brand-ink)}
 
 /* Gallery: horizontal carousel */
 .gallery-wrap{position:relative}
@@ -187,29 +178,49 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
   </div>
 </section>
 
-<!-- ===== サービス（★見出し復帰） ===== -->
+<!-- ===== サービス（復活・本文は常時表示 / 追補のみ折りたたみ） ===== -->
 <section class="section" id="services" style="background:var(--paper-2)">
   <div class="container">
     <h2 class="reveal">アート宙のリフォーム・リノベーションについて</h2>
     <div class="grid-2">
-      <div class="card card-strong service-card slide-left" id="svc1" style="padding:1.1rem 1.1rem">
+      <!-- Reform -->
+      <div class="card card-strong service-card slide-left" style="padding:1.1rem 1.1rem">
         <h3>アート・宙のリフォーム</h3>
-        <p style="margin-top:.6rem">部分改修から断熱・耐震・水回りまで。住みながらの工事が可能なメニューもあり、身体の負担や仮住まいのコストを抑えられます。</p>
-        <button class="service-toggle small" aria-controls="svc1c" aria-expanded="false">詳細を読む
+        <p style="margin-top:.6rem">
+          キッチン・浴室などの部分改修から、断熱・耐震・動線見直しまで対応。<br>
+          <strong>住みながらの工事</strong>も計画し、負担や仮住まいコストを抑えます。無垢材・漆喰など自然素材を活かし、心地よい室内環境へ。
+        </p>
+        <button class="service-toggle small" aria-controls="svcReform" aria-expanded="false">詳しいポイントを見る
           <svg class="rotate" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
         </button>
-        <div id="svc1c" class="service-content small">
-          <hr class="hr"><p>水回り・内装・断熱窓・動線改善・手すり設置など。無垢材や漆喰などの自然素材を採用し、一級建築士が暮らしに寄り添って動線をデザイン。耐震・断熱性能の向上と丁寧なアフターメンテナンスまでワンストップで対応します。</p>
+        <div id="svcReform" class="service-content small">
+          <hr class="hr">
+          <ul style="margin:0;padding-left:1.1rem;line-height:1.9">
+            <li>断熱窓・内窓の設置で夏冬の体感差を軽減</li>
+            <li>手すり・段差解消などバリアフリー対応</li>
+            <li>造作収納や動線設計で家事効率をアップ</li>
+            <li>安心のアフターメンテナンス</li>
+          </ul>
         </div>
       </div>
-      <div class="card card-strong service-card slide-right" id="svc2" style="padding:1.1rem 1.1rem">
+      <!-- Renovation -->
+      <div class="card card-strong service-card slide-right" style="padding:1.1rem 1.1rem">
         <h3>アート・宙のリノベーション（戸建・マンション対応）</h3>
-        <p style="margin-top:.6rem">間取りの再構築や内装一新、設備の総入れ替えまで。<strong>マンションのリノベーション</strong>にも対応し、管理規約や工期の調整もお任せください。</p>
-        <button class="service-toggle small" aria-controls="svc2c" aria-expanded="false">詳細を読む
+        <p style="margin-top:.6rem">
+          間取りの再構成・内装一新・設備更新を<strong>ワンストップ</strong>で。<br>
+          <strong>中古マンションのリノベ</strong>にも対応し、管理規約や工期調整までサポートします。
+        </p>
+        <button class="service-toggle small" aria-controls="svcRenov" aria-expanded="false">詳しいポイントを見る
           <svg class="rotate" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
         </button>
-        <div id="svc2c" class="service-content small">
-          <hr class="hr"><p>物件探しから資金計画、設計、施工までワンストップ対応。断熱・耐震・省エネ性能を新築同等へ引き上げ、<strong>戸建てはもちろん中古マンションのリノベーション</strong>にも対応します。ライフスタイルに合わせた自由な間取り変更と自然素材のデザインで価値を再生します。</p>
+        <div id="svcRenov" class="service-content small">
+          <hr class="hr">
+          <ul style="margin:0;padding-left:1.1rem;line-height:1.9">
+            <li>断熱・耐震・省エネ性能を新築相当へ</li>
+            <li>暮らしに合わせた自由度の高いプラン</li>
+            <li>自然素材と和モダンを調和させたデザイン</li>
+            <li>物件探し〜資金計画〜設計〜施工まで伴走</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -224,12 +235,12 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
   </div>
 </section>
 
-<!-- ===== 実例（★画像を残し説明を大きく・2件とも） ===== -->
+<!-- ===== 実例（本文＆画像を確実に表示） ===== -->
 <section class="section" id="cases" style="background:var(--paper-2)">
   <div class="container">
     <h2 class="reveal">実例紹介</h2>
 
-    <!-- 事例1：1枚のみ＋説明大きめ -->
+    <!-- 事例1 -->
     <div class="zig">
       <div class="frame slide-left">
         <img src="https://i.postimg.cc/1zMJH3SJ/image.png" alt="和室続き→LDK化">
@@ -250,7 +261,7 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
 
     <hr class="hr-bold" aria-hidden="true">
 
-    <!-- 事例2：1枚のみ＋説明大きめ -->
+    <!-- 事例2 -->
     <div class="zig" style="margin-top:1.4rem">
       <div>
         <h3 class="slide-up">事例2｜梁あらわし仕上げで趣を活かす（津市）</h3>
@@ -267,7 +278,7 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
           <p class="small" style="margin-top:.4rem"><a href="https://www.artsora.com/case_newly/14836/" target="_blank" rel="noopener">公式の事例ページを見る</a></p>
         </div>
       </div>
-      <!-- 2枚目の写真は置かない -->
+      <!-- 2枚目は置かない -->
     </div>
 
   </div>
@@ -292,7 +303,7 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
   </div>
 </section>
 
-<!-- ===== FAQ（2件追加済み） ===== -->
+<!-- ===== FAQ（拡充済み） ===== -->
 <section class="section" id="faq" style="background:var(--paper-2)">
   <div class="container faq">
     <h2 class="reveal">FAQ</h2>
@@ -393,9 +404,7 @@ document.querySelectorAll('.service-toggle').forEach(btn=>{
       d.addEventListener('click',()=>go(i,true)); dotsWrap.appendChild(d);
     });
   }
-  function updateDots(){
-    dotsWrap.querySelectorAll('.gallery-dot').forEach((d,i)=>d.classList.toggle('active', i===idx));
-  }
+  function updateDots(){ dotsWrap.querySelectorAll('.gallery-dot').forEach((d,i)=>d.classList.toggle('active', i===idx)); }
   function go(i, pause){
     idx = (i+slides.length)%slides.length;
     rail.scrollTo({left: slides[idx].offsetLeft, behavior:'smooth'});
@@ -410,7 +419,7 @@ document.querySelectorAll('.service-toggle').forEach(btn=>{
   let startX=null, startLeft=0;
   rail.addEventListener('pointerdown',e=>{ startX=e.clientX; startLeft=rail.scrollLeft; rail.setPointerCapture(e.pointerId); clearInterval(timer); });
   rail.addEventListener('pointermove',e=>{ if(startX!==null){ rail.scrollLeft = startLeft - (e.clientX-startX); }});
-  rail.addEventListener('pointerup',()=>{ if(startX!==null){ 
+  rail.addEventListener('pointerup',()=>{ if(startX!==null){
       const mid = rail.scrollLeft + rail.clientWidth/2;
       const nearest = slides.reduce((a,el,i)=>{
         const c = el.offsetLeft + el.clientWidth/2;
