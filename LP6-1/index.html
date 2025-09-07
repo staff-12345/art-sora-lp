@@ -10,15 +10,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Cormorant+Garamond:wght@400;500&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  /* —— Palette（白背景は使わない） —— */
-  --paper:#FFF6EF;      /* クリーム生成り（ベース） */
-  --paper-2:#FBE9DA;    /* 濃いめクリーム（帯） */
-  --paper-3:#F9E2CC;    /* 強調面 */
-  --brand:#D89B5C;      /* テラコッタ */
-  --brand-ink:#8C5A2B;  /* 焦げ茶 */
-  --ink:#4A3725;        /* 見出し */
-  --body:#5A4633;       /* 本文 */
-  --line:rgba(140,90,43,.22);
+  --paper:#FFF6EF; --paper-2:#FBE9DA; --paper-3:#F9E2CC;
+  --brand:#D89B5C; --brand-ink:#8C5A2B;
+  --ink:#4A3725; --body:#5A4633; --line:rgba(140,90,43,.22);
   --shadow:0 10px 30px rgba(0,0,0,.06);
   --r:16px; --r-lg:20px;
   --wood:url('https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1300&q=20');
@@ -29,21 +23,18 @@ body{
   margin:0;background:var(--paper);color:var(--body);
   font-family:"Zen Kaku Gothic New","Noto Sans JP",system-ui,sans-serif;
   -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
-  /* 全面 木の気配（白は使わない） */
   background-image:
     linear-gradient(rgba(255,246,239,.86),rgba(255,246,239,.94)),
     var(--wood);
   background-size:cover,1200px auto; background-attachment:fixed,fixed; background-blend-mode:normal,overlay;
 }
 img{display:block;max-width:100%;height:auto}
-
 h1,h2,h3{font-family:"Shippori Mincho","Noto Serif JP",serif;color:var(--ink);letter-spacing:.01em;margin:0}
 h1{font-size:clamp(30px,3.3vw,46px);line-height:1.24}
 h2{font-size:clamp(22px,2.3vw,30px);line-height:1.28;margin-bottom:.5em}
 h3{font-size:clamp(18px,1.7vw,22px);line-height:1.3}
 p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
 .small{font-size:.92rem}
-
 .container{max-width:1120px;margin-inline:auto;padding-inline:clamp(16px,3vw,32px)}
 .section{padding-block:clamp(56px,7vw,96px)}
 .card{background:var(--paper-2);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}
@@ -68,22 +59,18 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
 @media (min-width:980px){.hero-wrap{grid-template-columns:1.1fr .9fr}}
 .hero-visual{position:relative;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow)}
 .hero-visual img{width:100%;height:100%;object-fit:cover}
-/* パララックス */
 .hero-visual .parallax{position:absolute;inset:0;transform:translateY(0);will-change:transform}
-/* 浮遊する木漏れ日（ぼかし） */
 .hero .bokeh{position:absolute;inset:auto auto -60px -60px;width:220px;height:220px;background:radial-gradient(circle, rgba(216,155,92,.25), transparent 60%);filter:blur(20px);border-radius:50%}
 
-/* Scroll reveal */
+/* reveal & slide */
 .reveal{opacity:0;transform:translateY(14px);transition:opacity .7s ease, transform .7s ease}
 .revealed{opacity:1;transform:none}
-
-/* スライドイン（左右） */
 .slide-left{opacity:0;transform:translateX(-26px);transition:opacity .8s ease, transform .8s ease}
 .slide-right{opacity:0;transform:translateX(26px);transition:opacity .8s ease, transform .8s ease}
 .slide-up{opacity:0;transform:translateY(18px);transition:opacity .8s ease, transform .8s ease}
 .slid{opacity:1;transform:none}
 
-/* お悩み：横スクロールカード */
+/* Worries: square rail */
 .worries-rail{display:flex;gap:14px;overflow-x:auto;padding:8px;scroll-snap-type:x mandatory}
 .worries-rail::-webkit-scrollbar{height:8px}
 .worries-rail::-webkit-scrollbar-thumb{background:var(--line);border-radius:8px}
@@ -92,7 +79,7 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
   background:var(--paper-2);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}
 .worry-sq p{line-height:1.7}
 
-/* サービス */
+/* Services */
 .grid-2{display:grid;gap:1.2rem;grid-template-columns:1fr}
 @media (min-width:820px){.grid-2{grid-template-columns:1fr 1fr}}
 .service-card{position:relative;overflow:hidden}
@@ -102,18 +89,18 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
 .service-card.open{transform:translateY(-1px) scale(1.01)}
 .service-card.open .service-content{max-height:300px}
 
-/* 実績（画像のみ） */
+/* Achievements: image only */
 .achievements-img{display:block;max-width:920px;width:100%;margin:0 auto;border-radius:12px;box-shadow:var(--shadow)}
 
-/* 事例 — ジグザグ */
+/* Cases */
 .zig{display:grid;gap:1.2rem;grid-template-columns:1fr}
 @media (min-width:980px){.zig{grid-template-columns:1.1fr .9fr}}
 .frame{border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow)}
-.caption{background:var(--paper-2);border:1px solid var(--line);border-top:0;border-radius:0 0 var(--r) var(--r);padding:1.2rem 1.2rem}
+.caption{background:var(--paper-2);border:1px solid var(--line);border-top:0;border-radius:0 0 var(--r) var(--r);padding:1.2rem}
 .caption .big{font-size:1.05rem;line-height:2}
-.num{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:999px;background:var(--brand);color:#fff;font-weight:700;margin-right:.45rem;opacity:.9}
+.num{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:999px;background:var(--brand);color:#fff;font-weight:700;margin-right:.45rem}
 
-/* Before/After スライダー（既存保持） */
+/* BA slider (kept if used elsewhere) */
 .ba{position:relative;border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow)}
 .ba img{display:block;width:100%;height:auto}
 .ba .after{position:absolute;inset:0;overflow:hidden}
@@ -123,7 +110,7 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
 .ba input[type=range]::-webkit-slider-thumb{appearance:none;width:18px;height:18px;border-radius:50%;background:var(--brand);margin-top:-7px;border:2px solid #fff}
 .ba .divider{position:absolute;top:0;bottom:0;left:50%;width:2px;background:var(--brand-ink)}
 
-/* ギャラリー（横流れカルーセル） */
+/* Gallery: horizontal carousel */
 .gallery-wrap{position:relative}
 .gallery-rail{display:flex;gap:14px;overflow:hidden}
 .gallery-rail img{flex:0 0 min(86vw,520px);height:320px;object-fit:cover;border-radius:14px;box-shadow:var(--shadow)}
@@ -139,7 +126,7 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
 .faq details[open]{background:var(--paper-3)}
 .rotate{transition:transform .25s ease}
 
-/* 小ユーティリティ */
+/* Utils */
 .btn:focus, a:focus{outline:2px dashed var(--brand-ink);outline-offset:3px}
 .hr-bold{border:0;height:4px;background:var(--brand-ink);margin:2rem 0;border-radius:2px}
 </style>
@@ -163,14 +150,13 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
   </div>
 </header>
 
-<!-- ===== Hero（パララックス＋リビール） ===== -->
+<!-- ===== Hero ===== -->
 <section class="section hero" id="hero">
   <div class="container hero-wrap">
     <div>
       <p class="reveal" style="font-family:'Cormorant Garamond',serif;color:var(--brand-ink);letter-spacing:.2em;text-transform:uppercase;font-size:.8rem">Warmth & Wood</p>
       <h1 class="reveal" style="margin-top:.4rem">自然素材で、暮らしにぬくもりを。<br>新しい暮らしを、アート・宙と。</h1>
       <p class="reveal" style="margin-top:1rem">三重県でリフォーム・リノベーションするなら<strong>株式会社アート・宙</strong>。自然素材とやさしい色調で、住まいの「居ごこち」を丁寧に整えます。</p>
-      <!-- 指示によりチップ群は非表示（削除） -->
       <div class="reveal" style="margin-top:1rem;display:flex;gap:.6rem;flex-wrap:wrap">
         <a href="#contact-form" class="btn btn-primary">資料請求</a>
         <a href="#services" class="btn btn-outline">サービスを見る</a>
@@ -184,7 +170,7 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
   </div>
 </section>
 
-<!-- ===== お悩み（横スクロール正方カード） ===== -->
+<!-- ===== お悩み（横スクロール） ===== -->
 <section class="section" id="worries">
   <div class="container">
     <h2 class="reveal">こんなお悩みはありませんか？</h2>
@@ -201,7 +187,7 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
   </div>
 </section>
 
-<!-- ===== サービス（見出し復帰＋既存保持） ===== -->
+<!-- ===== サービス（★見出し復帰） ===== -->
 <section class="section" id="services" style="background:var(--paper-2)">
   <div class="container">
     <h2 class="reveal">アート宙のリフォーム・リノベーションについて</h2>
@@ -238,14 +224,16 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
   </div>
 </section>
 
-<!-- ===== 実例（2件／太線あり・説明大きめ） ===== -->
+<!-- ===== 実例（★画像を残し説明を大きく・2件とも） ===== -->
 <section class="section" id="cases" style="background:var(--paper-2)">
   <div class="container">
     <h2 class="reveal">実例紹介</h2>
 
-    <!-- 事例1：2枚目写真削除＋説明拡大 -->
+    <!-- 事例1：1枚のみ＋説明大きめ -->
     <div class="zig">
-      <div class="frame slide-left"><img src="https://i.postimg.cc/1zMJH3SJ/image.png" alt="和室続き→LDK化"></div>
+      <div class="frame slide-left">
+        <img src="https://i.postimg.cc/1zMJH3SJ/image.png" alt="和室続き→LDK化">
+      </div>
       <div>
         <h3 class="slide-up">事例1｜和室続き→ワンフロア化でつながるLDK（鈴鹿市）</h3>
         <p class="small slide-up" style="margin-top:.35rem">サッシ交換／内装デザイン変更／造作収納／水まわり交換／床張替／壁塗替 など</p>
@@ -262,12 +250,14 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
 
     <hr class="hr-bold" aria-hidden="true">
 
-    <!-- 事例2：2枚目写真削除＋説明拡大 -->
+    <!-- 事例2：1枚のみ＋説明大きめ -->
     <div class="zig" style="margin-top:1.4rem">
       <div>
         <h3 class="slide-up">事例2｜梁あらわし仕上げで趣を活かす（津市）</h3>
         <p class="small slide-up" style="margin-top:.35rem">外壁張替／サッシ交換／内装デザイン変更／造作収納／水まわり交換／床張替／壁塗替 等</p>
-        <div class="frame slide-up" style="margin-top:.6rem"><img src="https://i.postimg.cc/6QzGS7y4/image.png" alt="梁あらわし"></div>
+        <div class="frame slide-up" style="margin-top:.6rem">
+          <img src="https://i.postimg.cc/6QzGS7y4/image.png" alt="梁あらわし">
+        </div>
         <div class="caption">
           <p class="big">
             <span class="num">1</span>天井裏の梁を見せる設えで、空間に立体感と奥行きを。<br>
@@ -277,13 +267,13 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
           <p class="small" style="margin-top:.4rem"><a href="https://www.artsora.com/case_newly/14836/" target="_blank" rel="noopener">公式の事例ページを見る</a></p>
         </div>
       </div>
-      <!-- 2枚目の写真は削除 -->
+      <!-- 2枚目の写真は置かない -->
     </div>
 
   </div>
 </section>
 
-<!-- ===== Gallery（横流れカルーセルに刷新） ===== -->
+<!-- ===== Gallery（横流れカルーセル） ===== -->
 <section class="section" id="gallery">
   <div class="container">
     <h2 class="reveal">Gallery</h2>
@@ -302,21 +292,19 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
   </div>
 </section>
 
-<!-- ===== FAQ（2件追加） ===== -->
+<!-- ===== FAQ（2件追加済み） ===== -->
 <section class="section" id="faq" style="background:var(--paper-2)">
   <div class="container faq">
     <h2 class="reveal">FAQ</h2>
     <details class="reveal"><summary>住みながら工事は可能ですか？ <span class="rotate">▾</span></summary><div class="small" style="margin-top:.6rem">工事範囲や工程を調整しながら可能です。騒音や粉じん対策、仮設の動線づくりもご提案します。</div></details>
     <details class="reveal"><summary>マンションのリノベも対応していますか？ <span class="rotate">▾</span></summary><div class="small" style="margin-top:.6rem">管理規約の確認・近隣調整・資材搬入経路の設計までワンストップで対応します。</div></details>
     <details class="reveal"><summary>費用感を教えてください <span class="rotate">▾</span></summary><div class="small" style="margin-top:.6rem">A/Bテスト運用で価格表示ON/OFFを切り替えます。概算はお問い合わせください。</div></details>
-    <!-- 追加1：自然素材のメンテナンス -->
     <details class="reveal"><summary>無垢材や漆喰など自然素材の手入れは大変ですか？ <span class="rotate">▾</span></summary><div class="small" style="margin-top:.6rem">日常は乾拭きや固く絞った布で十分です。小キズは紙やすりで補修し、オイルを薄く塗ると馴染みます。漆喰は調湿性が高く、汚れは軽い拭き取りで目立ちにくくなります。</div></details>
-    <!-- 追加2：補助金 -->
     <details class="reveal"><summary>断熱や窓改修に補助金は使えますか？ <span class="rotate">▾</span></summary><div class="small" style="margin-top:.6rem">時期や制度により対象や上限が異なります。窓・断熱改修、バリアフリー等で適用できる場合がありますので、最新情報を確認し最適なプランをご提案します。</div></details>
   </div>
 </section>
 
-<!-- ===== PRESENT（追記済み・改行入り） ===== -->
+<!-- ===== PRESENT ===== -->
 <section class="section" id="present" style="background:var(--paper-2)">
   <div class="container">
     <h2 class="reveal" style="text-align:center">PRESENT</h2>
@@ -352,7 +340,7 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
   </div>
 </section>
 
-<!-- ===== Footer（ArtSora） ===== -->
+<!-- ===== Footer ===== -->
 <footer style="background:var(--brand-ink);color:#fff;text-align:center;padding:2rem 1rem;margin-top:2rem">
   <p>&copy; 2025 ArtSora Inc. All Rights Reserved.</p>
 </footer>
@@ -360,17 +348,15 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
 <script>
 /** Scroll reveal */
 const io = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){ e.target.classList.add('revealed'); io.unobserve(e.target);} 
-  });
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('revealed'); io.unobserve(e.target);} });
 },{threshold:.12});
 for(const el of document.querySelectorAll('.reveal')) io.observe(el);
 
-/** Parallax (軽量) */
+/** Parallax */
 const pv = document.getElementById('parallaxLayer');
 window.addEventListener('scroll',()=>{
-  const rect = pv?.parentElement?.getBoundingClientRect?.();
-  if(!rect) return; const offset = (window.innerHeight - rect.top) * 0.03; // 控えめ
+  const rect = pv?.parentElement?.getBoundingClientRect?.(); if(!rect) return;
+  const offset = (window.innerHeight - rect.top) * 0.03;
   pv.style.transform = `translateY(${offset}px)`;
 });
 
@@ -379,12 +365,11 @@ document.querySelectorAll('.service-toggle').forEach(btn=>{
   btn.addEventListener('click',()=>{
     const card = btn.closest('.service-card');
     card.classList.toggle('open');
-    const expanded = card.classList.contains('open');
-    btn.setAttribute('aria-expanded', expanded);
+    btn.setAttribute('aria-expanded', card.classList.contains('open'));
   });
 });
 
-/** Worries rail auto-scroll */
+/** Worries auto-scroll */
 (function(){
   const rail = document.getElementById('worriesRail'); if(!rail) return;
   let dir = 1;
@@ -395,7 +380,7 @@ document.querySelectorAll('.service-toggle').forEach(btn=>{
   }, 2800);
 })();
 
-/** Gallery simple carousel (auto + dots) */
+/** Gallery carousel */
 (function(){
   const rail = document.getElementById('galleryRail'); if(!rail) return;
   const slides = Array.from(rail.querySelectorAll('img'));
@@ -409,44 +394,40 @@ document.querySelectorAll('.service-toggle').forEach(btn=>{
     });
   }
   function updateDots(){
-    dotsWrap.querySelectorAll('.gallery-dot').forEach((d,i)=>{
-      d.classList.toggle('active', i===idx);
-    });
+    dotsWrap.querySelectorAll('.gallery-dot').forEach((d,i)=>d.classList.toggle('active', i===idx));
   }
   function go(i, pause){
     idx = (i+slides.length)%slides.length;
-    const target = slides[idx];
-    rail.scrollTo({left: target.offsetLeft, behavior:'smooth'});
+    rail.scrollTo({left: slides[idx].offsetLeft, behavior:'smooth'});
     updateDots();
     if(pause){ clearInterval(timer); timer=setInterval(next,3400); }
   }
   function next(){ go(idx+1); }
 
-  buildDots();
-  timer=setInterval(next,3400);
-  // ドラッグ/スワイプで操作しやすく
+  buildDots(); timer=setInterval(next,3400);
+
+  // drag / swipe
   let startX=null, startLeft=0;
   rail.addEventListener('pointerdown',e=>{ startX=e.clientX; startLeft=rail.scrollLeft; rail.setPointerCapture(e.pointerId); clearInterval(timer); });
   rail.addEventListener('pointermove',e=>{ if(startX!==null){ rail.scrollLeft = startLeft - (e.clientX-startX); }});
-  rail.addEventListener('pointerup',e=>{
-    if(startX!==null){
-      // 一番近いスライドにスナップ
+  rail.addEventListener('pointerup',()=>{ if(startX!==null){ 
       const mid = rail.scrollLeft + rail.clientWidth/2;
       const nearest = slides.reduce((a,el,i)=>{
-        const center = el.offsetLeft + el.clientWidth/2;
-        return (Math.abs(center-mid) < Math.abs((slides[a].offsetLeft+slides[a].clientWidth/2)-mid)) ? i : a;
+        const c = el.offsetLeft + el.clientWidth/2;
+        return Math.abs(c-mid) < Math.abs((slides[a].offsetLeft+slides[a].clientWidth/2)-mid) ? i : a;
       },0);
       startX=null; go(nearest,true);
-    }
-  });
+  }});
 })();
 
-/** Caption numbering: sequential highlight（既存） */
+/** Caption numbering highlight */
 document.querySelectorAll('.caption').forEach(cap=>{
   const nums = cap.querySelectorAll('.num');
   const io4 = new IntersectionObserver(es=>{
     es.forEach(e=>{
-      if(!e.isIntersecting) return; let i=0; const t=setInterval(()=>{ if(i<nums.length){nums[i++].classList.add('on');} else {clearInterval(t);} }, 240); io4.unobserve(cap);
+      if(!e.isIntersecting) return; let i=0;
+      const t=setInterval(()=>{ if(i<nums.length){nums[i++].classList.add('on');} else {clearInterval(t);} }, 240);
+      io4.unobserve(cap);
     });
   },{threshold:.4});
   io4.observe(cap);
