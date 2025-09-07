@@ -1,470 +1,280 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>株式会社アート・宙 | 三重の自然素材リフォーム・リノベーション</title>
-<meta name="description" content="三重県で自然素材を活かした高品質なリフォーム・リノベーションならアート・宙へ。創業22年、450棟の実績で、お客様一人ひとりの暮らしに寄り添った温かい住まいをご提案します。" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Cormorant+Garamond:wght@400;500&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
-<style>
-:root{
-  /* —— Palette（白背景は使わない） —— */
-  --paper:#FFF6EF;      /* クリーム生成り（ベース） */
-  --paper-2:#FBE9DA;    /* 濃いめクリーム（帯） */
-  --paper-3:#F9E2CC;    /* 強調面 */
-  --brand:#D89B5C;      /* テラコッタ */
-  --brand-ink:#8C5A2B;  /* 焦げ茶 */
-  --ink:#4A3725;        /* 見出し */
-  --body:#5A4633;        /* 本文 */
-  --line:rgba(140,90,43,.22);
-  --shadow:0 10px 30px rgba(0,0,0,.06);
-  --r:16px; --r-lg:20px;
-  --wood:url('https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1300&q=20');
-}
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;background:var(--paper);color:var(--body);
-  font-family:"Zen Kaku Gothic New","Noto Sans JP",system-ui,sans-serif;
-  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
-  /* 全面 木の気配（白は使わない） */
-  background-image:
-    linear-gradient(rgba(255,246,239,.86),rgba(255,246,239,.94)),
-    var(--wood);
-  background-size:cover,1200px auto; background-attachment:fixed,fixed; background-blend-mode:normal,overlay;
-}
-img{display:block;max-width:100%;height:auto}
-
-h1,h2,h3{font-family:"Shippori Mincho","Noto Serif JP",serif;color:var(--ink);letter-spacing:.01em;margin:0}
-h1{font-size:clamp(30px,3.3vw,46px);line-height:1.24}
-h2{font-size:clamp(22px,2.3vw,30px);line-height:1.28;margin-bottom:.5em}
-h3{font-size:clamp(18px,1.7vw,22px);line-height:1.3}
-p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
-.small{font-size:.92rem}
-
-.container{max-width:1120px;margin-inline:auto;padding-inline:clamp(16px,3vw,32px)}
-.section{padding-block:clamp(56px,7vw,96px)}
-.card{background:var(--paper-2);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}
-.card-strong{background:var(--paper-3)}
-.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.9rem 1.15rem;border-radius:12px;font-weight:600;text-decoration:none;transition:.2s ease}
-.btn-primary{background:var(--brand);color:#fff}
-.btn-primary:hover{background:var(--brand-ink)}
-.btn-outline{border:1px solid var(--brand);color:var(--brand)}
-.btn-outline:hover{background:var(--paper-2)}
-.hr{border:0;height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent);margin:24px 0}
-
-/* Header */
-.header{position:sticky;top:0;z-index:50;backdrop-filter:blur(6px);
-  background:color-mix(in srgb,var(--paper-2) 78%, transparent); border-bottom:1px solid var(--line)}
-.header .nav{display:flex;gap:1rem;align-items:center}
-.header a{color:var(--body);text-decoration:none}
-.header a:hover{color:var(--brand-ink)}
-
-/* Hero */
-.hero{position:relative;isolation:isolate}
-.hero-wrap{display:grid;gap:2rem;grid-template-columns:1fr}
-@media (min-width:980px){.hero-wrap{grid-template-columns:1.1fr .9fr}}
-.hero-visual{position:relative;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow)}
-.hero-visual img{width:100%;height:100%;object-fit:cover}
-/* パララックス */
-.hero-visual .parallax{position:absolute;inset:0;transform:translateY(0);will-change:transform}
-/* 浮遊する木漏れ日（ぼかし） */
-.hero .bokeh{position:absolute;inset:auto auto -60px -60px;width:220px;height:220px;background:radial-gradient(circle, rgba(216,155,92,.25), transparent 60%);filter:blur(20px);border-radius:50%}
-
-/* Scroll reveal */
-.reveal{opacity:0;transform:translateY(14px);transition:opacity .7s ease, transform .7s ease}
-.revealed{opacity:1;transform:none}
-
-/* スライドイン（左右） */
-.slide-left{opacity:0;transform:translateX(-26px);transition:opacity .8s ease, transform .8s ease}
-.slide-right{opacity:0;transform:translateX(26px);transition:opacity .8s ease, transform .8s ease}
-.slide-up{opacity:0;transform:translateY(18px);transition:opacity .8s ease, transform .8s ease}
-
-/* お悩み：横スクロールカード */
-.worries-rail{display:flex;gap:14px;overflow-x:auto;padding:8px;scroll-snap-type:x mandatory}
-.worries-rail::-webkit-scrollbar{height:8px}
-.worries-rail::-webkit-scrollbar-thumb{background:var(--line);border-radius:8px}
-.worry-sq{flex:0 0 clamp(180px,26vw,240px);aspect-ratio:1/1;scroll-snap-align:center;
-  display:flex;align-items:center;justify-content:center;text-align:center;padding:14px;
-  background:var(--paper-2);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}
-.worry-sq p{line-height:1.7}
-
-/* サービス */
-.grid-2{display:grid;gap:1.2rem;grid-template-columns:1fr}
-@media (min-width:820px){.grid-2{grid-template-columns:1fr 1fr}}
-.service-card{position:relative;overflow:hidden}
-.service-card:before{content:"";position:absolute;inset:-30% -30% auto auto;height:180px;width:180px;background:radial-gradient(circle, rgba(216,155,92,.15), transparent 60%);transform:rotate(12deg)}
-.service-toggle{cursor:pointer;display:inline-flex;align-items:center;gap:.4rem}
-.service-content{max-height:0;overflow:hidden;transition:max-height .4s ease}
-.service-card.open{transform:translateY(-1px) scale(1.01)}
-.service-card.open .service-content{max-height:300px}
-
-/* 実績（画像のみ） */
-.achievements-img{display:block;max-width:920px;width:100%;margin:0 auto;border-radius:12px;box-shadow:var(--shadow)}
-
-/* 事例 — ジグザグ */
-.zig{display:grid;gap:1.2rem;grid-template-columns:1fr}
-@media (min-width:980px){.zig{grid-template-columns:1.1fr .9fr; align-items: start;}}
-.frame{border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow)}
-/* captionスタイルを修正 */
-.caption{padding:1.2rem 0;}
-.caption .big{font-size:1.05rem;line-height:1.8;}
-.num{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:999px;background:var(--brand);color:#fff;font-weight:700;margin-right:.45rem;opacity:.9; float: left; margin-top: 5px;}
-.caption .big span.num + * { overflow: hidden; display: block; padding-left: .5em; }
-
-/* Before/After スライダー（既存保持） */
-.ba{position:relative;border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow)}
-.ba img{display:block;width:100%;height:auto}
-.ba .after{position:absolute;inset:0;overflow:hidden}
-.ba .after img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.ba input[type=range]{position:absolute;inset:auto 0 10px 0;width:100%;appearance:none;background:transparent}
-.ba input[type=range]::-webkit-slider-runnable-track{height:4px;background:var(--brand-ink);border-radius:999px}
-.ba input[type=range]::-webkit-slider-thumb{appearance:none;width:18px;height:18px;border-radius:50%;background:var(--brand);margin-top:-7px;border:2px solid #fff}
-.ba .divider{position:absolute;top:0;bottom:0;left:50%;width:2px;background:var(--brand-ink)}
-
-/* ギャラリー（横流れカルーセル） */
-.gallery-wrap{position:relative}
-.gallery-rail{display:flex;gap:14px;overflow:hidden}
-.gallery-rail img{flex:0 0 min(86vw,520px);height:320px;object-fit:cover;border-radius:14px;box-shadow:var(--shadow)}
-.gallery-nav{position:absolute;inset:auto 0 -28px 0;display:flex;gap:8px;justify-content:center}
-.gallery-dot{width:8px;height:8px;border-radius:50%;background:var(--line)}
-.gallery-dot.active{background:var(--brand-ink)}
-
-/* FAQ */
-.faq details{background:var(--paper-2);border:1px solid var(--line);border-radius:var(--r);padding:.9rem 1.1rem}
-.faq details+details{margin-top:.6rem}
-.faq summary{cursor:pointer;font-weight:600;list-style:none}
-.faq summary::-webkit-details-marker{display:none}
-.faq details[open]{background:var(--paper-3)}
-.rotate{transition:transform .25s ease}
-
-/* 小ユーティリティ */
-.btn:focus, a:focus{outline:2px dashed var(--brand-ink);outline-offset:3px}
-.hr-bold{border:0;height:4px;background:var(--brand-ink);margin:2rem 0;border-radius:2px}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>空間を変えたら、暮らしも変わった。｜株式会社アート・宙</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .font-playfair { font-family: 'Playfair Display', serif; }
+        .font-noto { font-family: 'Noto Sans JP', sans-serif; }
+        .hero-gradient { background: linear-gradient(135deg, rgba(248, 250, 252, 0.9) 0%, rgba(241, 245, 249, 0.9) 100%); }
+        .btn-primary { 
+            background: linear-gradient(135deg, #fb923c 0%, #f97316 100%);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover { 
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(251, 146, 60, 0.3);
+        }
+        .section-padding { padding: 4rem 0; }
+        .natural-shadow { box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); }
+        .text-shadow { text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); }
+        .honeypot { position: absolute; left: -9999px; }
+        @media print {
+            body { -webkit-print-color-adjust: exact; }
+            .section-padding { padding: 2rem 0; }
+        }
+    </style>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6S9PJSSY8D"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-6S9PJSSY8D');
+    </script>
 </head>
-<body data-show-price="false">
+<body class="font-noto text-gray-800 leading-relaxed">
 
-<header class="header">
-  <div class="container" style="display:flex;justify-content:space-between;align-items:center;padding-block:.7rem;">
-    <div style="font-family:'Cormorant Garamond',serif;color:var(--brand-ink);letter-spacing:.08em;font-size:.9rem">ArtSora</div>
-    <nav class="nav small">
-      <a href="#worries">お悩み</a>
-      <a href="#services">サービス</a>
-      <a href="#achievements">実績</a>
-      <a href="#cases">実例</a>
-      <a href="#gallery">写真</a>
-      <a href="#faq">FAQ</a>
-      <a href="#present">PRESENT</a>
-      <a href="#contact-form">お問い合わせ</a>
-    </nav>
-  </div>
-</header>
-
-<section class="section hero" id="hero">
-  <div class="container hero-wrap">
-    <div>
-      <p class="reveal" style="font-family:'Cormorant Garamond',serif;color:var(--brand-ink);letter-spacing:.2em;text-transform:uppercase;font-size:.8rem">Warmth & Wood</p>
-      <h1 class="reveal" style="margin-top:.4rem">自然素材で、暮らしにぬくもりを。<br>新しい暮らしを、アート・宙と。</h1>
-      <p class="reveal" style="margin-top:1rem">三重県でリフォーム・リノベーションするなら<strong>株式会社アート・宙</strong>。自然素材とやさしい色調で、住まいの「居ごこち」を丁寧に整えます。</p>
-      <div class="reveal" style="margin-top:1rem;display:flex;gap:.6rem;flex-wrap:wrap">
-        <a href="#contact-form" class="btn btn-primary">資料請求</a>
-        <a href="#services" class="btn btn-outline">サービスを見る</a>
-      </div>
-    </div>
-    <div class="hero-visual" aria-label="木の床に夕陽が差す写真">
-      <img src="https://i.postimg.cc/KcdVVS3b/RE-1.jpg" alt="">
-      <div class="parallax" id="parallaxLayer"></div>
-      <i class="bokeh" aria-hidden="true"></i>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="worries">
-  <div class="container">
-    <h2 class="reveal">こんなお悩みはありませんか？</h2>
-    <div class="worries-rail reveal" id="worriesRail" aria-label="住まいのお悩み">
-      <div class="worry-sq"><p>最近、段差や動線が負担になってきたと感じる</p></div>
-      <div class="worry-sq"><p>築年数が進み、住まいの劣化や将来が不安</p></div>
-      <div class="worry-sq"><p>夏は暑く冬は寒い——室温差で体がつらい</p></div>
-      <div class="worry-sq"><p>階段や水まわりが使いづらい・安全が心配</p></div>
-      <div class="worry-sq"><p>使っていない部屋が多く、広さを活かせていない</p></div>
-      <div class="worry-sq"><p>室内が暗く、昼間でも照明が欠かせない</p></div>
-      <div class="worry-sq"><p>中古マンションを買って、自分らしく整えたい</p></div>
-    </div>
-    <div class="small" style="margin-top:1rem">※ 断熱窓や動線計画、照明設計で“温度差”と“暮らしの負担”をやさしく整えます。</div>
-  </div>
-</section>
-
-<section class="section" id="services" style="background:var(--paper-2)">
-  <div class="container">
-    <h2 class="reveal">アート宙のリフォーム・リノベーションについて</h2>
-    <div class="grid-2">
-      <div class="card card-strong service-card" id="svc1" style="padding:1.1rem 1.1rem">
-        <h3>アート・宙のリフォーム</h3>
-        <p style="margin-top:.6rem">
-          部分改修から断熱・耐震・水回りまで。住みながらの工事が可能なメニューもあり、
-          身体の負担や仮住まいのコストを抑えられます。
-        </p>
-        <button class="service-toggle small" aria-controls="svc1c" aria-expanded="false">
-          詳細を読む
-          <svg class="rotate" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M6 9l6 6 6-6"/>
-          </svg>
-        </button>
-        <div id="svc1c" class="service-content small">
-          <hr class="hr">
-          <p>
-            水回り・内装・断熱窓・動線改善・手すり設置など。無垢材や漆喰などの自然素材を採用し、
-            一級建築士が暮らしに寄り添って動線をデザイン。
-            耐震・断熱性能の向上と丁寧なアフターメンテナンスまでワンストップで対応します。
-          </p>
+    <section class="hero-gradient min-h-screen flex items-center section-padding">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="text-center lg:text-left">
+                    <h1 class="font-playfair text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 text-shadow">
+                        空間を変えたら、<br>
+                        <span class="text-orange-500">暮らしも変わった。</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed">
+                        家事・育児・在宅ワークを効率よく両立する、<br>
+                        ナチュラルでスマートな家づくり。
+                    </p>
+                    <a href="#request-form" class="btn-primary text-white px-8 py-4 rounded-full text-lg font-semibold hover:scale-105 transition-all duration-300 inline-block">
+                        資料を無料で受け取る
+                    </a>
+                </div>
+                <div class="relative">
+                    <img src="https://i.postimg.cc/fLs7XCJ6/02-LDK-05-scaled.jpg" alt="効率的で美しい空間" class="w-full h-auto rounded-2xl natural-shadow"/>
+                    <div class="absolute -bottom-4 -right-4 bg-white rounded-2xl p-4 natural-shadow">
+                        <p class="text-sm text-gray-600 font-medium">効率的で美しい空間</p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="card card-strong service-card" id="svc2" style="padding:1.1rem 1.1rem">
-        <h3>アート・宙のリノベーション（戸建・マンション対応）</h3>
-        <p style="margin-top:.6rem">
-          間取りの再構築や内装一新、設備の総入れ替えまで。
-          <strong>マンションのリノベーション</strong>にも対応し、管理規約や工期の調整もお任せください。
-        </p>
-        <button class="service-toggle small" aria-controls="svc2c" aria-expanded="false">
-          詳細を読む
-          <svg class="rotate" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M6 9l6 6 6-6"/>
-          </svg>
-        </button>
-        <div id="svc2c" class="service-content small">
-          <hr class="hr">
-          <p>
-            物件探しから資金計画、設計、施工までワンストップ対応。
-            断熱・耐震・省エネ性能を新築同等へ引き上げ、
-            <strong>戸建てはもちろん中古マンションのリノベーション</strong>にも対応します。
-            ライフスタイルに合わせた自由な間取り変更と自然素材のデザインで価値を再生します。
-          </p>
+    </section>
+
+    <section class="bg-white section-padding">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1">
+                    <img src="https://i.postimg.cc/FRXV5FbY/RE-14.jpg" alt="家事や育児の時間を効率よく使うための家" class="w-full h-auto rounded-2xl natural-shadow"/>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <h2 class="font-playfair text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                        家事や育児、仕事の時間を<br>
+                        <span class="text-orange-500">効率よく使いたい</span>
+                    </h2>
+                    <p class="text-gray-700 text-lg leading-relaxed mb-6">
+                        毎日の家事や育児、在宅ワークで忙しいあなた。どこから手をつけるべきか、家づくりのアイデアが湧かない、そんな不安を抱えるあなたに、この家づくりを提案したい。
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <div class="w-3 h-3 bg-orange-400 rounded-full mr-4"></div>
+                            <p class="text-gray-600">家事動線が複雑で時間がかかる</p>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-3 h-3 bg-orange-400 rounded-full mr-4"></div>
+                            <p class="text-gray-600">在宅ワークと育児の両立が困難</p>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-3 h-3 bg-orange-400 rounded-full mr-4"></div>
+                            <p class="text-gray-600">収納が不十分で片付かない</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section class="section" id="achievements">
-  <div class="container">
-    <h2 class="reveal">実績紹介</h2>
-    <img class="achievements-img" src="https://i.postimg.cc/8zskxC18/image.png" alt="アート・宙の実績（受賞・年数・件数のバッジ一覧）">
-  </div>
-</section>
-
-<section class="section" id="cases" style="background:var(--paper-2)">
-  <div class="container">
-    <h2 class="reveal">実例紹介</h2>
-
-    <div class="zig">
-      <div class="frame">
-        <img src="https://i.postimg.cc/1zMJH3SJ/image.png" alt="床柱を残した和モダンなLDK">
-      </div>
-      <div>
-        <h3>事例1｜和室続き→ワンフロア化でつながるLDK（鈴鹿市）</h3>
-        <div class="caption">
-          <p class="big">
-            <span class="num">1</span><span>床柱はそのままの状態で丁寧に残しました。昔からの落ち着きを感じさせながら、新しいデザインの中にも自然に溶け込み、家全体に奥深い味わいを添えています。</span><br>
-            <span class="num">2</span><span>「とにかく寒いことに悩んでいる」というお悩みから、窓を入れ替えました。窓のリノベーションは住みながらの工事も可能なため、工事期間中に仮住まいへの引っ越しといった負担がありません。</span><br>
-            <span class="num">3</span><span>以前は和室が続いていた間取りでしたが、壁を取り払ってLDKの一部に取り込むことで、家族全員がくつろげる約17帖の広々とした空間が生まれました。</span>
-          </p>
-          <p class="small" style="margin-top:.8rem">
-            <a href="https://www.artsora.com/case_newly/18217/" target="_blank" rel="noopener">公式の事例ページを見る</a>
-          </p>
+    <section class="bg-gray-50 section-padding">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="font-playfair text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                        家事も育児も、もっと楽に。<br>
+                        <span class="text-orange-500">未来の暮らしが豊かに。</span>
+                    </h2>
+                    <p class="text-gray-700 text-lg leading-relaxed mb-8">
+                        効率的な動線とナチュラルなデザインが、あなたの毎日をサポート。家事も育児も仕事も、スマートに両立できる家づくり。
+                    </p>
+                    <div class="grid md:grid-cols-2 gap-6 mb-8">
+                        <div class="bg-white p-6 rounded-xl natural-shadow">
+                            <h4 class="font-semibold text-gray-900 mb-2">時短効果</h4>
+                            <p class="text-gray-600 text-sm">効率的な動線で家事時間を30%短縮</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl natural-shadow">
+                            <h4 class="font-semibold text-gray-900 mb-2">快適性向上</h4>
+                            <p class="text-gray-600 text-sm">ナチュラル素材で心地よい空間</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl natural-shadow">
+                            <h4 class="font-semibold text-gray-900 mb-2">在宅ワーク</h4>
+                            <p class="text-gray-600 text-sm">集中できる専用ワークスペース</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl natural-shadow">
+                            <h4 class="font-semibold text-gray-900 mb-2">子育て支援</h4>
+                            <p class="text-gray-600 text-sm">見守りながら作業できる間取り</p>
+                        </div>
+                    </div>
+                    <a href="#request-form" class="btn-primary text-white px-6 py-3 rounded-full font-semibold hover:scale-105 transition-all duration-300">
+                        無料相談を申し込む
+                    </a>
+                </div>
+                <div>
+                    <img src="https://i.postimg.cc/qMFnHM4p/RE-28.jpg" alt="未来の暮らしを豊かにする家" class="w-full h-auto rounded-2xl natural-shadow"/>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
+    </section>
 
-    <hr class="hr-bold" aria-hidden="true">
-
-    <div class="zig" style="margin-top:1.4rem">
-      <div>
-        <h3>事例2｜梁あらわし仕上げで趣を活かす（津市）</h3>
-        <div class="caption">
-          <p class="big">
-            <span class="num">1</span><span>今回、天井裏に隠れていた梁を見せる仕上げにしました。天井が高くなることで、空間が立体的になり木の存在感や力強さを感じられます。</span><br>
-            <span class="num">2</span><span>「食堂」と「リビング」として区切られていたところを、約19帖の1つの空間にまとめました。床には桧、壁には珪藻土の塗り壁を採用し、木の香りと共に家族が落ち着くLDKに。</span><br>
-            <span class="num">3</span><span>「内装デザインを和モダンにしたい」というご要望から、既存の天井等活かし、趣を残しながら仕上げました。</span>
-          </p>
-          <p class="small" style="margin-top:.8rem">
-            <a href="https://www.artsora.com/case_newly/14836/" target="_blank" rel="noopener">公式の事例ページを見る</a>
-          </p>
+    <section class="bg-white section-padding">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="font-playfair text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                    私たちの家づくりとは
+                </h2>
+                <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+                    忙しい生活を支える、機能的でナチュラルな家づくり
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="text-center p-8 bg-gray-50 rounded-2xl">
+                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <div class="w-8 h-8 bg-orange-500 rounded-full"></div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">効率的な動線設計</h3>
+                    <p class="text-gray-600">家事を効率よくこなせる最適な動線で、毎日の負担を軽減します。</p>
+                </div>
+                
+                <div class="text-center p-8 bg-gray-50 rounded-2xl">
+                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <div class="w-8 h-8 bg-orange-500 rounded-full"></div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">フレキシブル空間</h3>
+                    <p class="text-gray-600">育児や在宅ワークに対応する柔軟性のある空間設計。</p>
+                </div>
+                
+                <div class="text-center p-8 bg-gray-50 rounded-2xl">
+                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <div class="w-8 h-8 bg-orange-500 rounded-full"></div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">最新住宅性能</h3>
+                    <p class="text-gray-600">最新の住宅性能を兼ね備えた安心の設計。</p>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <img src="https://i.postimg.cc/C5FXmdh8/RE-8.jpg" alt="私たちの家づくりのコンセプトイメージ" class="w-full max-w-4xl mx-auto rounded-2xl natural-shadow"/>
+            </div>
         </div>
-      </div>
-      <div class="frame">
-        <img src="https://i.postimg.cc/6QzGS7y4/image.png" alt="梁あらわしで趣のあるリビングダイニング">
-      </div>
-    </div>
+    </section>
 
-  </div>
-</section>
+    <section class="bg-gray-50 section-padding">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="font-playfair text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                    実際の施工事例
+                </h2>
+                <p class="text-lg text-gray-700">
+                    空間を変えて、暮らしが変わったお客様の事例をご紹介します
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl natural-shadow overflow-hidden">
+                    <img src="https://i.postimg.cc/3WQ783YJ/RE-14.jpg" alt="家事動線を最適化したキッチンの施工事例" class="w-full h-48 object-cover"/>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">家事動線を最適化したキッチン</h3>
+                        <p class="text-gray-600">効率的な動線で、家事をスマートにこなせるナチュラルキッチンの実現。</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-2xl natural-shadow overflow-hidden">
+                    <img src="https://i.postimg.cc/XYvzBVTw/RE-20.jpg" alt="オープンで機能的なリビングの施工事例" class="w-full h-48 object-cover"/>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">オープンで機能的なリビング</h3>
+                        <p class="text-gray-600">家族みんなが集まる、開放感あふれる心地よいリビング空間。</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-2xl natural-shadow overflow-hidden">
+                    <img src="https://i.postimg.cc/cHyBZPjs/image.jpg" alt="在宅ワーク専用ワークスペースの施工事例" class="w-full h-48 object-cover"/>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">在宅ワーク専用ワークスペース</h3>
+                        <p class="text-gray-600">仕事と育児の両立をサポートする、静かで集中できる作業空間。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <section id="request-form" class="bg-gray-50 section-padding">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="font-playfair text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                    資料を無料で受け取る
+                </h2>
+                <p class="text-lg text-gray-700">
+                    家事・育児・在宅ワークを効率よく両立する家づくりの詳しい資料をお送りします
+                </p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+               <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdzWiC2E6jyxa6d4nYnULTxSUVYIEGIAtdCsENUQW-Ua90Uzw/viewform?embedded=true" width="100%" height="1864" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="font-playfair text-2xl font-bold mb-4">株式会社アート・宙</h3>
+                    <div class="space-y-2 text-gray-300">
+                        <p><strong>本社</strong></p>
+                        <p>〒510-0081 三重県四日市市北町3番4号</p>
+                        <p>TEL 059-356-0817</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="space-y-2 text-gray-300 text-sm">
+                        <p>建設業許可 三重県知事 許可(般4) 第21401号</p>
+                        <p>一級建築士事務所登録 三重知事登録 第1-1703号</p>
+                        <p>宅地建物取引業者免許 三重県知事(5) 第2825号</p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>@2022 三重県四日市市で自然素材の注文住宅を建てるならアート・宙 Created by jeengross</p>
+            </div>
+        </div>
+    </footer>
 
-<section class="section" id="gallery">
-  <div class="container">
-    <h2 class="reveal">Gallery</h2>
-    <div class="gallery-wrap reveal">
-      <div class="gallery-rail" id="galleryRail" aria-label="施工写真ギャラリー">
-        <img src="https://i.postimg.cc/rm7wvVqD/LP1.jpg" alt="施工事例ギャラリー1">
-        <img src="https://i.postimg.cc/5NB2RWTt/LP2.jpg" alt="施工事例ギャラリー2">
-        <img src="https://i.postimg.cc/VkzkyHPW/LP3.jpg" alt="施工事例ギャラリー3">
-        <img src="https://i.postimg.cc/rwgFqC8X/LP4.jpg" alt="施工事例ギャラリー4">
-        <img src="https://i.postimg.cc/sDd2mgn8/LP5.jpg" alt="施工事例ギャラリー5">
-        <img src="https://i.postimg.cc/N0MGF9My/LP6.jpg" alt="施工事例ギャラリー6">
-        <img src="https://i.postimg.cc/nr8n3317/LP7.jpg" alt="施工事例ギャラリー7">
-      </div>
-      <div class="gallery-nav" id="galleryDots" aria-hidden="true"></div>
-    </div>
-  </div>
-</section>
+    <script>
+        // スムーズスクロール
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 
-<section class="section" id="faq" style="background:var(--paper-2)">
-  <div class="container faq">
-    <h2 class="reveal">FAQ</h2>
-    <details class="reveal"><summary>住みながら工事は可能ですか？ <span class="rotate">▾</span></summary><div class="small" style="margin-top:.6rem">工事範囲や工程を調整しながら可能です。騒音や粉じん対策、仮設の動線づくりもご提案します。</div></details>
-    <details class="reveal"><summary>マンションのリノベも対応していますか？ <span class="rotate">▾</span></summary><div class="small" style="margin-top:.6rem">管理規約の確認・近隣調整・資材搬入経路の設計までワンストップで対応します。</div></details>
-    <details class="reveal"><summary>費用感を教えてください <span class="rotate">▾</span></summary><div class="small" style="margin-top:.6rem">A/Bテスト運用で価格表示ON/OFFを切り替えます。概算はお問い合わせください。</div></details>
-    <details class="reveal"><summary>無垢材や漆喰など自然素材の手入れは大変ですか？ <span class="rotate">▾</span></summary><div class="small" style="margin-top:.6rem">日常は乾拭きや固く絞った布で十分です。小キズは紙やすりで補修し、オイルを薄く塗ると馴染みます。漆喰は調湿性が高く、汚れは軽い拭き取りで目立ちにくくなります。</div></details>
-    <details class="reveal"><summary>断熱や窓改修に補助金は使えますか？ <span class="rotate">▾</span></summary><div class="small" style="margin-top:.6rem">時期や制度により対象や上限が異なります。窓・断熱改修、バリアフリー等で適用できる場合がありますので、最新情報を確認し最適なプランをご提案します。</div></details>
-  </div>
-</section>
-
-<section class="section" id="present" style="background:var(--paper-2)">
-  <div class="container">
-    <h2 class="reveal" style="text-align:center">PRESENT</h2>
-    <div class="card" style="padding:1rem;display:grid;gap:1rem;grid-template-columns:1fr;align-items:center">
-      <img src="https://i.postimg.cc/GmVnRPZ8/2025-09-05-14-34-16.png" alt="アート・宙 パンフレット" style="max-width:420px;margin-inline:auto;border-radius:12px;box-shadow:var(--shadow)">
-      <div class="small" style="text-align:center">
-        <p class="small" style="font-weight:600;color:var(--brand-ink);margin-bottom:.4rem">資料請求いただいた方に、アート・宙のこだわりが詰まったパンフレットを無料進呈します。</p>
-        <p>アート・宙のリフォーム・リノベーションの特徴や施工事例のご紹介など、<br>ホームページには掲載しきれない情報が盛りだくさんです。ぜひご覧ください。</p>
-        <p style="margin-top:.6rem"><a href="#contact-form" class="btn btn-primary">今すぐ資料請求する</a></p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="contact-form">
-  <div class="container">
-    <h2 class="reveal" style="text-align:center">お問い合わせ・資料請求</h2>
-    <div class="card" style="padding:1rem">
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdzWiC2E6jyxa6d4nYnULTxSUVYIEGIAtdCsENUQW-Ua90Uzw/viewform?embedded=true" width="100%" height="1200" frameborder="0" marginheight="0" marginwidth="0" title="お問い合わせフォーム">読み込んでいます…</iframe>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="company">
-  <div class="container">
-    <h2>会社情報</h2>
-    <p>株式会社アート・宙</p>
-    <p>〒510-0081 三重県四日市市北町3番4号</p>
-    <p>TEL: 059-356-0817</p>
-    <p>受付時間: 9:00〜18:00（火・水定休）</p>
-  </div>
-</section>
-
-<footer style="background:var(--brand-ink);color:#fff;text-align:center;padding:2rem 1rem;margin-top:2rem">
-  <p>&copy; 2025 ArtSora Inc. All Rights Reserved.</p>
-</footer>
-
-<script>
-/** Scroll reveal */
-const io = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){ e.target.classList.add('revealed'); io.unobserve(e.target);} 
-  });
-},{threshold:.12});
-// .revealだけでなく、他のアニメーションクラスも対象にします
-for(const el of document.querySelectorAll('.reveal, .slide-left, .slide-right, .slide-up')) io.observe(el);
-
-/** Parallax (軽量) */
-const pv = document.getElementById('parallaxLayer');
-window.addEventListener('scroll',()=>{
-  const rect = pv?.parentElement?.getBoundingClientRect?.();
-  if(!rect) return; const offset = (window.innerHeight - rect.top) * 0.03; // 控えめ
-  pv.style.transform = `translateY(${offset}px)`;
-});
-
-/** Service accordion */
-document.querySelectorAll('.service-toggle').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    const card = btn.closest('.service-card');
-    card.classList.toggle('open');
-    const expanded = card.classList.contains('open');
-    btn.setAttribute('aria-expanded', expanded);
-  });
-});
-
-/** Worries rail auto-scroll */
-(function(){
-  const rail = document.getElementById('worriesRail'); if(!rail) return;
-  let dir = 1;
-  setInterval(()=>{
-    rail.scrollBy({left: 200*dir, behavior:'smooth'});
-    if(rail.scrollLeft + rail.clientWidth >= rail.scrollWidth - 4) dir = -1;
-    if(rail.scrollLeft <= 4) dir = 1;
-  }, 2800);
-})();
-
-/** Gallery simple carousel (auto + dots) */
-(function(){
-  const rail = document.getElementById('galleryRail'); if(!rail) return;
-  const slides = Array.from(rail.querySelectorAll('img'));
-  const dotsWrap = document.getElementById('galleryDots');
-  let idx = 0, timer;
-
-  function buildDots(){
-    slides.forEach((_,i)=>{
-      const d=document.createElement('span'); d.className='gallery-dot'+(i===0?' active':'');
-      d.addEventListener('click',()=>go(i,true)); dotsWrap.appendChild(d);
-    });
-  }
-  function updateDots(){
-    dotsWrap.querySelectorAll('.gallery-dot').forEach((d,i)=>{
-      d.classList.toggle('active', i===idx);
-    });
-  }
-  function go(i, pause){
-    idx = (i+slides.length)%slides.length;
-    const target = slides[idx];
-    rail.scrollTo({left: target.offsetLeft, behavior:'smooth'});
-    updateDots();
-    if(pause){ clearInterval(timer); timer=setInterval(next,3400); }
-  }
-  function next(){ go(idx+1); }
-
-  buildDots();
-  timer=setInterval(next,3400);
-  // ドラッグ/スワイプで操作しやすく
-  let startX=null, startLeft=0;
-  rail.addEventListener('pointerdown',e=>{ startX=e.clientX; startLeft=rail.scrollLeft; rail.setPointerCapture(e.pointerId); clearInterval(timer); });
-  rail.addEventListener('pointermove',e=>{ if(startX!==null){ rail.scrollLeft = startLeft - (e.clientX-startX); }});
-  rail.addEventListener('pointerup',e=>{
-    if(startX!==null){
-      // 一番近いスライドにスナップ
-      const mid = rail.scrollLeft + rail.clientWidth/2;
-      const nearest = slides.reduce((a,el,i)=>{
-        const center = el.offsetLeft + el.clientWidth/2;
-        return (Math.abs(center-mid) < Math.abs((slides[a].offsetLeft+slides[a].clientWidth/2)-mid)) ? i : a;
-      },0);
-      startX=null; go(nearest,true);
-    }
-  });
-})();
-
-/** Caption numbering: sequential highlight（既存） */
-document.querySelectorAll('.caption').forEach(cap=>{
-  const nums = cap.querySelectorAll('.num');
-  const io4 = new IntersectionObserver(es=>{
-    es.forEach(e=>{
-      if(!e.isIntersecting) return; let i=0; const t=setInterval(()=>{ if(i<nums.length){nums[i++].classList.add('on');} else {clearInterval(t);} }, 240); io4.unobserve(cap);
-    });
-  },{threshold:.4});
-  io4.observe(cap);
-});
-</script>
 </body>
 </html>
