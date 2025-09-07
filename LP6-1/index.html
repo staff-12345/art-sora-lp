@@ -27,16 +27,8 @@
     .btn-primary{ background: var(--color-accent); color:#fff; border-radius:9999px; transition:.3s; }
     .btn-primary:hover{ background: var(--color-accent-hover); transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,.35); }
     .card-surface{ background:var(--surface); border-radius:.75rem; box-shadow:0 10px 24px rgba(0,0,0,.08); }
-  </style>
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6S9PJSSY8D"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);} 
-    gtag('js', new Date()); gtag('config','G-6S9PJSSY8D');
-  </script>
-  <style>
-    /* 追加スタイル：お悩み（カード）・タブ（サービス）・実績画像 */
+    /* 追加スタイル：お悩み（カード）・タブ（サービス）・実績画像・Hero背景 */
     .section{padding:4rem 1.5rem}
     .container-narrow{max-width:1100px;margin:0 auto}
     .worries-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
@@ -51,10 +43,26 @@
     .tab-panel.active{display:block}
     .feature-list{list-style:none;margin:12px 0 0 0;padding:0}
     .feature-list li{position:relative;padding-left:1.4rem;margin:.4rem 0}
-    .feature-list li:before{content:'00c';font-family:'Font Awesome 6 Free';font-weight:900;color:var(--color-green);position:absolute;left:0;top:.2rem}
+    .feature-list li:before{content:'\f00c';font-family:'Font Awesome 6 Free';font-weight:900;color:var(--color-green);position:absolute;left:0;top:.2rem}
     .achievements-img{display:block;max-width:920px;width:100%;margin:0 auto;border-radius:12px;box-shadow:0 12px 28px rgba(0,0,0,.08)}
     .section h2{font-size:2rem;font-weight:700;text-align:center;margin-bottom:1.6rem;color:var(--color-primary)}
+
+    /* Hero 背景（レイアウトはそのまま、見栄え補強のみ） */
+    .hero-bg{
+      background:
+        linear-gradient(rgba(168,101,43,0.45), rgba(47,93,58,0.45)),
+        url('https://i.postimg.cc/KcdVVS3b/RE-1.jpg');
+      background-size: cover; background-position: center; background-attachment: fixed;
+    }
+    @media (max-width:768px){ .hero-bg{ background-attachment:scroll; } }
   </style>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6S9PJSSY8D"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);} 
+    gtag('js', new Date()); gtag('config','G-6S9PJSSY8D');
+  </script>
 </head>
 <body>
 
@@ -80,61 +88,61 @@
   </header>
 
   <!-- お悩みセクション（おしゃれカード） -->
-<section class="section" id="worries">
-  <div class="container-narrow">
-    <h2>こんなお悩みはありませんか？</h2>
-    <div class="worries-grid">
-      <div class="worry-card"><i class="fa-solid fa-person-cane"></i><p>年齢を重ねて、今の家での暮らしに不便を感じることが増えた。</p></div>
-      <div class="worry-card"><i class="fa-regular fa-building"></i><p>家の老朽化が心配。</p></div>
-      <div class="worry-card"><i class="fa-solid fa-temperature-high"></i><p>夏暑くて冬は寒い…体への負担が大きい。</p></div>
-      <div class="worry-card"><i class="fa-solid fa-stairs"></i><p>足腰が悪く、階段の上り下りが大変。</p></div>
-      <div class="worry-card"><i class="fa-solid fa-house"></i><p>昔ながらの大きな家で、使っていない部屋がありもったいない。</p></div>
-      <div class="worry-card"><i class="fa-regular fa-lightbulb"></i><p>家の中が暗い。</p></div>
-      <div class="worry-card"><i class="fa-solid fa-building-columns"></i><p>中古マンションの購入を考えている。</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- サービス（タブ切替＋フェード） -->
-<section class="section" id="services">
-  <div class="container-narrow">
-    <h2>アート・宙のリフォーム・リノベーションについて</h2>
-    <div class="tabs">
-      <div class="tab-buttons">
-        <button class="active" data-tab="reform">リフォーム</button>
-        <button data-tab="renov">リノベーション（戸建・マンション）</button>
-      </div>
-      <div class="tab-panel active" id="reform">
-        <p>キッチン・お風呂などの部分改修から動線の見直し、断熱・耐震まで。自然素材を活かし、今の暮らしを上質に整えます。</p>
-        <ul class="feature-list">
-          <li>無垢材や漆喰など、調湿性に優れた“呼吸する”素材を採用</li>
-          <li>一級建築士が暮らしに寄り添い、最適な動線をデザイン</li>
-          <li>断熱・耐震性能の向上、住みながらの工事にも対応</li>
-          <li>丁寧な施工と安心のアフターメンテナンス</li>
-        </ul>
-      </div>
-      <div class="tab-panel" id="renov">
-        <p>既存を活かしながら価値を再生。<strong>中古マンションにも対応</strong>し、素材と設計で新しい暮らしを創ります。</p>
-        <ul class="feature-list">
-          <li>物件探し〜資金計画〜設計〜施工までワンストップ</li>
-          <li>断熱・耐震・省エネ性能を新築同等へアップ</li>
-          <li>ライフスタイルに合わせた自由な間取り変更</li>
-          <li>自然素材でデザイン性と健康性の両立</li>
-        </ul>
+  <section class="section" id="worries">
+    <div class="container-narrow">
+      <h2>こんなお悩みはありませんか？</h2>
+      <div class="worries-grid">
+        <div class="worry-card"><i class="fa-solid fa-person-cane"></i><p>年齢を重ねて、今の家での暮らしに不便を感じることが増えた。</p></div>
+        <div class="worry-card"><i class="fa-regular fa-building"></i><p>家の老朽化が心配。</p></div>
+        <div class="worry-card"><i class="fa-solid fa-temperature-high"></i><p>夏暑くて冬は寒い…体への負担が大きい。</p></div>
+        <div class="worry-card"><i class="fa-solid fa-stairs"></i><p>足腰が悪く、階段の上り下りが大変。</p></div>
+        <div class="worry-card"><i class="fa-solid fa-house"></i><p>昔ながらの大きな家で、使っていない部屋がありもったいない。</p></div>
+        <div class="worry-card"><i class="fa-regular fa-lightbulb"></i><p>家の中が暗い。</p></div>
+        <div class="worry-card"><i class="fa-solid fa-building-columns"></i><p>中古マンションの購入を考えている。</p></div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- 実績紹介（画像差し替え） -->
-<section class="section" id="achievements">
-  <div class="container-narrow">
-    <h2>実績紹介</h2>
-    <img class="achievements-img" src="https://i.postimg.cc/8zskxC18/image.png" alt="アート・宙の実績（受賞・年数・件数のバッジ一覧）">
-  </div>
-</section>
+  <!-- サービス（タブ切替＋フェード） -->
+  <section class="section" id="services">
+    <div class="container-narrow">
+      <h2>アート・宙のリフォーム・リノベーションについて</h2>
+      <div class="tabs">
+        <div class="tab-buttons">
+          <button class="active" data-tab="reform">リフォーム</button>
+          <button data-tab="renov">リノベーション（戸建・マンション）</button>
+        </div>
+        <div class="tab-panel active" id="reform">
+          <p>キッチン・お風呂などの部分改修から動線の見直し、断熱・耐震まで。自然素材を活かし、今の暮らしを上質に整えます。</p>
+          <ul class="feature-list">
+            <li>無垢材や漆喰など、調湿性に優れた“呼吸する”素材を採用</li>
+            <li>一級建築士が暮らしに寄り添い、最適な動線をデザイン</li>
+            <li>断熱・耐震性能の向上、住みながらの工事にも対応</li>
+            <li>丁寧な施工と安心のアフターメンテナンス</li>
+          </ul>
+        </div>
+        <div class="tab-panel" id="renov">
+          <p>既存を活かしながら価値を再生。<strong>中古マンションにも対応</strong>し、素材と設計で新しい暮らしを創ります。</p>
+          <ul class="feature-list">
+            <li>物件探し〜資金計画〜設計〜施工までワンストップ</li>
+            <li>断熱・耐震・省エネ性能を新築同等へアップ</li>
+            <li>ライフスタイルに合わせた自由な間取り変更</li>
+            <li>自然素材でデザイン性と健康性の両立</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!-- PRESENT セクション -->
+  <!-- 実績紹介（画像差し替え） -->
+  <section class="section" id="achievements">
+    <div class="container-narrow">
+      <h2>実績紹介</h2>
+      <img class="achievements-img" src="https://i.postimg.cc/8zskxC18/image.png" alt="アート・宙の実績（受賞・年数・件数のバッジ一覧）">
+    </div>
+  </section>
+
+  <!-- PRESENT セクション -->
   <section class="brochure-section py-20 px-6" style="background: var(--color-bg);">
     <div class="container mx-auto">
       <h2 class="uppercase text-center mb-8">PRESENT</h2>
@@ -150,7 +158,7 @@
   </section>
 
   <!-- Google Form埋め込み -->
-  <section id="contact-form" class="section py-20" style="background:var(--paper-2)">
+  <section id="contact-form" class="section py-20" style="background:var(--color-bg-alt)">
     <div class="container">
       <h2 class="reveal text-center mb-8">お問い合わせ・資料請求</h2>
       <div class="card" style="padding:1rem">
@@ -159,5 +167,17 @@
     </div>
   </section>
 
+  <script>
+    // タブ切替（レイアウト不変／表示のみ制御）
+    document.querySelectorAll('.tab-buttons button').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const target = btn.getAttribute('data-tab');
+        document.querySelectorAll('.tab-buttons button').forEach(b=>b.classList.remove('active'));
+        document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(target).classList.add('active');
+      });
+    });
+  </script>
 </body>
 </html>
