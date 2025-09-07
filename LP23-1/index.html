@@ -1,308 +1,470 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>株式会社アート・宙 | 三重の自然素材リフォーム・リノベーション</title>
-  <meta name="description" content="三重県で自然素材を活かした高品質なリフォーム・リノベーションならアート・宙へ。創業22年、450棟の実績で、お客様一人ひとりの暮らしに寄り添った温かい住まいをご提案します。"/>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css"/>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>株式会社アート・宙 | 三重の自然素材リフォーム・リノベーション</title>
+<meta name="description" content="三重県で自然素材を活かした高品質なリフォーム・リノベーションならアート・宙へ。創業22年、450棟の実績で、お客様一人ひとりの暮らしに寄り添った温かい住まいをご提案します。" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Cormorant+Garamond:wght@400;500&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* —— Palette（白背景は使わない） —— */
+  --paper:#FFF6EF;      /* クリーム生成り（ベース） */
+  --paper-2:#FBE9DA;    /* 濃いめクリーム（帯） */
+  --paper-3:#F9E2CC;    /* 強調面 */
+  --brand:#D89B5C;      /* テラコッタ */
+  --brand-ink:#8C5A2B;  /* 焦げ茶 */
+  --ink:#4A3725;        /* 見出し */
+  --body:#5A4633;        /* 本文 */
+  --line:rgba(140,90,43,.22);
+  --shadow:0 10px 30px rgba(0,0,0,.06);
+  --r:16px; --r-lg:20px;
+  --wood:url('https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1300&q=20');
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;background:var(--paper);color:var(--body);
+  font-family:"Zen Kaku Gothic New","Noto Sans JP",system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  /* 全面 木の気配（白は使わない） */
+  background-image:
+    linear-gradient(rgba(255,246,239,.86),rgba(255,246,239,.94)),
+    var(--wood);
+  background-size:cover,1200px auto; background-attachment:fixed,fixed; background-blend-mode:normal,overlay;
+}
+img{display:block;max-width:100%;height:auto}
 
-  <style>
-    /* --- “木の温もり × 暖色 + 深緑” パレット --- */
-    :root{
-      --color-primary: #A8652B;
-      --color-accent:  #C98C3B;
-      --color-accent-hover:#B76A2A;
-      --color-green:   #2F5D3A;
-      --color-text:    #4D3B2A;
-      --color-bg:      #FFF3E5;
-      --color-bg-alt:  #F8E0C6;
-      --surface:       #F4D7B5;
-    }
+h1,h2,h3{font-family:"Shippori Mincho","Noto Serif JP",serif;color:var(--ink);letter-spacing:.01em;margin:0}
+h1{font-size:clamp(30px,3.3vw,46px);line-height:1.24}
+h2{font-size:clamp(22px,2.3vw,30px);line-height:1.28;margin-bottom:.5em}
+h3{font-size:clamp(18px,1.7vw,22px);line-height:1.3}
+p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
+.small{font-size:.92rem}
 
-    * { font-family: 'Noto Serif JP', serif; }
-    body { background-color: var(--color-bg); color: var(--color-text); }
+.container{max-width:1120px;margin-inline:auto;padding-inline:clamp(16px,3vw,32px)}
+.section{padding-block:clamp(56px,7vw,96px)}
+.card{background:var(--paper-2);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}
+.card-strong{background:var(--paper-3)}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.9rem 1.15rem;border-radius:12px;font-weight:600;text-decoration:none;transition:.2s ease}
+.btn-primary{background:var(--brand);color:#fff}
+.btn-primary:hover{background:var(--brand-ink)}
+.btn-outline{border:1px solid var(--brand);color:var(--brand)}
+.btn-outline:hover{background:var(--paper-2)}
+.hr{border:0;height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent);margin:24px 0}
 
-    .hero-bg{
-      background:
-        linear-gradient(rgba(168,101,43,0.55), rgba(47,93,58,0.55)),
-        url('https://i.postimg.cc/KcdVVS3b/RE-1.jpg');
-      background-size: cover; background-position: center; background-attachment: fixed;
-    }
-    @media (max-width: 768px){ .hero-bg{ background-attachment: scroll; } }
+/* Header */
+.header{position:sticky;top:0;z-index:50;backdrop-filter:blur(6px);
+  background:color-mix(in srgb,var(--paper-2) 78%, transparent); border-bottom:1px solid var(--line)}
+.header .nav{display:flex;gap:1rem;align-items:center}
+.header a{color:var(--body);text-decoration:none}
+.header a:hover{color:var(--brand-ink)}
 
-    .btn-primary{
-      background: var(--color-accent); color:#fff; border-radius:9999px; transition:.3s;
-    }
-    .btn-primary:hover{
-      background: var(--color-accent-hover);
-      transform: translateY(-2px);
-      box-shadow: 0 10px 24px rgba(47,93,58,.35);
-    }
-    .btn-secondary{
-      background: var(--surface);
-      color: var(--color-green);
-      border: 2px solid var(--color-green);
-    }
+/* Hero */
+.hero{position:relative;isolation:isolate}
+.hero-wrap{display:grid;gap:2rem;grid-template-columns:1fr}
+@media (min-width:980px){.hero-wrap{grid-template-columns:1.1fr .9fr}}
+.hero-visual{position:relative;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow)}
+.hero-visual img{width:100%;height:100%;object-fit:cover}
+/* パララックス */
+.hero-visual .parallax{position:absolute;inset:0;transform:translateY(0);will-change:transform}
+/* 浮遊する木漏れ日（ぼかし） */
+.hero .bokeh{position:absolute;inset:auto auto -60px -60px;width:220px;height:220px;background:radial-gradient(circle, rgba(216,155,92,.25), transparent 60%);filter:blur(20px);border-radius:50%}
 
-    .troubles-section h2,
-    .feature-section h2,
-    .achievements-section h2,
-    .case-study-section h2,
-    .brochure-section h2{
-      font-size: 2.25rem; font-weight:700; text-align:center; margin-bottom:3rem; color:var(--color-primary);
-      border-bottom:4px solid var(--color-green); display:inline-block; padding-bottom:.5rem;
-    }
+/* Scroll reveal */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .7s ease, transform .7s ease}
+.revealed{opacity:1;transform:none}
 
-    .troubles-section ul{
-      max-width:48rem; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.5rem;
-    }
-    .troubles-section li{
-      background:var(--surface); padding:1.5rem; border-radius:.5rem; box-shadow:0 4px 15px rgba(0,0,0,.05); display:flex; align-items:center;
-    }
-    .troubles-section li::before{
-      content:'\f058'; font-family:"Font Awesome 6 Free"; font-weight:900; color:var(--color-green); font-size:1.25rem; margin-right:1rem;
-    }
+/* スライドイン（左右） */
+.slide-left{opacity:0;transform:translateX(-26px);transition:opacity .8s ease, transform .8s ease}
+.slide-right{opacity:0;transform:translateX(26px);transition:opacity .8s ease, transform .8s ease}
+.slide-up{opacity:0;transform:translateY(18px);transition:opacity .8s ease, transform .8s ease}
 
-    .feature-section{ background:var(--color-bg-alt); }
-    .feature-section .feature__list{ list-style:none; padding-left:0; margin-top:1.5rem; }
-    .feature-section .feature__item{ position:relative; padding-left:2rem; margin-bottom:1rem; }
-    .feature-section .feature__item::before{
-      content:'\f00c'; font-family:"Font Awesome 6 Free"; font-weight:900; color:var(--color-green); position:absolute; left:0; top:4px;
-    }
+/* お悩み：横スクロールカード */
+.worries-rail{display:flex;gap:14px;overflow-x:auto;padding:8px;scroll-snap-type:x mandatory}
+.worries-rail::-webkit-scrollbar{height:8px}
+.worries-rail::-webkit-scrollbar-thumb{background:var(--line);border-radius:8px}
+.worry-sq{flex:0 0 clamp(180px,26vw,240px);aspect-ratio:1/1;scroll-snap-align:center;
+  display:flex;align-items:center;justify-content:center;text-align:center;padding:14px;
+  background:var(--paper-2);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}
+.worry-sq p{line-height:1.7}
 
-    .achievements-section{ background:var(--color-bg); }
+/* サービス */
+.grid-2{display:grid;gap:1.2rem;grid-template-columns:1fr}
+@media (min-width:820px){.grid-2{grid-template-columns:1fr 1fr}}
+.service-card{position:relative;overflow:hidden}
+.service-card:before{content:"";position:absolute;inset:-30% -30% auto auto;height:180px;width:180px;background:radial-gradient(circle, rgba(216,155,92,.15), transparent 60%);transform:rotate(12deg)}
+.service-toggle{cursor:pointer;display:inline-flex;align-items:center;gap:.4rem}
+.service-content{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.service-card.open{transform:translateY(-1px) scale(1.01)}
+.service-card.open .service-content{max-height:300px}
 
-    .case-study-section{ background:var(--color-bg-alt); }
-    .case-study-section h3{
-      font-size:1.75rem; font-weight:700; text-align:left; margin-bottom:2rem; color:var(--color-primary);
-      border-bottom:2px solid var(--color-green); padding-bottom:.5rem;
-    }
+/* 実績（画像のみ） */
+.achievements-img{display:block;max-width:920px;width:100%;margin:0 auto;border-radius:12px;box-shadow:var(--shadow)}
 
-    .case-study__gallery{ display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
-    .case-study__gallery.two-col{ grid-template-columns:repeat(2,1fr); }
-    .case-study__gallery img{
-      width:100%; height:100%; object-fit:cover; border-radius:.5rem; box-shadow:0 10px 25px rgba(0,0,0,.1); aspect-ratio:4/3;
-    }
-    @media (max-width:768px){ .case-study__gallery, .case-study__gallery.two-col{ grid-template-columns:1fr; } }
+/* 事例 — ジグザグ */
+.zig{display:grid;gap:1.2rem;grid-template-columns:1fr}
+@media (min-width:980px){.zig{grid-template-columns:1.1fr .9fr; align-items: start;}}
+.frame{border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow)}
+/* captionスタイルを修正 */
+.caption{padding:1.2rem 0;}
+.caption .big{font-size:1.05rem;line-height:1.8;}
+.num{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:999px;background:var(--brand);color:#fff;font-weight:700;margin-right:.45rem;opacity:.9; float: left; margin-top: 5px;}
+.caption .big span.num + * { overflow: hidden; display: block; padding-left: .5em; }
 
-    /* 説明カード（①〜④） */
-    .numdesc{
-      max-width:1100px; margin:1.5rem auto 0; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1.25rem 2rem; list-style:none; padding:0;
-    }
-    .numdesc li{
-      background:#FFF7E9; border:1px solid #E7D8C2; border-radius:12px; padding:18px 20px; line-height:1.9;
-      box-shadow:0 6px 18px rgba(0,0,0,.06);
-    }
-    .numdesc li strong{ color:#765B2E; }
-    @media (max-width:768px){ .numdesc{ grid-template-columns:1fr; } }
+/* Before/After スライダー（既存保持） */
+.ba{position:relative;border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow)}
+.ba img{display:block;width:100%;height:auto}
+.ba .after{position:absolute;inset:0;overflow:hidden}
+.ba .after img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ba input[type=range]{position:absolute;inset:auto 0 10px 0;width:100%;appearance:none;background:transparent}
+.ba input[type=range]::-webkit-slider-runnable-track{height:4px;background:var(--brand-ink);border-radius:999px}
+.ba input[type=range]::-webkit-slider-thumb{appearance:none;width:18px;height:18px;border-radius:50%;background:var(--brand);margin-top:-7px;border:2px solid #fff}
+.ba .divider{position:absolute;top:0;bottom:0;left:50%;width:2px;background:var(--brand-ink)}
 
-    .card-surface{ background:var(--surface); border-radius:.75rem; box-shadow:0 10px 24px rgba(0,0,0,.08); }
-    .brochure-section .btn-primary{ background:var(--color-green); font-weight:700; }
-    .brochure-section .btn-primary:hover{ background:#24462C; }
+/* ギャラリー（横流れカルーセル） */
+.gallery-wrap{position:relative}
+.gallery-rail{display:flex;gap:14px;overflow:hidden}
+.gallery-rail img{flex:0 0 min(86vw,520px);height:320px;object-fit:cover;border-radius:14px;box-shadow:var(--shadow)}
+.gallery-nav{position:absolute;inset:auto 0 -28px 0;display:flex;gap:8px;justify-content:center}
+.gallery-dot{width:8px;height:8px;border-radius:50%;background:var(--line)}
+.gallery-dot.active{background:var(--brand-ink)}
 
-    #contact-form{ background:#F1DECA; }
-    .panel-surface{ background:var(--surface); border-radius:.75rem; box-shadow:0 10px 24px rgba(0,0,0,.08); }
-  </style>
+/* FAQ */
+.faq details{background:var(--paper-2);border:1px solid var(--line);border-radius:var(--r);padding:.9rem 1.1rem}
+.faq details+details{margin-top:.6rem}
+.faq summary{cursor:pointer;font-weight:600;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq details[open]{background:var(--paper-3)}
+.rotate{transition:transform .25s ease}
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6S9PJSSY8D"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date()); gtag('config', 'G-6S9PJSSY8D');
-  </script>
+/* 小ユーティリティ */
+.btn:focus, a:focus{outline:2px dashed var(--brand-ink);outline-offset:3px}
+.hr-bold{border:0;height:4px;background:var(--brand-ink);margin:2rem 0;border-radius:2px}
+</style>
 </head>
+<body data-show-price="false">
 
-<body>
-  <!-- ヒーロー -->
-  <header class="hero-bg min-h-screen flex items-center justify-center text-white relative">
-    <div class="container mx-auto px-4 text-center">
-      <h1 class="text-4xl md:text-6xl font-bold mb-8 leading-tight" style="text-shadow:2px 2px 8px rgba(0,0,0,.5);">
-        自然素材で、暮らしに温もりを。<br/>
-        <span class="text-yellow-200">新しい暮らしを、アート・宙と。</span>
-      </h1>
-      <p class="text-xl md:text-2xl mb-12 max-w-4xl mx-auto leading-relaxed" style="text-shadow:1px 1px 4px rgba(0,0,0,.5);">
-        三重県でリフォーム・リノベーションするならアート・宙
-      </p>
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="#contact-form" class="btn-primary inline-block px-12 py-4 text-lg font-semibold text-white no-underline shadow-lg w-full sm:w-auto">
-          <i class="fas fa-file-alt mr-2"></i>資料請求・無料相談
-        </a>
-        <a href="tel:059-356-0817" aria-label="電話で問い合わせる" class="btn-primary btn-secondary inline-block px-12 py-4 text-lg font-semibold no-underline shadow-lg w-full sm:w-auto">
-          <i class="fas fa-phone mr-2"></i>お電話はこちら
-        </a>
+<header class="header">
+  <div class="container" style="display:flex;justify-content:space-between;align-items:center;padding-block:.7rem;">
+    <div style="font-family:'Cormorant Garamond',serif;color:var(--brand-ink);letter-spacing:.08em;font-size:.9rem">ArtSora</div>
+    <nav class="nav small">
+      <a href="#worries">お悩み</a>
+      <a href="#services">サービス</a>
+      <a href="#achievements">実績</a>
+      <a href="#cases">実例</a>
+      <a href="#gallery">写真</a>
+      <a href="#faq">FAQ</a>
+      <a href="#present">PRESENT</a>
+      <a href="#contact-form">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<section class="section hero" id="hero">
+  <div class="container hero-wrap">
+    <div>
+      <p class="reveal" style="font-family:'Cormorant Garamond',serif;color:var(--brand-ink);letter-spacing:.2em;text-transform:uppercase;font-size:.8rem">Warmth & Wood</p>
+      <h1 class="reveal" style="margin-top:.4rem">自然素材で、暮らしにぬくもりを。<br>新しい暮らしを、アート・宙と。</h1>
+      <p class="reveal" style="margin-top:1rem">三重県でリフォーム・リノベーションするなら<strong>株式会社アート・宙</strong>。自然素材とやさしい色調で、住まいの「居ごこち」を丁寧に整えます。</p>
+      <div class="reveal" style="margin-top:1rem;display:flex;gap:.6rem;flex-wrap:wrap">
+        <a href="#contact-form" class="btn btn-primary">資料請求</a>
+        <a href="#services" class="btn btn-outline">サービスを見る</a>
       </div>
     </div>
-  </header>
+    <div class="hero-visual" aria-label="木の床に夕陽が差す写真">
+      <img src="https://i.postimg.cc/KcdVVS3b/RE-1.jpg" alt="">
+      <div class="parallax" id="parallaxLayer"></div>
+      <i class="bokeh" aria-hidden="true"></i>
+    </div>
+  </div>
+</section>
 
-  <!-- お悩み -->
-  <section class="troubles-section py-20 px-6">
-    <h2>こんなお悩みはありませんか？</h2>
-    <ul>
-      <li>年齢を重ねて、今の家での暮らしに不便を感じることが増えた。</li>
-      <li>家の老朽化が心配。</li>
-      <li>夏暑くて冬は寒い…体への負担が大きい。</li>
-      <li>足腰が悪く、階段の上り下りが大変。</li>
-      <li>昔ながらの大きな家で、使っていない部屋がありもったいない。</li>
-      <li>家の中が暗い。</li>
-      <li>中古マンションの購入を考えている。</li>
-    </ul>
-  </section>
+<section class="section" id="worries">
+  <div class="container">
+    <h2 class="reveal">こんなお悩みはありませんか？</h2>
+    <div class="worries-rail reveal" id="worriesRail" aria-label="住まいのお悩み">
+      <div class="worry-sq"><p>最近、段差や動線が負担になってきたと感じる</p></div>
+      <div class="worry-sq"><p>築年数が進み、住まいの劣化や将来が不安</p></div>
+      <div class="worry-sq"><p>夏は暑く冬は寒い——室温差で体がつらい</p></div>
+      <div class="worry-sq"><p>階段や水まわりが使いづらい・安全が心配</p></div>
+      <div class="worry-sq"><p>使っていない部屋が多く、広さを活かせていない</p></div>
+      <div class="worry-sq"><p>室内が暗く、昼間でも照明が欠かせない</p></div>
+      <div class="worry-sq"><p>中古マンションを買って、自分らしく整えたい</p></div>
+    </div>
+    <div class="small" style="margin-top:1rem">※ 断熱窓や動線計画、照明設計で“温度差”と“暮らしの負担”をやさしく整えます。</div>
+  </div>
+</section>
 
-  <!-- リフォーム/リノベ -->
-  <section class="feature-section py-20 px-6">
-    <div class="container mx-auto grid md:grid-cols-2 gap-16 items-start">
+<section class="section" id="services" style="background:var(--paper-2)">
+  <div class="container">
+    <h2 class="reveal">アート宙のリフォーム・リノベーションについて</h2>
+    <div class="grid-2">
+      <div class="card card-strong service-card" id="svc1" style="padding:1.1rem 1.1rem">
+        <h3>アート・宙のリフォーム</h3>
+        <p style="margin-top:.6rem">
+          部分改修から断熱・耐震・水回りまで。住みながらの工事が可能なメニューもあり、
+          身体の負担や仮住まいのコストを抑えられます。
+        </p>
+        <button class="service-toggle small" aria-controls="svc1c" aria-expanded="false">
+          詳細を読む
+          <svg class="rotate" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 9l6 6 6-6"/>
+          </svg>
+        </button>
+        <div id="svc1c" class="service-content small">
+          <hr class="hr">
+          <p>
+            水回り・内装・断熱窓・動線改善・手すり設置など。無垢材や漆喰などの自然素材を採用し、
+            一級建築士が暮らしに寄り添って動線をデザイン。
+            耐震・断熱性能の向上と丁寧なアフターメンテナンスまでワンストップで対応します。
+          </p>
+        </div>
+      </div>
+      <div class="card card-strong service-card" id="svc2" style="padding:1.1rem 1.1rem">
+        <h3>アート・宙のリノベーション（戸建・マンション対応）</h3>
+        <p style="margin-top:.6rem">
+          間取りの再構築や内装一新、設備の総入れ替えまで。
+          <strong>マンションのリノベーション</strong>にも対応し、管理規約や工期の調整もお任せください。
+        </p>
+        <button class="service-toggle small" aria-controls="svc2c" aria-expanded="false">
+          詳細を読む
+          <svg class="rotate" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 9l6 6 6-6"/>
+          </svg>
+        </button>
+        <div id="svc2c" class="service-content small">
+          <hr class="hr">
+          <p>
+            物件探しから資金計画、設計、施工までワンストップ対応。
+            断熱・耐震・省エネ性能を新築同等へ引き上げ、
+            <strong>戸建てはもちろん中古マンションのリノベーション</strong>にも対応します。
+            ライフスタイルに合わせた自由な間取り変更と自然素材のデザインで価値を再生します。
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="achievements">
+  <div class="container">
+    <h2 class="reveal">実績紹介</h2>
+    <img class="achievements-img" src="https://i.postimg.cc/8zskxC18/image.png" alt="アート・宙の実績（受賞・年数・件数のバッジ一覧）">
+  </div>
+</section>
+
+<section class="section" id="cases" style="background:var(--paper-2)">
+  <div class="container">
+    <h2 class="reveal">実例紹介</h2>
+
+    <div class="zig">
+      <div class="frame">
+        <img src="https://i.postimg.cc/1zMJH3SJ/image.png" alt="床柱を残した和モダンなLDK">
+      </div>
       <div>
-        <h2>アート・宙のリフォーム</h2>
-        <p>キッチン・お風呂などの部分的な改修から間取りの変更まで。お客様の現在の暮らしをより快適にするため、自然素材を活かした温もりのある空間づくりをお手伝いします。</p>
-        <ul class="feature__list">
-          <li class="feature__item">無垢材や漆喰など、調湿性に優れた呼吸する自然素材を標準採用。</li>
-          <li class="feature__item">一級建築士がお客様の暮らしに寄り添い、最適な動線をデザイン。</li>
-          <li class="feature__item">耐震補強や断熱性能の向上で、安心・快適な住まいへ。</li>
-          <li class="feature__item">経験豊富な職人による丁寧な施工と、安心のアフターメンテナンス。</li>
-        </ul>
+        <h3>事例1｜和室続き→ワンフロア化でつながるLDK（鈴鹿市）</h3>
+        <div class="caption">
+          <p class="big">
+            <span class="num">1</span><span>床柱はそのままの状態で丁寧に残しました。昔からの落ち着きを感じさせながら、新しいデザインの中にも自然に溶け込み、家全体に奥深い味わいを添えています。</span><br>
+            <span class="num">2</span><span>「とにかく寒いことに悩んでいる」というお悩みから、窓を入れ替えました。窓のリノベーションは住みながらの工事も可能なため、工事期間中に仮住まいへの引っ越しといった負担がありません。</span><br>
+            <span class="num">3</span><span>以前は和室が続いていた間取りでしたが、壁を取り払ってLDKの一部に取り込むことで、家族全員がくつろげる約17帖の広々とした空間が生まれました。</span>
+          </p>
+          <p class="small" style="margin-top:.8rem">
+            <a href="https://www.artsora.com/case_newly/18217/" target="_blank" rel="noopener">公式の事例ページを見る</a>
+          </p>
+        </div>
       </div>
+    </div>
+
+    <hr class="hr-bold" aria-hidden="true">
+
+    <div class="zig" style="margin-top:1.4rem">
       <div>
-        <h2>アート・宙のリノベーション</h2>
-        <p>既存の構造を活かしつつ、デザイン性や性能を全面的に向上させ、住まいの価値を再生します。<br/><strong style="color: var(--color-primary);">一戸建てはもちろん、中古マンションにも対応</strong>し、素材と設計で新しい暮らしを創ります。</p>
-        <ul class="feature__list">
-          <li class="feature__item">物件探しから資金計画、設計、施工までワンストップでサポート。</li>
-          <li class="feature__item">断熱・耐震・省エネ性能を新築同様の基準まで引き上げます。</li>
-          <li class="feature__item">ご家族のライフスタイルに合わせた、自由な間取り変更が可能。</li>
-          <li class="feature__item">自然素材をふんだんに使い、デザイン性と健康の両立を実現。</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- 実績 -->
-  <section class="achievements-section py-20 px-6" aria-label="実績">
-    <h2>アート・宙の実績</h2>
-    <div class="container mx-auto text-center">
-      <img src="https://i.postimg.cc/8zskxC18/image.png" alt="アート・宙の実績（受賞・年数・件数のバッジ一覧）" class="mx-auto max-w-full h-auto rounded-lg shadow-md"/>
-    </div>
-  </section>
-
-  <!-- 施工実例 -->
-  <section class="case-study-section py-20 px-6">
-    <div class="container mx-auto">
-      <h2>施工実例のご紹介</h2>
-
-      <!-- ▼ 一段目：横並び2枚 + 説明（ご指定文） ▼ -->
-      <div class="mb-16" aria-labelledby="case1-heading">
-        <h3 id="case1-heading">家族がくつろげる広々としたLDKへ</h3>
-
-        <div class="case-study__gallery two-col">
-          <img src="https://i.postimg.cc/1zMJH3SJ/image.png" alt="LDKリフォーム：ナンバリング済み写真その1"/>
-          <img src="https://i.postimg.cc/bvSKVn63/image.png" alt="LDKリフォーム：ナンバリング済み写真その2"/>
-        </div>
-
-        <ol class="numdesc">
-          <li>
-            <strong>① 床柱はそのまま丁寧に保存</strong><br/>
-            昔からの落ち着きを感じさせながら、新しいデザインの中にも自然に溶け込み、家全体に奥深い味わいを添えています。
-          </li>
-          <li>
-            <strong>② 高断熱サッシへ交換（寒さ対策）</strong><br/>
-            「とにかく寒い」という課題に対し窓を入れ替え。住みながらの工事で負担を軽減。
-          </li>
-          <li>
-            <strong>③ 床の張り替え・内装の更新</strong><br/>
-            床の張り替えや壁の塗り替えを行い、自然素材の質感を活かした温かい雰囲気に。
-          </li>
-          <li>
-            <strong>④ 造作洗面台</strong><br/>
-            造作洗面台のカウンターには、耐久性と美しさを兼ね備えたアイカ社の素材を採用。ゆったり幅で2人並んでも快適に使用できます。
-          </li>
-        </ol>
-      </div>
-      <!-- ▲ 一段目ここまで ▲ -->
-
-      <!-- ▼ 二段目：横並び2枚 + 説明（同デザイン） ▼ -->
-      <div aria-labelledby="case2-heading">
-        <h3 id="case2-heading">築100年の古民家を再生</h3>
-
-        <div class="case-study__gallery two-col">
-          <img src="https://i.postimg.cc/6QzGS7y4/image.png" alt="古民家再生：ナンバリング済み写真その1"/>
-          <img src="https://i.postimg.cc/zvhC9zmm/image.png" alt="古民家再生：ナンバリング済み写真その2"/>
-        </div>
-
-        <ol class="numdesc">
-          <li>
-            <strong>① 梁を見せる仕上げ</strong><br/>
-            天井裏に隠れていた梁をあえて見せる計画に。天井が高くなることで空間が立体的になり、木の存在感や力強さを感じられます。
-          </li>
-          <li>
-            <strong>② 約19帖のワンルーム化</strong><br/>
-            「食堂」と「リビング」を一つの空間へ。床は桧、壁は珪藻土塗りで、木の香りに包まれた落ち着くLDKに。
-          </li>
-          <li>
-            <strong>③ 和モダンの内装</strong><br/>
-            「内装は和モダンに」というご要望に合わせ、既存の天井などを活かし趣を残しながら仕上げました。
-          </li>
-          <li>
-            <strong>④ 水まわり設備はトクラス</strong><br/>
-            キッチン・浴室・洗面化粧台をすべてトクラスへ。独自の人造大理石により高耐久でメンテナンスもしやすいのが特長です。
-          </li>
-        </ol>
-      </div>
-      <!-- ▲ 二段目ここまで ▲ -->
-
-    </div>
-  </section>
-
-  <!-- PRESENT -->
-  <section class="brochure-section py-20 px-6" style="background: var(--color-bg);">
-    <div class="container mx-auto">
-      <h2 class="uppercase">PRESENT</h2>
-      <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap:8 md:gap-8 items-center card-surface p-8">
-        <img src="https://i.postimg.cc/GmVnRPZ8/2025-09-05-14-34-16.png" alt="アート・宙 リフォーム・リノベーション パンフレット" class="w-full max-w-sm mx-auto"/>
-        <div class="text-center md:text-left">
-          <p class="text-lg font-semibold mb-4" style="color: var(--color-primary);">資料請求いただいた方に、アート・宙のこだわりが詰まったパンフレットを無料進呈します。</p>
-          <p>アート・宙のリフォーム・リノベーションの特徴や施工事例のご紹介など、ホームページには掲載しきれない情報が盛りだくさんです。ぜひご覧ください。</p>
-          <a href="#contact-form" class="btn-primary inline-block mt-6 px-8 py-3">今すぐ資料請求する</a>
+        <h3>事例2｜梁あらわし仕上げで趣を活かす（津市）</h3>
+        <div class="caption">
+          <p class="big">
+            <span class="num">1</span><span>今回、天井裏に隠れていた梁を見せる仕上げにしました。天井が高くなることで、空間が立体的になり木の存在感や力強さを感じられます。</span><br>
+            <span class="num">2</span><span>「食堂」と「リビング」として区切られていたところを、約19帖の1つの空間にまとめました。床には桧、壁には珪藻土の塗り壁を採用し、木の香りと共に家族が落ち着くLDKに。</span><br>
+            <span class="num">3</span><span>「内装デザインを和モダンにしたい」というご要望から、既存の天井等活かし、趣を残しながら仕上げました。</span>
+          </p>
+          <p class="small" style="margin-top:.8rem">
+            <a href="https://www.artsora.com/case_newly/14836/" target="_blank" rel="noopener">公式の事例ページを見る</a>
+          </p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- フォーム -->
-  <section id="contact-form" class="py-20">
-    <div class="container mx-auto px-4">
-      <div class="max-w-4xl mx-auto">
-        <h2 class="text-3xl md:text-4xl font-bold text-center mb-16" style="color: var(--color-primary);">お問い合わせ・資料請求</h2>
-        <div class="panel-surface p-4 sm:p-8">
-          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdzWiC2E6jyxa6d4nYnULTxSUVYIEGIAtdCsENUQW-Ua90Uzw/viewform?embedded=true" width="100%" height="1200" frameborder="0" marginheight="0" marginwidth="0" title="お問い合わせフォーム">読み込んでいます…</iframe>
-        </div>
+      <div class="frame">
+        <img src="https://i.postimg.cc/6QzGS7y4/image.png" alt="梁あらわしで趣のあるリビングダイニング">
       </div>
     </div>
-  </section>
 
-  <!-- フッター -->
-  <footer class="py-16" style="background-color: var(--color-primary);">
-    <div class="container mx-auto px-4 text-center text-white">
-      <div class="max-w-6xl mx-auto">
-        <div class="text-2xl font-bold mb-6">株式会社アート・宙</div>
-        <p class="text-sm">〒510-0081 三重県四日市市北町3番4号<br/>TEL: 059-356-0817</p>
-        <div class="border-t border-white/20 mt-8 pt-8 text-xs text-white/70">
-          <p>&copy; 2025 Art-Sora Inc. All Rights Reserved.</p>
-        </div>
+  </div>
+</section>
+
+
+<section class="section" id="gallery">
+  <div class="container">
+    <h2 class="reveal">Gallery</h2>
+    <div class="gallery-wrap reveal">
+      <div class="gallery-rail" id="galleryRail" aria-label="施工写真ギャラリー">
+        <img src="https://i.postimg.cc/rm7wvVqD/LP1.jpg" alt="施工事例ギャラリー1">
+        <img src="https://i.postimg.cc/5NB2RWTt/LP2.jpg" alt="施工事例ギャラリー2">
+        <img src="https://i.postimg.cc/VkzkyHPW/LP3.jpg" alt="施工事例ギャラリー3">
+        <img src="https://i.postimg.cc/rwgFqC8X/LP4.jpg" alt="施工事例ギャラリー4">
+        <img src="https://i.postimg.cc/sDd2mgn8/LP5.jpg" alt="施工事例ギャラリー5">
+        <img src="https://i.postimg.cc/N0MGF9My/LP6.jpg" alt="施工事例ギャラリー6">
+        <img src="https://i.postimg.cc/nr8n3317/LP7.jpg" alt="施工事例ギャラリー7">
+      </div>
+      <div class="gallery-nav" id="galleryDots" aria-hidden="true"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="faq" style="background:var(--paper-2)">
+  <div class="container faq">
+    <h2 class="reveal">FAQ</h2>
+    <details class="reveal"><summary>住みながら工事は可能ですか？ <span class="rotate">▾</span></summary><div class="small" style="margin-top:.6rem">工事範囲や工程を調整しながら可能です。騒音や粉じん対策、仮設の動線づくりもご提案します。</div></details>
+    <details class="reveal"><summary>マンションのリノベも対応していますか？ <span class="rotate">▾</span></summary><div class="small" style="margin-top:.6rem">管理規約の確認・近隣調整・資材搬入経路の設計までワンストップで対応します。</div></details>
+    <details class="reveal"><summary>費用感を教えてください <span class="rotate">▾</span></summary><div class="small" style="margin-top:.6rem">A/Bテスト運用で価格表示ON/OFFを切り替えます。概算はお問い合わせください。</div></details>
+    <details class="reveal"><summary>無垢材や漆喰など自然素材の手入れは大変ですか？ <span class="rotate">▾</span></summary><div class="small" style="margin-top:.6rem">日常は乾拭きや固く絞った布で十分です。小キズは紙やすりで補修し、オイルを薄く塗ると馴染みます。漆喰は調湿性が高く、汚れは軽い拭き取りで目立ちにくくなります。</div></details>
+    <details class="reveal"><summary>断熱や窓改修に補助金は使えますか？ <span class="rotate">▾</span></summary><div class="small" style="margin-top:.6rem">時期や制度により対象や上限が異なります。窓・断熱改修、バリアフリー等で適用できる場合がありますので、最新情報を確認し最適なプランをご提案します。</div></details>
+  </div>
+</section>
+
+<section class="section" id="present" style="background:var(--paper-2)">
+  <div class="container">
+    <h2 class="reveal" style="text-align:center">PRESENT</h2>
+    <div class="card" style="padding:1rem;display:grid;gap:1rem;grid-template-columns:1fr;align-items:center">
+      <img src="https://i.postimg.cc/GmVnRPZ8/2025-09-05-14-34-16.png" alt="アート・宙 パンフレット" style="max-width:420px;margin-inline:auto;border-radius:12px;box-shadow:var(--shadow)">
+      <div class="small" style="text-align:center">
+        <p class="small" style="font-weight:600;color:var(--brand-ink);margin-bottom:.4rem">資料請求いただいた方に、アート・宙のこだわりが詰まったパンフレットを無料進呈します。</p>
+        <p>アート・宙のリフォーム・リノベーションの特徴や施工事例のご紹介など、<br>ホームページには掲載しきれない情報が盛りだくさんです。ぜひご覧ください。</p>
+        <p style="margin-top:.6rem"><a href="#contact-form" class="btn btn-primary">今すぐ資料請求する</a></p>
       </div>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <script>
-    document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
-      anchor.addEventListener('click', e=>{
-        e.preventDefault();
-        const t=document.querySelector(anchor.getAttribute('href'));
-        if(t) t.scrollIntoView({behavior:'smooth'});
-      });
+<section class="section" id="contact-form">
+  <div class="container">
+    <h2 class="reveal" style="text-align:center">お問い合わせ・資料請求</h2>
+    <div class="card" style="padding:1rem">
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdzWiC2E6jyxa6d4nYnULTxSUVYIEGIAtdCsENUQW-Ua90Uzw/viewform?embedded=true" width="100%" height="1200" frameborder="0" marginheight="0" marginwidth="0" title="お問い合わせフォーム">読み込んでいます…</iframe>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="company">
+  <div class="container">
+    <h2>会社情報</h2>
+    <p>株式会社アート・宙</p>
+    <p>〒510-0081 三重県四日市市北町3番4号</p>
+    <p>TEL: 059-356-0817</p>
+    <p>受付時間: 9:00〜18:00（火・水定休）</p>
+  </div>
+</section>
+
+<footer style="background:var(--brand-ink);color:#fff;text-align:center;padding:2rem 1rem;margin-top:2rem">
+  <p>&copy; 2025 ArtSora Inc. All Rights Reserved.</p>
+</footer>
+
+<script>
+/** Scroll reveal */
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add('revealed'); io.unobserve(e.target);} 
+  });
+},{threshold:.12});
+// .revealだけでなく、他のアニメーションクラスも対象にします
+for(const el of document.querySelectorAll('.reveal, .slide-left, .slide-right, .slide-up')) io.observe(el);
+
+/** Parallax (軽量) */
+const pv = document.getElementById('parallaxLayer');
+window.addEventListener('scroll',()=>{
+  const rect = pv?.parentElement?.getBoundingClientRect?.();
+  if(!rect) return; const offset = (window.innerHeight - rect.top) * 0.03; // 控えめ
+  pv.style.transform = `translateY(${offset}px)`;
+});
+
+/** Service accordion */
+document.querySelectorAll('.service-toggle').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const card = btn.closest('.service-card');
+    card.classList.toggle('open');
+    const expanded = card.classList.contains('open');
+    btn.setAttribute('aria-expanded', expanded);
+  });
+});
+
+/** Worries rail auto-scroll */
+(function(){
+  const rail = document.getElementById('worriesRail'); if(!rail) return;
+  let dir = 1;
+  setInterval(()=>{
+    rail.scrollBy({left: 200*dir, behavior:'smooth'});
+    if(rail.scrollLeft + rail.clientWidth >= rail.scrollWidth - 4) dir = -1;
+    if(rail.scrollLeft <= 4) dir = 1;
+  }, 2800);
+})();
+
+/** Gallery simple carousel (auto + dots) */
+(function(){
+  const rail = document.getElementById('galleryRail'); if(!rail) return;
+  const slides = Array.from(rail.querySelectorAll('img'));
+  const dotsWrap = document.getElementById('galleryDots');
+  let idx = 0, timer;
+
+  function buildDots(){
+    slides.forEach((_,i)=>{
+      const d=document.createElement('span'); d.className='gallery-dot'+(i===0?' active':'');
+      d.addEventListener('click',()=>go(i,true)); dotsWrap.appendChild(d);
     });
-  </script>
+  }
+  function updateDots(){
+    dotsWrap.querySelectorAll('.gallery-dot').forEach((d,i)=>{
+      d.classList.toggle('active', i===idx);
+    });
+  }
+  function go(i, pause){
+    idx = (i+slides.length)%slides.length;
+    const target = slides[idx];
+    rail.scrollTo({left: target.offsetLeft, behavior:'smooth'});
+    updateDots();
+    if(pause){ clearInterval(timer); timer=setInterval(next,3400); }
+  }
+  function next(){ go(idx+1); }
+
+  buildDots();
+  timer=setInterval(next,3400);
+  // ドラッグ/スワイプで操作しやすく
+  let startX=null, startLeft=0;
+  rail.addEventListener('pointerdown',e=>{ startX=e.clientX; startLeft=rail.scrollLeft; rail.setPointerCapture(e.pointerId); clearInterval(timer); });
+  rail.addEventListener('pointermove',e=>{ if(startX!==null){ rail.scrollLeft = startLeft - (e.clientX-startX); }});
+  rail.addEventListener('pointerup',e=>{
+    if(startX!==null){
+      // 一番近いスライドにスナップ
+      const mid = rail.scrollLeft + rail.clientWidth/2;
+      const nearest = slides.reduce((a,el,i)=>{
+        const center = el.offsetLeft + el.clientWidth/2;
+        return (Math.abs(center-mid) < Math.abs((slides[a].offsetLeft+slides[a].clientWidth/2)-mid)) ? i : a;
+      },0);
+      startX=null; go(nearest,true);
+    }
+  });
+})();
+
+/** Caption numbering: sequential highlight（既存） */
+document.querySelectorAll('.caption').forEach(cap=>{
+  const nums = cap.querySelectorAll('.num');
+  const io4 = new IntersectionObserver(es=>{
+    es.forEach(e=>{
+      if(!e.isIntersecting) return; let i=0; const t=setInterval(()=>{ if(i<nums.length){nums[i++].classList.add('on');} else {clearInterval(t);} }, 240); io4.unobserve(cap);
+    });
+  },{threshold:.4});
+  io4.observe(cap);
+});
+</script>
 </body>
 </html>
