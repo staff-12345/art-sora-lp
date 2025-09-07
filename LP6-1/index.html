@@ -17,7 +17,7 @@
   --brand:#D89B5C;      /* テラコッタ */
   --brand-ink:#8C5A2B;  /* 焦げ茶 */
   --ink:#4A3725;        /* 見出し */
-  --body:#5A4633;       /* 本文 */
+  --body:#5A4633;        /* 本文 */
   --line:rgba(140,90,43,.22);
   --shadow:0 10px 30px rgba(0,0,0,.06);
   --r:16px; --r-lg:20px;
@@ -146,7 +146,6 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
 </head>
 <body data-show-price="false">
 
-<!-- ===== Header ===== -->
 <header class="header">
   <div class="container" style="display:flex;justify-content:space-between;align-items:center;padding-block:.7rem;">
     <div style="font-family:'Cormorant Garamond',serif;color:var(--brand-ink);letter-spacing:.08em;font-size:.9rem">ArtSora</div>
@@ -163,14 +162,12 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
   </div>
 </header>
 
-<!-- ===== Hero（パララックス＋リビール） ===== -->
 <section class="section hero" id="hero">
   <div class="container hero-wrap">
     <div>
       <p class="reveal" style="font-family:'Cormorant Garamond',serif;color:var(--brand-ink);letter-spacing:.2em;text-transform:uppercase;font-size:.8rem">Warmth & Wood</p>
       <h1 class="reveal" style="margin-top:.4rem">自然素材で、暮らしにぬくもりを。<br>新しい暮らしを、アート・宙と。</h1>
       <p class="reveal" style="margin-top:1rem">三重県でリフォーム・リノベーションするなら<strong>株式会社アート・宙</strong>。自然素材とやさしい色調で、住まいの「居ごこち」を丁寧に整えます。</p>
-      <!-- 指示によりチップ群は非表示（削除） -->
       <div class="reveal" style="margin-top:1rem;display:flex;gap:.6rem;flex-wrap:wrap">
         <a href="#contact-form" class="btn btn-primary">資料請求</a>
         <a href="#services" class="btn btn-outline">サービスを見る</a>
@@ -184,7 +181,6 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
   </div>
 </section>
 
-<!-- ===== お悩み（横スクロール正方カード） ===== -->
 <section class="section" id="worries">
   <div class="container">
     <h2 class="reveal">こんなお悩みはありませんか？</h2>
@@ -201,7 +197,6 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
   </div>
 </section>
 
-<!-- ===== サービス（見出し復帰＋既存保持） ===== -->
 <section class="section" id="services" style="background:var(--paper-2)">
   <div class="container">
     <h2 class="reveal">アート宙のリフォーム・リノベーションについて</h2>
@@ -230,7 +225,6 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
   </div>
 </section>
 
-<!-- ===== 実績（画像のみ） ===== -->
 <section class="section" id="achievements">
   <div class="container">
     <h2 class="reveal" style="margin-bottom:1rem">実績紹介</h2>
@@ -238,12 +232,10 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
   </div>
 </section>
 
-<!-- ===== 実例（2件／太線あり・説明大きめ） ===== -->
 <section class="section" id="cases" style="background:var(--paper-2)">
   <div class="container">
     <h2 class="reveal">実例紹介</h2>
 
-    <!-- 事例1：2枚目写真削除＋説明拡大 -->
     <div class="zig">
       <div class="frame slide-left"><img src="https://i.postimg.cc/1zMJH3SJ/image.png" alt="和室続き→LDK化"></div>
       <div>
@@ -262,7 +254,6 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
 
     <hr class="hr-bold" aria-hidden="true">
 
-    <!-- 事例2：2枚目写真削除＋説明拡大 -->
     <div class="zig" style="margin-top:1.4rem">
       <div>
         <h3 class="slide-up">事例2｜梁あらわし仕上げで趣を活かす（津市）</h3>
@@ -277,46 +268,40 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
           <p class="small" style="margin-top:.4rem"><a href="https://www.artsora.com/case_newly/14836/" target="_blank" rel="noopener">公式の事例ページを見る</a></p>
         </div>
       </div>
-      <!-- 2枚目の写真は削除 -->
-    </div>
+      </div>
 
   </div>
 </section>
 
-<!-- ===== Gallery（横流れカルーセルに刷新） ===== -->
 <section class="section" id="gallery">
   <div class="container">
     <h2 class="reveal">Gallery</h2>
     <div class="gallery-wrap reveal">
       <div class="gallery-rail" id="galleryRail" aria-label="施工写真ギャラリー">
-        <img src="https://i.postimg.cc/KcdVVS3b/RE-1.jpg" alt="木の温もりが伝わる床材と光">
-        <img src="https://i.postimg.cc/1zMJH3SJ/image.png" alt="LDKリフォーム 1">
-        <img src="https://i.postimg.cc/bvSKVn63/image.png" alt="LDKリフォーム 2">
-        <img src="https://i.postimg.cc/6QzGS7y4/image.png" alt="古民家再生 1">
-        <img src="https://i.postimg.cc/zvhC9zmm/image.png" alt="古民家再生 2">
-        <img src="https://i.postimg.cc/GmVnRPZ8/2025-09-05-14-34-16.png" alt="パンフレット表紙">
-        <img src="https://i.postimg.cc/8zskxC18/image.png" alt="実績バッジ一覧">
+        <img src="https://i.postimg.cc/rm7wvVqD/LP1.jpg" alt="施工事例ギャラリー1">
+        <img src="https://i.postimg.cc/5NB2RWTt/LP2.jpg" alt="施工事例ギャラリー2">
+        <img src="https://i.postimg.cc/VkzkyHPW/LP3.jpg" alt="施工事例ギャラリー3">
+        <img src="https://i.postimg.cc/rwgFqC8X/LP4.jpg" alt="施工事例ギャラリー4">
+        <img src="https://i.postimg.cc/sDd2mgn8/LP5.jpg" alt="施工事例ギャラリー5">
+        <img src="https://i.postimg.cc/N0MGF9My/LP6.jpg" alt="施工事例ギャラリー6">
+        <img src="https://i.postimg.cc/nr8n3317/LP7.jpg" alt="施工事例ギャラリー7">
       </div>
       <div class="gallery-nav" id="galleryDots" aria-hidden="true"></div>
     </div>
   </div>
 </section>
 
-<!-- ===== FAQ（2件追加） ===== -->
 <section class="section" id="faq" style="background:var(--paper-2)">
   <div class="container faq">
     <h2 class="reveal">FAQ</h2>
     <details class="reveal"><summary>住みながら工事は可能ですか？ <span class="rotate">▾</span></summary><div class="small" style="margin-top:.6rem">工事範囲や工程を調整しながら可能です。騒音や粉じん対策、仮設の動線づくりもご提案します。</div></details>
     <details class="reveal"><summary>マンションのリノベも対応していますか？ <span class="rotate">▾</span></summary><div class="small" style="margin-top:.6rem">管理規約の確認・近隣調整・資材搬入経路の設計までワンストップで対応します。</div></details>
     <details class="reveal"><summary>費用感を教えてください <span class="rotate">▾</span></summary><div class="small" style="margin-top:.6rem">A/Bテスト運用で価格表示ON/OFFを切り替えます。概算はお問い合わせください。</div></details>
-    <!-- 追加1：自然素材のメンテナンス -->
     <details class="reveal"><summary>無垢材や漆喰など自然素材の手入れは大変ですか？ <span class="rotate">▾</span></summary><div class="small" style="margin-top:.6rem">日常は乾拭きや固く絞った布で十分です。小キズは紙やすりで補修し、オイルを薄く塗ると馴染みます。漆喰は調湿性が高く、汚れは軽い拭き取りで目立ちにくくなります。</div></details>
-    <!-- 追加2：補助金 -->
     <details class="reveal"><summary>断熱や窓改修に補助金は使えますか？ <span class="rotate">▾</span></summary><div class="small" style="margin-top:.6rem">時期や制度により対象や上限が異なります。窓・断熱改修、バリアフリー等で適用できる場合がありますので、最新情報を確認し最適なプランをご提案します。</div></details>
   </div>
 </section>
 
-<!-- ===== PRESENT（追記済み・改行入り） ===== -->
 <section class="section" id="present" style="background:var(--paper-2)">
   <div class="container">
     <h2 class="reveal" style="text-align:center">PRESENT</h2>
@@ -331,7 +316,6 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
   </div>
 </section>
 
-<!-- ===== Googleフォーム ===== -->
 <section class="section" id="contact-form">
   <div class="container">
     <h2 class="reveal" style="text-align:center">お問い合わせ・資料請求</h2>
@@ -341,7 +325,6 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
   </div>
 </section>
 
-<!-- ===== 会社情報 ===== -->
 <section class="section" id="company">
   <div class="container">
     <h2>会社情報</h2>
@@ -352,7 +335,6 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
   </div>
 </section>
 
-<!-- ===== Footer（ArtSora） ===== -->
 <footer style="background:var(--brand-ink);color:#fff;text-align:center;padding:2rem 1rem;margin-top:2rem">
   <p>&copy; 2025 ArtSora Inc. All Rights Reserved.</p>
 </footer>
