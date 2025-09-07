@@ -12,11 +12,12 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css"/>
 
   <style>
-    /* --- “木の温もり × 暖色（オレンジ基調）” パレット --- */
+    /* --- “木の温もり × 暖色 + 深緑” パレット --- */
     :root{
       --color-primary: #A8652B;        /* 見出し・強調（温かいオレンジブラウン） */
       --color-accent:  #C98C3B;        /* CTA・リンク（ハニーアンバー） */
       --color-accent-hover:#B76A2A;    /* CTAホバー（テラコッタ） */
+      --color-green:   #2F5D3A;        /* 深い緑（アクセント） */
       --color-text:    #4D3B2A;        /* 本文（こげ茶） */
       --color-bg:      #FFF3E5;        /* ベース（やわらかピーチ） */
       --color-bg-alt:  #F8E0C6;        /* ブロック背景（薄いアプリコット） */
@@ -28,7 +29,7 @@
 
     .hero-bg{
       background:
-        linear-gradient(rgba(168,101,43,0.55), rgba(77,59,42,0.55)), /* オレンジ→こげ茶の暖色グラデ */
+        linear-gradient(rgba(168,101,43,0.55), rgba(47,93,58,0.55)), /* オレンジ→深緑のグラデ */
         url('https://i.postimg.cc/KcdVVS3b/RE-1.jpg');
       background-size: cover; background-position: center; background-attachment: fixed;
     }
@@ -44,15 +45,15 @@
     .btn-primary:hover{
       background: var(--color-accent-hover);
       transform: translateY(-2px);
-      box-shadow: 0 10px 24px rgba(183,106,42,.25);
+      box-shadow: 0 10px 24px rgba(47,93,58,.35); /* 深緑の柔らかい影 */
     }
     .btn-secondary{
       background: var(--surface);
-      color: var(--color-primary);
-      border: 2px solid var(--color-primary);
+      color: var(--color-green);
+      border: 2px solid var(--color-green);
     }
 
-    /* タイトル */
+    /* セクション見出し */
     .troubles-section h2,
     .feature-section h2,
     .achievements-section h2,
@@ -60,9 +61,12 @@
     .brochure-section h2{
       font-size: 2.25rem; font-weight: 700; text-align: center;
       margin-bottom: 3rem; color: var(--color-primary);
+      border-bottom: 4px solid var(--color-green); /* 下線に深緑 */
+      display: inline-block;
+      padding-bottom: .5rem;
     }
 
-    /* リスト/チップ */
+    /* お悩みリスト */
     .troubles-section ul{
       max-width: 48rem; margin: 0 auto;
       display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -76,7 +80,7 @@
     }
     .troubles-section li::before{
       content: '\f058'; font-family: "Font Awesome 6 Free"; font-weight: 900;
-      color: var(--color-accent); font-size: 1.25rem; margin-right: 1rem;
+      color: var(--color-green); font-size: 1.25rem; margin-right: 1rem; /* チェックを深緑に */
     }
 
     /* 機能セクション */
@@ -85,7 +89,7 @@
     .feature-section .feature__item{ position: relative; padding-left: 2rem; margin-bottom: 1rem; }
     .feature-section .feature__item::before{
       content: '\f00c'; font-family: "Font Awesome 6 Free"; font-weight: 900;
-      color: var(--color-accent); position: absolute; left: 0; top: 4px;
+      color: var(--color-green); position: absolute; left: 0; top: 4px;
     }
 
     /* 実績セクション */
@@ -95,7 +99,7 @@
     .case-study-section{ background: var(--color-bg-alt); }
     .case-study-section h3{
       font-size: 1.75rem; font-weight: 700; text-align: left; margin-bottom: 2rem;
-      color: var(--color-primary); border-bottom: 2px solid var(--color-accent); padding-bottom: .5rem;
+      color: var(--color-primary); border-bottom: 2px solid var(--color-green); padding-bottom: .5rem;
     }
     .case-study__gallery{
       display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem;
@@ -108,7 +112,7 @@
       display:grid; grid-template-columns: repeat(3,1fr); gap:1.5rem; margin-top:1.5rem;
     }
     .case-study__text p{ line-height:1.8; }
-    .case-study__text strong{ color: var(--color-primary); font-weight:700; }
+    .case-study__text strong{ color: var(--color-green); font-weight:700; }
     @media (max-width: 768px){ .case-study__gallery, .case-study__texts{ grid-template-columns:1fr; } }
 
     /* PRESENTカード */
@@ -118,11 +122,11 @@
       box-shadow: 0 10px 24px rgba(0,0,0,.08);
     }
     .brochure-section .btn-primary{
-      background: var(--color-accent);
+      background: var(--color-green); /* 資料請求CTAは深緑で差別化 */
       font-weight: 700;
     }
     .brochure-section .btn-primary:hover{
-      background: var(--color-accent-hover);
+      background: #24462C; /* 深緑濃いめ */
     }
 
     /* フォーム背景 */
@@ -269,7 +273,7 @@
   <section class="brochure-section py-20 px-6" style="background: var(--color-bg);">
     <div class="container mx-auto">
       <h2 class="uppercase">PRESENT</h2>
-      <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 items-center card-surface p-8">
+      <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap:8 md:gap-8 items-center card-surface p-8">
         <img src="https://i.postimg.cc/GmVnRPZ8/2025-09-05-14-34-16.png" alt="アート・宙 リフォーム・リノベーション パンフレット" class="w-full max-w-sm mx-auto"/>
         <div class="text-center md:text-left">
           <p class="text-lg font-semibold mb-4" style="color: var(--color-primary);">資料請求いただいた方に、アート・宙のこだわりが詰まったパンフレットを無料進呈します。</p>
