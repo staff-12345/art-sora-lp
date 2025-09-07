@@ -95,7 +95,7 @@
     /* 実績セクション */
     .achievements-section{ background: var(--color-bg); }
 
-    /* 施工実例 */
+    /* 施工実例（共通） */
     .case-study-section{ background: var(--color-bg-alt); }
     .case-study-section h3{
       font-size: 1.75rem; font-weight: 700; text-align: left; margin-bottom: 2rem;
@@ -115,27 +115,26 @@
     .case-study__text strong{ color: var(--color-green); font-weight:700; }
     @media (max-width: 768px){ .case-study__gallery, .case-study__texts{ grid-template-columns:1fr; } }
 
-    /* PRESENTカード */
-    .card-surface{
-      background: var(--surface);
-      border-radius: .75rem;
-      box-shadow: 0 10px 24px rgba(0,0,0,.08);
+    /* 1段目：ナンバリング画像用 */
+    .numshot { position: relative; max-width: 1200px; margin: 0 auto; }
+    .numshot img { width: 100%; height: auto; display: block; border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,.08); }
+    .pin{
+      position:absolute; transform:translate(-50%,-50%);
+      width:42px; height:42px; line-height:42px; text-align:center;
+      border-radius:9999px; background: var(--color-green); color:#fff; font-weight:700;
+      box-shadow: 0 6px 16px rgba(0,0,0,.15), inset 0 0 0 2px rgba(255,255,255,.25);
+      font-family: 'Noto Serif JP', serif;
     }
-    .brochure-section .btn-primary{
-      background: var(--color-green); /* 資料請求CTAは深緑で差別化 */
-      font-weight: 700;
+    .numdesc{
+      max-width:1100px; margin:1.5rem auto 0;
+      display:grid; grid-template-columns: repeat(2,minmax(0,1fr));
+      gap:1.25rem 2rem; list-style:none; padding:0;
     }
-    .brochure-section .btn-primary:hover{
-      background: #24462C; /* 深緑濃いめ */
+    .numdesc li{
+      background:#FFF7E9; border:1px solid #E7D8C2; border-radius:8px; padding:16px 18px; line-height:1.8;
     }
-
-    /* フォーム背景 */
-    #contact-form{ background: #F1DECA; } /* 白を使わず温かい下地 */
-    .panel-surface{
-      background: var(--surface);
-      border-radius: .75rem;
-      box-shadow: 0 10px 24px rgba(0,0,0,.08);
-    }
+    .numdesc li strong{ color:#765B2E; }
+    @media (max-width:768px){ .numdesc{ grid-template-columns:1fr; } }
   </style>
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-6S9PJSSY8D"></script>
@@ -221,28 +220,40 @@
     <div class="container mx-auto">
       <h2>施工実例のご紹介</h2>
 
+      <!-- ▼ 1段目：ナンバリング画像に差し替え ▼ -->
       <div class="mb-16" aria-labelledby="case1-heading">
         <h3 id="case1-heading">家族がくつろげる広々としたLDKへ</h3>
-        <div class="case-study__text mb-6">
-          <p><strong>●実施したこと</strong><br/>サッシ交換・内装デザインの変更・造作収納増設・水廻り設備の交換・床の張り替え・壁の塗り替え</p>
-        </div>
-        <div class="case-study__gallery">
-          <img src="https://i.postimg.cc/bJ2Mqd7z/LP2.jpg" alt="以前は和室だった場所をLDKに取り込み、約17帖の広々とした空間を実現。"/>
-          <img src="https://i.postimg.cc/0N9WLcf0/LP7.jpg" alt="寒さ対策として入れ替えた高断熱の窓。"/>
-          <img src="https://i.postimg.cc/GpfV0vS7/LP3.jpg" alt="新しいデザインに溶け込むよう、丁寧に保存された床柱。"/>
-        </div>
-        <div class="case-study__texts">
-          <div class="case-study__text">
-            <p>以前は和室が続いていた間取りでしたが、<br/>壁を取り払ってLDKの一部に取り込むことで、<br/>家族全員がくつろげる約17帖の広々とした空間が生まれました。</p>
-          </div>
-          <div class="case-study__text">
-            <p>「とにかく寒いことに悩んでいる」というお悩みから、窓を入れ替えました。<br/>窓のリノベーションは住みながらの工事も可能なため、工事期間中に仮住まいへの引っ越しといった負担がありません。</p>
-          </div>
-          <div class="case-study__text">
-            <p>床柱はそのままの状態で丁寧に残しました。<br/>昔からの落ち着きを感じさせながら、新しいデザインの中にも自然に溶け込み、<br/>家全体に奥深い味わいを添えています。</p>
-          </div>
-        </div>
+
+        <figure class="numshot">
+          <img src="https://i.postimg.cc/dtG4LBh2/image.png"
+               alt="LDKの俯瞰写真。①壁面とワークスペース、②床と内装更新、③サッシ交換、④キッチン側造作の位置が分かる画像。">
+          <!-- ピン位置は写真に合わせて微調整可能 -->
+          <span class="pin" style="top:30%; left:56%;">①</span>
+          <span class="pin" style="top:72%; left:21%;">②</span>
+          <span class="pin" style="top:30%; left:96%;">③</span>
+          <span class="pin" style="top:33%; left:10%;">④</span>
+        </figure>
+
+        <ol class="numdesc">
+          <li>
+            <strong>① 和室を取り込んだワンフロア化（約17帖）</strong><br>
+            連続していた和室をLDKに取り込み、家族がくつろげる広がりのある空間へ。
+          </li>
+          <li>
+            <strong>② 床の張り替え・内装の更新</strong><br>
+            床の張り替えや壁の塗り替えを行い、自然素材の質感を活かした温かい雰囲気に。
+          </li>
+          <li>
+            <strong>③ 高断熱サッシへ交換（寒さ対策）</strong><br>
+            「とにかく寒い」という課題に対し窓を入れ替え。住みながらの工事で負担を軽減。
+          </li>
+          <li>
+            <strong>④ 造作・動線改善（収納/ワークスペース）</strong><br>
+            造作収納やデスクを計画し、日常の作業や片付けがしやすい動線へ。
+          </li>
+        </ol>
       </div>
+      <!-- ▲ 1段目ここまで（2段目は従来のまま） ▲ -->
 
       <div aria-labelledby="case2-heading">
         <h3 id="case2-heading">築100年の古民家を再生</h3>
