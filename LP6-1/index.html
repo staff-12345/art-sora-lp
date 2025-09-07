@@ -106,11 +106,12 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
 
 /* 事例 — ジグザグ */
 .zig{display:grid;gap:1.2rem;grid-template-columns:1fr}
-@media (min-width:980px){.zig{grid-template-columns:1.1fr .9fr}}
+@media (min-width:980px){.zig{grid-template-columns:1.1fr .9fr; align-items: start;}}
 .frame{border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow)}
-.caption{background:var(--paper-2);border:1px solid var(--line);border-top:0;border-radius:0 0 var(--r) var(--r);padding:1.2rem 1.2rem}
+.caption{background:var(--paper-2);border:1px solid var(--line);border-top:0;border-radius:0 0 var(--r) var(--r);padding:1.2rem 1.2rem; margin-top: -5px;}
 .caption .big{font-size:1.05rem;line-height:2}
-.num{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:999px;background:var(--brand);color:#fff;font-weight:700;margin-right:.45rem;opacity:.9}
+.num{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:999px;background:var(--brand);color:#fff;font-weight:700;margin-right:.45rem;opacity:.9; float: left; margin-top: 5px;}
+.caption .big span.num + * { overflow: hidden; display: block; padding-left: .5em; }
 
 /* Before/After スライダー（既存保持） */
 .ba{position:relative;border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow)}
@@ -260,21 +261,15 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
 
     <div class="zig">
       <div class="frame">
-        <img src="https://i.postimg.cc/1zMJH3SJ/image.png" alt="和室続き→LDK化">
+        <img src="https://i.postimg.cc/1zMJH3SJ/image.png" alt="床柱を残した和モダンなLDK">
       </div>
       <div>
         <h3>事例1｜和室続き→ワンフロア化でつながるLDK（鈴鹿市）</h3>
-        <p class="small" style="margin-top:.35rem">
-          サッシ交換／内装デザイン変更／造作収納／水まわり交換／床張替／壁塗替 など
-        </p>
-        <div class="frame" style="margin-top:.6rem">
-          <img src="https://i.postimg.cc/bvSKVn63/image.png" alt="断熱窓入替">
-        </div>
-        <div class="caption">
-          <p class="small" style="font-size:1.05rem;line-height:1.6">
-            <span class="num">1</span>続き間の和室をLDKに取り込み約17帖の広がりに。<br>
-            <span class="num">2</span>窓入替で断熱性能を改善。<br>
-            <span class="num">3</span>既存意匠を活かし丸窓を新設し和モダンに。
+        <div class="caption" style="border-top: 1px solid var(--line); border-radius: var(--r);">
+          <p class="big">
+            <span class="num">1</span><span>床柱はそのままの状態で丁寧に残しました。昔からの落ち着きを感じさせながら、新しいデザインの中にも自然に溶け込み、家全体に奥深い味わいを添えています。</span><br style="margin-bottom: 1em; display: block;">
+            <span class="num">2</span><span>「とにかく寒いことに悩んでいる」というお悩みから、窓を入れ替えました。窓のリノベーションは住みながらの工事も可能なため、工事期間中に仮住まいへの引っ越しといった負担がありません。</span><br style="margin-bottom: 1em; display: block;">
+            <span class="num">3</span><span>以前は和室が続いていた間取りでしたが、壁を取り払ってLDKの一部に取り込むことで、家族全員がくつろげる約17帖の広々とした空間が生まれました。</span>
           </p>
           <p class="small" style="margin-top:.4rem">
             <a href="https://www.artsora.com/case_newly/18217/" target="_blank" rel="noopener">公式の事例ページを見る</a>
@@ -288,17 +283,11 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
     <div class="zig" style="margin-top:1.4rem">
       <div>
         <h3>事例2｜梁あらわし仕上げで趣を活かす（津市）</h3>
-        <p class="small" style="margin-top:.35rem">
-          外壁張替／サッシ交換／内装デザイン変更／造作収納／水まわり交換／床張替／壁塗替 等
-        </p>
-        <div class="frame" style="margin-top:.6rem">
-          <img src="https://i.postimg.cc/6QzGS7y4/image.png" alt="梁あらわし">
-        </div>
-        <div class="caption">
-          <p class="small" style="font-size:1.05rem;line-height:1.6">
-            <span class="num">1</span>梁あらわしで立体感を演出。<br>
-            <span class="num">2</span>食堂とリビングを約19帖の一体空間へ。<br>
-            <span class="num">3</span>桧床・珪藻土壁で調湿と木の香り。
+        <div class="caption" style="border-top: 1px solid var(--line); border-radius: var(--r);">
+          <p class="big">
+            <span class="num">1</span><span>今回、天井裏に隠れていた梁を見せる仕上げにしました。天井が高くなることで、空間が立体的になり木の存在感や力強さを感じられます。</span><br style="margin-bottom: 1em; display: block;">
+            <span class="num">2</span><span>「食堂」と「リビング」として区切られていたところを、約19帖の1つの空間にまとめました。床には桧、壁には珪藻土の塗り壁を採用し、木の香りと共に家族が落ち着くLDKに。</span><br style="margin-bottom: 1em; display: block;">
+            <span class="num">3</span><span>「内装デザインを和モダンにしたい」というご要望から、既存の天井等活かし、趣を残しながら仕上げました。</span>
           </p>
           <p class="small" style="margin-top:.4rem">
             <a href="https://www.artsora.com/case_newly/14836/" target="_blank" rel="noopener">公式の事例ページを見る</a>
@@ -306,7 +295,7 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
         </div>
       </div>
       <div class="frame">
-        <img src="https://i.postimg.cc/zvhC9zmm/image.png" alt="リビング俯瞰">
+        <img src="https://i.postimg.cc/6QzGS7y4/image.png" alt="梁あらわしで趣のあるリビングダイニング">
       </div>
     </div>
 
