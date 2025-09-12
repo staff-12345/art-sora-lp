@@ -29,7 +29,7 @@
   --line:rgba(140,90,43,.22);
   --shadow:0 10px 30px rgba(0,0,0,.06);
   --r:16px; --r-lg:20px;
-  --wood:url('https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1300&q=20');
+  /* --wood変数を削除 */
 }
 *{box-sizing:border-box}
 html,body{height:100%}
@@ -37,10 +37,7 @@ body{
   margin:0;background:var(--paper);color:var(--body);
   font-family:"Zen Kaku Gothic New","Noto Sans JP",system-ui,sans-serif;
   -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
-  background-image:
-    linear-gradient(rgba(255,246,239,.86),rgba(255,246,239,.94)),
-    var(--wood);
-  background-size:cover,1200px auto; background-attachment:fixed,fixed; background-blend-mode:normal,overlay;
+  /* 背景画像の設定を削除し、単色に */
 }
 img{display:block;max-width:100%;height:auto}
 
@@ -444,7 +441,7 @@ document.querySelectorAll('.service-toggle').forEach(btn=>{
   }
   function next(){ go(idx+1); }
   buildDots();
-  timer=setInterval(next,3400);
+  timer=setInterval(next,34-00);
   let startX=null, startLeft=0;
   rail.addEventListener('pointerdown',e=>{ startX=e.clientX; startLeft=rail.scrollLeft; rail.setPointerCapture(e.pointerId); clearInterval(timer); });
   rail.addEventListener('pointermove',e=>{ if(startX!==null){ rail.scrollLeft = startLeft - (e.clientX-startX); }});
