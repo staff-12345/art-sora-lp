@@ -157,7 +157,7 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
 
 <header class="header">
   <div class="container header-inner">
-    <div style="font-family:'Cormorant Garamond',serif;color:var(--brand-ink);letter-spacing:.08em;font-size:.9rem">ArtSora</div>
+    <div style="font-family:'Cormorant Garamond',serif;color:var(--brand-ink);letter-spacing:.08em;font-size:.9rem">アート・宙</div>
     <button class="nav-toggle" aria-label="メニューを開閉する">
       <span class="hamburger"></span>
     </button>
@@ -178,7 +178,7 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
   <div class="container hero-wrap">
     <div>
       <p class="reveal" style="font-family:'Cormorant Garamond',serif;color:var(--brand-ink);letter-spacing:.2em;text-transform:uppercase;font-size:.8rem">Warmth & Wood</p>
-      <h1 class="reveal" style="margin-top:.4rem">自然素材で、暮らしに<br>ぬくもりを。<br>新しい暮らしを、<br>アート宙と。</h1>
+      <h1 class="reveal" style="margin-top:.4rem">自然素材で、暮らしに<br>ぬくもりを。<br>新しい暮らしを、<br>アート・宙と。</h1>
       <p class="reveal" style="margin-top:1rem">三重県でリフォーム・リノベーションするなら<strong>株式会社アート・宙</strong>。自然素材とやさしい色調で、住まいの「居ごこち」を丁寧に整えます。</p>
       <div class="reveal" style="margin-top:1rem;display:flex;gap:.6rem;flex-wrap:wrap">
         <a href="#contact-form" class="btn btn-primary">資料請求</a>
@@ -199,7 +199,7 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
     <div class="worries-rail reveal" id="worriesRail" aria-label="住まいのお悩み">
       <div class="worry-sq"><p>最近、段差や動線が負担になってきたと感じる</p></div>
       <div class="worry-sq"><p>築年数が進み、住まいの劣化や将来が不安</p></div>
-      <div class="worry-sq"><p>夏は暑く冬は寒い——室温差で体がつらい</p></div>
+      <div class="worry-sq"><p>夏は暑く冬は寒い—室温差で体がつらい</p></div>
       <div class="worry-sq"><p>階段や水まわりが使いづらい・安全が心配</p></div>
       <div class="worry-sq"><p>使っていない部屋が多く、広さを活かせていない</p></div>
       <div class="worry-sq"><p>室内が暗く、昼間でも照明が欠かせない</p></div>
@@ -272,7 +272,7 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
     <h2 class="reveal">実例紹介</h2>
     <div class="zig">
       <div class="frame">
-        <img src="https://i.postimg.cc/1zMJH3SJ/image.png" alt="床柱を残した和モダンなLDK">
+        <img src="https://i.postimg.cc/g0KmVy2g/2025-09-12-22-12-54.png" alt="床柱を残した和モダンなLDK">
       </div>
       <div>
         <h3>事例1｜和室続き→ワンフロア化でつながるLDK（鈴鹿市）</h3>
@@ -304,7 +304,7 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
         </div>
       </div>
       <div class="frame">
-        <img src="https://i.postimg.cc/6QzGS7y4/image.png" alt="梁あらわしで趣のあるリビングダイニング">
+        <img src="https://i.postimg.cc/DZyFBWWn/2025-09-12-22-13-05.png" alt="梁あらわしで趣のあるリビングダイニング">
       </div>
     </div>
   </div>
@@ -445,6 +445,7 @@ document.querySelectorAll('.service-toggle').forEach(btn=>{
     rail.scrollTo({left: target.offsetLeft, behavior:'smooth'});
     updateDots();
   }
+  // 自動再生を停止したため、next() や prev() はボタンクリック時のみ
   function next(){ go(idx + 1); }
   function prev(){ go(idx - 1); }
 
