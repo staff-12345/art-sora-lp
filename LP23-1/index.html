@@ -23,13 +23,11 @@
   --paper-3:#F9E2CC;    /* 強調面 */
   --brand:#D89B5C;      /* テラコッタ */
   --brand-ink:#8C5A2B;  /* 焦げ茶 */
-  /* ① コントラスト改善: 文字色をより濃い色に変更 */
   --ink:#3D2B1F;        /* 見出し（より濃いこげ茶） */
   --body:#332920;       /* 本文（黒に近い茶色） */
   --line:rgba(140,90,43,.22);
   --shadow:0 10px 30px rgba(0,0,0,.06);
   --r:16px; --r-lg:20px;
-  /* --wood変数を削除 */
 }
 *{box-sizing:border-box}
 html,body{height:100%}
@@ -37,11 +35,9 @@ body{
   margin:0;background:var(--paper);color:var(--body);
   font-family:"Zen Kaku Gothic New","Noto Sans JP",system-ui,sans-serif;
   -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
-  /* 背景画像の設定を削除し、単色に */
 }
 img{display:block;max-width:100%;height:auto}
 
-/* ① コントラスト改善: 見出しに subtle なテキストシャドウを追加 */
 h1,h2,h3{font-family:"Shippori Mincho","Noto Serif JP",serif;color:var(--ink);letter-spacing:.01em;margin:0; text-shadow: 1px 1px 3px rgba(0,0,0,0.1);}
 h1{font-size:clamp(30px,3.3vw,46px);line-height:1.24}
 h2{font-size:clamp(22px,2.3vw,30px);line-height:1.28;margin-bottom:.5em}
@@ -53,7 +49,7 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
 .section{padding-block:clamp(56px,7vw,96px)}
 .card{background:var(--paper-2);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}
 .card-strong{background:var(--paper-3)}
-.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.9rem 1.15rem;border-radius:12px;font-weight:700;text-decoration:none;transition:.2s ease} /* font-weightを太く */
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.9rem 1.15rem;border-radius:12px;font-weight:700;text-decoration:none;transition:.2s ease}
 .btn-primary{background:var(--brand);color:#fff}
 .btn-primary:hover{background:var(--brand-ink)}
 .btn-outline{border:1px solid var(--brand);color:var(--brand)}
@@ -64,10 +60,9 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
 .header{position:sticky;top:0;z-index:50;backdrop-filter:blur(6px);
   background:color-mix(in srgb,var(--paper-2) 78%, transparent); border-bottom:1px solid var(--line)}
 .header-inner{display:flex;justify-content:space-between;align-items:center;padding-block:.7rem;}
-.header a{color:var(--body);text-decoration:none;font-weight: 500;} /* やや太字に */
+.header a{color:var(--body);text-decoration:none;font-weight: 500;}
 .header a:hover{color:var(--brand-ink)}
 
-/* ② ナビゲーション修正 (SP表示) */
 .nav-toggle{display:none; z-index: 100; border: none; background: transparent; cursor: pointer; padding: 10px;}
 .hamburger{display: block; position: relative; width: 24px; height: 2px; background: var(--ink);}
 .hamburger::before, .hamburger::after{content: ''; position: absolute; left: 0; width: 100%; height: 2px; background: var(--ink); transition: transform 0.3s, top 0.3s;}
@@ -85,7 +80,6 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
 @media (min-width: 980px) {
   .nav{display:flex;gap:1rem;align-items:center}
 }
-
 
 /* Hero */
 .hero{position:relative;isolation:isolate}
@@ -134,13 +128,17 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
 .num{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:999px;background:var(--brand);color:#fff;font-weight:700;margin-right:.45rem;opacity:.9; float: left; margin-top: 5px;}
 .caption .big span.num + * { overflow: hidden; display: block; padding-left: .5em; }
 
-/* ギャラリー（横流れカルーセル） */
+/* ギャラリー */
 .gallery-wrap{position:relative}
 .gallery-rail{display:flex;gap:14px;overflow:hidden}
 .gallery-rail img{flex:0 0 min(86vw,520px);height:320px;object-fit:cover;border-radius:14px;box-shadow:var(--shadow)}
 .gallery-nav{position:absolute;inset:auto 0 -28px 0;display:flex;gap:8px;justify-content:center}
 .gallery-dot{width:8px;height:8px;border-radius:50%;background:var(--line)}
 .gallery-dot.active{background:var(--brand-ink)}
+.gallery-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:10;width:40px;height:40px;border-radius:50%;border:none;background:rgba(0,0,0,.3);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s ease;}
+.gallery-arrow:hover{background:rgba(0,0,0,.5)}
+.gallery-arrow.prev{left:1rem}
+.gallery-arrow.next{right:1rem}
 
 /* FAQ */
 .faq details{background:var(--paper-2);border:1px solid var(--line);border-radius:var(--r);padding:.9rem 1.1rem}
@@ -326,6 +324,12 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
         <img src="https://i.postimg.cc/nr8n3317/LP7.jpg" alt="施工事例ギャラリー7">
       </div>
       <div class="gallery-nav" id="galleryDots" aria-hidden="true"></div>
+      <button id="galleryPrev" class="gallery-arrow prev" aria-label="前の写真へ">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
+      <button id="galleryNext" class="gallery-arrow next" aria-label="次の写真へ">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
     </div>
   </div>
 </section>
@@ -415,16 +419,19 @@ document.querySelectorAll('.service-toggle').forEach(btn=>{
   }, 2800);
 })();
 
-/** Gallery simple carousel (auto + dots) */
+/** Gallery simple carousel */
 (function(){
   const rail = document.getElementById('galleryRail'); if(!rail) return;
   const slides = Array.from(rail.querySelectorAll('img'));
   const dotsWrap = document.getElementById('galleryDots');
-  let idx = 0, timer;
+  const prevBtn = document.getElementById('galleryPrev');
+  const nextBtn = document.getElementById('galleryNext');
+  let idx = 0;
+
   function buildDots(){
     slides.forEach((_,i)=>{
       const d=document.createElement('span'); d.className='gallery-dot'+(i===0?' active':'');
-      d.addEventListener('click',()=>go(i,true)); dotsWrap.appendChild(d);
+      d.addEventListener('click',()=>go(i)); dotsWrap.appendChild(d);
     });
   }
   function updateDots(){
@@ -432,18 +439,24 @@ document.querySelectorAll('.service-toggle').forEach(btn=>{
       d.classList.toggle('active', i===idx);
     });
   }
-  function go(i, pause){
-    idx = (i+slides.length)%slides.length;
+  function go(i){
+    idx = (i + slides.length) % slides.length;
     const target = slides[idx];
     rail.scrollTo({left: target.offsetLeft, behavior:'smooth'});
     updateDots();
-    if(pause){ clearInterval(timer); timer=setInterval(next,3400); }
   }
-  function next(){ go(idx+1); }
+  function next(){ go(idx + 1); }
+  function prev(){ go(idx - 1); }
+
   buildDots();
-  timer=setInterval(next,34-00);
+  
+  if(prevBtn && nextBtn) {
+    prevBtn.addEventListener('click', prev);
+    nextBtn.addEventListener('click', next);
+  }
+
   let startX=null, startLeft=0;
-  rail.addEventListener('pointerdown',e=>{ startX=e.clientX; startLeft=rail.scrollLeft; rail.setPointerCapture(e.pointerId); clearInterval(timer); });
+  rail.addEventListener('pointerdown',e=>{ startX=e.clientX; startLeft=rail.scrollLeft; rail.setPointerCapture(e.pointerId); });
   rail.addEventListener('pointermove',e=>{ if(startX!==null){ rail.scrollLeft = startLeft - (e.clientX-startX); }});
   rail.addEventListener('pointerup',e=>{
     if(startX!==null){
@@ -452,7 +465,7 @@ document.querySelectorAll('.service-toggle').forEach(btn=>{
         const center = el.offsetLeft + el.clientWidth/2;
         return (Math.abs(center-mid) < Math.abs((slides[a].offsetLeft+slides[a].clientWidth/2)-mid)) ? i : a;
       },0);
-      startX=null; go(nearest,true);
+      startX=null; go(nearest);
     }
   });
 })();
