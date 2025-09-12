@@ -199,7 +199,7 @@ p{font-size:clamp(15px,1.15vw,17px);line-height:1.9;margin:0}
     <div class="worries-rail reveal" id="worriesRail" aria-label="住まいのお悩み">
       <div class="worry-sq"><p>最近、段差や動線が負担になってきたと感じる</p></div>
       <div class="worry-sq"><p>築年数が進み、住まいの劣化や将来が不安</p></div>
-      <div class="worry-sq"><p>夏は暑く冬は寒い—室温差で体がつらい</p></div>
+      <div class="worry-sq"><p>夏は暑く冬は寒い<br>室温差で体がつらい</p></div>
       <div class="worry-sq"><p>階段や水まわりが使いづらい・安全が心配</p></div>
       <div class="worry-sq"><p>使っていない部屋が多く、広さを活かせていない</p></div>
       <div class="worry-sq"><p>室内が暗く、昼間でも照明が欠かせない</p></div>
@@ -445,7 +445,6 @@ document.querySelectorAll('.service-toggle').forEach(btn=>{
     rail.scrollTo({left: target.offsetLeft, behavior:'smooth'});
     updateDots();
   }
-  // 自動再生を停止したため、next() や prev() はボタンクリック時のみ
   function next(){ go(idx + 1); }
   function prev(){ go(idx - 1); }
 
